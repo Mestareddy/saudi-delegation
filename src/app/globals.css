@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.danger {
+  color: #eb5757;
+}
+
+.button-delete {
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.4rem;
+}
+
+.button-delete:hover {
+  background: #eaf9f4;
+}
+
+.popup-items {
+  padding: 0.2rem 1rem;
+  border-radius: 0.4rem;
+}
+
+.popup-items:hover {
+  background: #eaf9f4;
+}
+
+.ant-table-cell {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  @apply !py-3 !leading-5;
+}
+
+.ant-table-thead .ant-table-cell:first-child,
+.ant-table-row .ant-table-cell:first-child {
+  @apply !pl-5;
+}
+
+.ant-pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.ant-pagination-jump-prev,
+.ant-pagination-item-container,
+.ant-pagination-item-ellipsis,
+.ant-pagination-item {
+  display: none !important;
+}
+
+.ant-pagination-options {
+  position: relative;
+  right: 15rem;
+}
+
+.ant-card {
+  @apply p-0;
+}
+.ant-card .ant-card-body {
+  @apply !p-5 flex items-center gap-x-5 !rounded-2xl;
+}
+
+.chart-container .ant-card-body {
+  @apply !p-8 !block;
+}
+.chart-container .ant-card-head {
+  @apply !border-none;
+}
+
+.bar-chart .ant-card-head-title {
+  @apply !text-xl !font-medium !leading-normal;
+}
+
+.pie-chart .ant-card-head {
+  @apply !pt-4 !pb-10;
+}
+.pie-chart .ant-card-head-title {
+  @apply text-base text-gray-mist-body font-normal;
+}
+.pie-chart .ant-card-extra {
+  @apply py-1 !text-2xl !leading-6 text-gray-minst-main !font-bold;
+}
+.pie-chart .ant-card-head-wrapper {
+  @apply flex-col !items-start gap-y-1;
+}
+.pie-chart .ant-card-head-wrapper .ant-card-extra {
+  @apply !m-0;
+}
+.pie-chart .ant-card-body {
+  @apply !pt-3;
+}
+
+/* ScrollBar Stylings*/
+.scroll-bar {
+  cursor: pointer;
+  scrollbar-width: thin !important;
+  scrollbar-color: black transparent !important;
+}
+
+.scroll-bar::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+}
+
+.scroll-bar::-webkit-scrollbar-track {
+  background: transparent;
+  padding: 2px;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+}
+
+.ant-picker-content th:first-child,
+.ant-picker-content td:first-child,
+.ant-picker-content th:last-child,
+.ant-picker-content td:last-child {
+  color: #ee5757 !important;
+}
+.ant-picker-header-next-btn,
+.ant-picker-header-super-next-btn,
+.ant-picker-header-super-prev-btn,
+.ant-picker-header-prev-btn {
+  color: #00a36a !important;
+}
+
+.ant-menu-light .ant-menu-item-selected,
+.ant-menu-light > .ant-menu .ant-menu-item-selected {
+  @apply relative before:absolute before:bg-white before:h-full before:w-1 before:left-0 ;
+}
+
+.ant-menu-inline.ant-menu-root .ant-menu-item,
+.ant-menu-inline.ant-menu-root .ant-menu-submenu-title {
+  @apply !rounded-none !px-4;
+}
+
+.ant-menu-inline.ant-menu-root .ant-menu-inline > .ant-menu-item,
+.ant-menu-inline.ant-menu-root
+  .ant-menu-inline
+  > .ant-menu-submenu
+  > .ant-menu-submenu-title {
+  @apply !pl-8;
+}
+
+.ant-btn {
+  @apply !flex items-center justify-center;
+}
+
+.ant-drawer .ant-drawer-header-title {
+  @apply flex flex-col gap-y-5 !items-start;
+}
+.ant-drawer .ant-drawer-header-title .ant-drawer-title {
+  @apply px-5;
+}
+
+.ant-btn-primary:disabled {
+  background-color: #70ccac;
+}
+.ant-pagination-options{
+  @apply !hidden;
+}
