@@ -1,5 +1,5 @@
 "use client";
-import BlackButton from "@/components/common/BlackButton";
+import CustomButton from "@/components/common/CustomButton";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -51,7 +51,7 @@ const Header = () => {
           >
             Gallery
           </Link>
-          <BlackButton buttonText={"Register"} buttonUrl={"/register"} />
+          <CustomButton buttonText={"Register"} buttonUrl={"/register"} />
         </div>
       </div>
     </nav>

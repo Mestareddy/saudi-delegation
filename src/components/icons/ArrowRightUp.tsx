@@ -1,7 +1,11 @@
 import React from "react";
 import { Icon } from "./type";
 
-const ArrowUpIcon: Icon = ({ size = "16", stroke = "#11142D", ...props }) => (
+const ArrowRightUpIcon: Icon = ({
+  size = "16",
+  stroke = "#11142D",
+  ...props
+}) => (
   <svg
     width={size}
     height={size}
@@ -21,4 +25,4 @@ const ArrowUpIcon: Icon = ({ size = "16", stroke = "#11142D", ...props }) => (
   </svg>
 );
 
-export default ArrowUpIcon;
+export default ArrowRightUpIcon;
