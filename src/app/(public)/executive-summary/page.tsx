@@ -1,11 +1,9 @@
 import { PageHeader } from "@/components/common";
-import React from "react";
-import { lazy } from "react";
+import React, { lazy } from "react";
 
 const PageContent = lazy(
   () => import("./PageContent")
 );
-
 
 const page: React.FunctionComponent = () => {
   return (
