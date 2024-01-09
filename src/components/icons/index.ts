@@ -1,0 +1,12 @@
+"use client";
+export { default as ArrowUpIcon } from "./ArrowUp";
+export { default as BriecaseIcon } from "./Briefcase";
+export { default as EyeIcon } from "./Eye";
+export { default as FactoryIcon } from "./Factory";
+export { default as InstagramIcon } from "./Instagram";
+export { default as LinkedinIcon } from "./Linkedin";
+export { default as LocationIcon } from "./Location";
+export { default as PeopleIcon } from "./People";
+export { default as SlackIcon } from "./Slack";
+export { default as ThumbsUpIcon } from "./ThumbsUp";
+export { default as UsersIcon } from "./Users";
