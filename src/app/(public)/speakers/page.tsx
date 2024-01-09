@@ -1,4 +1,4 @@
-import { Heading, PageHeader, Paragraph, Speaker } from "@/components/common";
+import { EventSpeaker, Heading, PageHeader, Paragraph } from "@/components/common";
 import { speakers } from "@/mockData/speakers";
 import { Col, Row } from "antd";
 import React from "react";
@@ -21,7 +21,7 @@ const page: React.FunctionComponent = () => {
           <Row gutter={[10, 30]} wrap>
             {speakers.map((item) => (
               <Col key={item.id} className="gutter-row" span={8} md={8} xs={24}>
-                <Speaker
+                <EventSpeaker
                   title={item.name}
                   image={item.image}
                   position={item.field}
