@@ -1,9 +1,9 @@
 import React from "react";
-import { Manrope } from "next/font/google";
+import { Bebas_Neue } from "next/font/google";
 import StyledComponentsRegistry from "@/components/lib/AntdRegistry";
 import "./globals.css";
 
-const manrope = Manrope({ subsets: ["latin"] });
+const bebasNeue = Bebas_Neue({ subsets: ["latin-ext"], weight: '400' });
 
 export default function RootLayout({
   children,
@@ -12,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={manrope.className}>
+      <body className={bebasNeue.className}>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
