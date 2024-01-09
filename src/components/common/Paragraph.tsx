@@ -50,7 +50,7 @@ const Paragraph: React.FunctionComponent<ParagraphProps> = ({ type, children, cl
       template = (
         <p
           style={style}
-          className={mergeClassnames("text-gray-10 text-base", className)}
+          className={mergeClassnames("text-black-20 text-base font-[450px]", className)}
         >
           {children}
         </p>

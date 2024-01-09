@@ -23,9 +23,8 @@ const Header = () => {
 
   return (
     <nav
-      className={`header bg-white w-full h-[100px] flex justify-center items-center transition-all ease-in-out duration-300 ${
-        isScrolled ? "fixed top-0 left-0 right-0" : "relative"
-      }`}
+      className={`header  bg-white w-full h-[100px] z-10 flex justify-center items-center transition-all ease-in-out duration-300 ${isScrolled ? "fixed top-0 left-0 right-0" : "relative"
+        }`}
       style={{
         backdropFilter: isScrolled ? "blur(3px) brightness(95%)" : "none",
         transition: "top 0.3s, left 0.3s, right 0.3s",

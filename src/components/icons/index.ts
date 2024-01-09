@@ -12,3 +12,5 @@ export { default as SlackIcon } from "./Slack";
 export { default as ThumbsUpIcon } from "./ThumbsUp";
 export { default as TwitterIcon } from "./Twitter";
 export { default as UsersIcon } from "./Users";
+export { default as FacebookIcon } from "./Facebook";
+export { default as XIcon } from "./X";
