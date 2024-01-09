@@ -1,16 +1,14 @@
 import React from "react";
 import { PageHeader } from "@/components/common";
-
+import HomePage from "./(public)/home/page";
 
 const page: React.FunctionComponent = () => {
   return (
     <>
       <PageHeader title="home page" description="home page" />
-      <div className="bg-black h-screen">
-        <h1 className="text-4xl">Saudi Websitee</h1>
-      </div>
+      <HomePage />
     </>
   );
-}
+};
 
 export default page;
