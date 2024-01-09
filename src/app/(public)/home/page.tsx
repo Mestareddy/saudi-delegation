@@ -10,7 +10,7 @@ const HomePage = (props: Props) => {
   return (
     <div>
       <Header />
-      <div className="content h-[170vh]">
+      <div className="content h-[170vh] mt-[100px]">
         <div className="innerdiv">
           <Hero />
         </div>

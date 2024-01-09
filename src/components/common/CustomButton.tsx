@@ -33,13 +33,16 @@ const CustomButton = ({
     <Button
       onClick={() => buttonAction()}
       className={`${textColor ? `!text-${textColor}` : "!text-white"} ${
-        bgColor ? `!bg-[${bgColor}]` : "!bg-[#333333]"
-      } ${border ? `!border-${border}` : "!border-0"} !px-[40px] !rounded-3xl`}
-      // icon={props.buttonIcon}
+        bgColor ? `!bg-${bgColor}` : "!bg-[#333333]"
+      } ${
+        border ? `!border-${border}` : "!border-0"
+      } hover:!bg-green-500 hover:!text-white hover:!border-green-500 !px-[30px] !lg:px-[40px] !py-[10px] !lg:py-[15px] !rounded-3xl`}
       {...props}
     >
       {buttonText}
-      {buttonIcon && <span className="ml-2">{buttonIcon}</span>}
+      {buttonIcon && (
+        <span className="ml-2 !text-[12px] !md:text-[16px]">{buttonIcon}</span>
+      )}
     </Button>
   );
 };
