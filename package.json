@@ -16,6 +16,7 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.2",
     "@ant-design/plots": "^1.2.5",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@types/numeral": "^2.0.5",
     "antd": "^5.11.0",
     "axios": "^1.6.1",

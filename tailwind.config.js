@@ -15,10 +15,15 @@ module.exports = {
         },
         gray: {
           10: "#333",
+          20:"#4F4F4F",
           40:"#BDBDBD"
         },
       },
+      fontFamily: {
+        bebas: ['Bebas Neue','sans-serif'],
+      },
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 };
