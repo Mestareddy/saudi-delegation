@@ -30,23 +30,6 @@ body {
   color: #eb5757;
 }
 
-.button-delete {
-  padding: 0.5rem 1.2rem;
-  border-radius: 0.4rem;
-}
-
-.button-delete:hover {
-  background: #eaf9f4;
-}
-
-.popup-items {
-  padding: 0.2rem 1rem;
-  border-radius: 0.4rem;
-}
-
-.popup-items:hover {
-  background: #eaf9f4;
-}
 
 .ant-table-cell {
   font-size: 16px;
@@ -78,42 +61,6 @@ body {
   right: 15rem;
 }
 
-.ant-card {
-  @apply p-0;
-}
-.ant-card .ant-card-body {
-  @apply !p-5 flex items-center gap-x-5 !rounded-2xl;
-}
-
-.chart-container .ant-card-body {
-  @apply !p-8 !block;
-}
-.chart-container .ant-card-head {
-  @apply !border-none;
-}
-
-.bar-chart .ant-card-head-title {
-  @apply !text-xl !font-medium !leading-normal;
-}
-
-.pie-chart .ant-card-head {
-  @apply !pt-4 !pb-10;
-}
-.pie-chart .ant-card-head-title {
-  @apply text-base text-gray-mist-body font-normal;
-}
-.pie-chart .ant-card-extra {
-  @apply py-1 !text-2xl !leading-6 text-gray-minst-main !font-bold;
-}
-.pie-chart .ant-card-head-wrapper {
-  @apply flex-col !items-start gap-y-1;
-}
-.pie-chart .ant-card-head-wrapper .ant-card-extra {
-  @apply !m-0;
-}
-.pie-chart .ant-card-body {
-  @apply !pt-3;
-}
 
 /* ScrollBar Stylings*/
 .scroll-bar {
