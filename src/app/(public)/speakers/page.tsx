@@ -20,9 +20,8 @@ const page: React.FunctionComponent = () => {
         <div className="mt-[30px] mx-auto">
           <Row gutter={[10, 30]} wrap>
             {speakers.map((item) => (
-              <Col className="gutter-row" span={8} md={8} xs={24}>
+              <Col key={item.id} className="gutter-row" span={8} md={8} xs={24}>
                 <Speaker
-                  key={item.id}
                   title={item.name}
                   image={item.image}
                   position={item.field}
