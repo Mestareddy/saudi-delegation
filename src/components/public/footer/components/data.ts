@@ -1,3 +1,5 @@
+import type { MenuProps } from "antd";
+
 export const companyLinks = [
   {
     id: 1,
@@ -59,5 +61,27 @@ export const informationLinks = [
     id: 4,
     text: "InfoSec Policy",
     link: "/infosec-policy",
+  },
+];
+
+export const dropdownItems = [
+  {
+    id: 1,
+    name: "Nigeria",
+  },
+  {
+    id: 2,
+    name: "Saudi Arabia",
+  },
+];
+
+export const items: MenuProps["items"] = [
+  {
+    label: "Nigeria",
+    key: "1",
+  },
+  {
+    label: "Saudi Arabia",
+    key: "2",
   },
 ];

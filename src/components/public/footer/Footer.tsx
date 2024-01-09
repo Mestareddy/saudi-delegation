@@ -1,4 +1,4 @@
-import { Divider } from "antd";
+import { Divider, Space } from "antd";
 import Link from "next/link";
 import React from "react";
 import {
@@ -6,7 +6,14 @@ import {
   informationLinks,
   resourcesLinks,
 } from "./components/data";
-import { ArrowUpIcon } from "@/components/icons";
+import {
+  ArrowRightUpIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  SlackIcon,
+  TwitterIcon,
+} from "@/components/icons";
+import Dropdownitem from "./components/Dropdownitem";
 
 const Footer = () => {
   return (
@@ -117,7 +124,7 @@ const Footer = () => {
                     policies.
                   </h1>
                   <p className="phoneOne flex items-center flex-row text-slate-900 text-base font-semibold font-['SF Pro Display'] py-1">
-                    Learn More <ArrowUpIcon size="18px" className="ml-1" />
+                    Learn More <ArrowRightUpIcon size="18px" className="ml-1" />
                   </p>
                 </div>
               </div>
@@ -131,7 +138,7 @@ const Footer = () => {
                     operational network security evaluations
                   </h1>
                   <p className="phoneOne flex items-center flex-row text-slate-900 text-base font-semibold font-['SF Pro Display'] py-1">
-                    Learn More <ArrowUpIcon size="18px" className="ml-1" />
+                    Learn More <ArrowRightUpIcon size="18px" className="ml-1" />
                   </p>
                 </div>
               </div>
@@ -140,11 +147,35 @@ const Footer = () => {
             {/* </div> */}
           </div>
         </section>
-        <section className="inquiriesSection">topSection</section>
+        <section className="inquiriesSection mt-4">
+          <Space>
+            <a
+              href="mailto:inquiries@email.com"
+              className="text-zinc-800 text-sm font-['Circular Std'] leading-[21px] !text-[#333333]"
+            >
+              inquiries@email.com
+            </a>
+            <a href="https://twitter.com/">
+              <TwitterIcon size="16" />
+            </a>
+            <a href="https://twitter.com/">
+              <LinkedinIcon size="16" />
+            </a>
+            <a href="https://twitter.com/">
+              <SlackIcon size="16" />
+            </a>
+            <a href="https://twitter.com/">
+              <InstagramIcon size="16" />
+            </a>
+          </Space>
+        </section>
         <Divider />
-        <section className="copyrightSection text-zinc-800 text-sm font-['Circular Std'] leading-[21px]">
-          Copyright © Nigeria Saudi Business Forum {new Date().getFullYear()}.
-          All Right Reserved.
+        <section className="copyrightSection flex justify-between">
+          <div className="left text-zinc-800 text-sm font-['Circular Std'] leading-[21px]">
+            Copyright © Nigeria Saudi Business Forum {new Date().getFullYear()}.
+            All Right Reserved.
+          </div>
+          <Dropdownitem />
         </section>
       </div>
       {/* </div> */}
