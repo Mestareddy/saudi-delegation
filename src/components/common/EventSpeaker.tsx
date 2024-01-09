@@ -7,7 +7,7 @@ import LinkedInIcon from "../icons/Linkedin";
 import Heading from "./Heading";
 import Paragraph from "./Paragraph";
 
-interface SpeakerProps {
+interface EventSpeakerProps {
   title: string;
   image: string;
   position?: string;
@@ -19,7 +19,7 @@ interface SpeakerProps {
   };
 }
 
-const Speaker: React.FunctionComponent<SpeakerProps> = ({
+const EventSpeaker: React.FunctionComponent<EventSpeakerProps> = ({
   description,
   position,
   socials,
@@ -55,4 +55,4 @@ const Speaker: React.FunctionComponent<SpeakerProps> = ({
   );
 };
 
-export default Speaker;
+export default EventSpeaker;
