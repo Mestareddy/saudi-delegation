@@ -1,7 +1,7 @@
 import { MainLayout } from '@/components/layout';
 import Footer from '@/components/public/footer/Footer';
 import Header from '@/components/public/header/Header';
-import Layout, { Content } from 'antd/lib/layout/layout';
+import { Content } from 'antd/lib/layout/layout';
 import React from 'react'
 
 interface LayoutProps {
@@ -10,7 +10,7 @@ interface LayoutProps {
 
 const layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
   return (
-    <Layout>
+    <div>
       <Header />
       <Content className="bg-white min-h-screen">
         <MainLayout>
@@ -18,7 +18,7 @@ const layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
         </MainLayout>
       </Content>
       <Footer />
-    </Layout>
+    </div>
   )
 }
 
