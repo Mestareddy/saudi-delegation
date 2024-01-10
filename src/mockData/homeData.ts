@@ -99,3 +99,30 @@ export const attendData = [
     image: "/images/attend/image_3.png",
   },
 ];
+
+export const galleryData = [
+  {
+    id: 1,
+    image: "/images/gallery/gallery_1.png",
+  },
+  {
+    id: 2,
+    image: "/images/gallery/gallery_2.png",
+  },
+  {
+    id: 3,
+    image: "/images/gallery/gallery_3.png",
+  },
+  {
+    id: 4,
+    image: "/images/gallery/gallery_4.png",
+  },
+  {
+    id: 5,
+    image: "/images/gallery/gallery_5.png",
+  },
+  {
+    id: 6,
+    image: "/images/gallery/gallery_6.png",
+  },
+];

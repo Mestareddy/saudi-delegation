@@ -5,6 +5,8 @@ import Hero from "../../../components/homeComponents/Hero";
 import Partners from "../../../components/homeComponents/Partners";
 import Attend from "../../../components/homeComponents/Attend";
 import Speakers from "../../../components/homeComponents/Speakers";
+import History from "@/components/homeComponents/History";
+import Gallery from "@/components/homeComponents/Gallery";
 import Exploring from "@/components/common/Exploring";
 
 const HomePage = () => {
@@ -17,6 +19,8 @@ const HomePage = () => {
           <Partners />
           <Attend />
           <Speakers />
+          <History />
+          <Gallery />
           <Exploring />
         </div>
       </div>
