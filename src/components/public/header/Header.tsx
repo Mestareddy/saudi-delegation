@@ -31,7 +31,7 @@ const Header = () => {
           >
             Gallery
           </Link>
-          <CustomButton buttonText={"Register"} buttonUrl={"/register"} />
+          <CustomButton buttonText={"Register"} buttonurl={"/register"} />
         </div>
       </div>
     </nav>

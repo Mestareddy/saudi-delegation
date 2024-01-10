@@ -21,7 +21,7 @@ const Exploring = () => {
           <br />
           <CustomButton
             buttonText={"Register"}
-            buttonUrl={"/register"}
+            // buttonUrl={"/register"}
             textColor={"white"}
             bgColor={"[#333333]"}
             // border={"solid !border-2 !border-white"}

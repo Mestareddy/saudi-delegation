@@ -31,7 +31,7 @@ const Hero = () => {
         </div>
         <CustomButton
           buttonText={"Register to attend"}
-          buttonUrl={"/register"}
+          // buttonurl={"/register"}
           textColor={"white"}
           bgColor={"transparent"}
           border={"solid !border-2 !border-white"}
