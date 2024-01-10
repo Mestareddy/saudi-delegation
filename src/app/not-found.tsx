@@ -2,6 +2,8 @@
 import Link from "next/link";
 import React from "react";
 import { Button, Layout, Result } from "antd";
+import Footer from "@/components/public/footer/Footer";
+import Header from "@/components/public/header/Header";
 
 const { Content } = Layout;
 
@@ -14,7 +16,8 @@ const contentStyle: React.CSSProperties = {
 
 const NotFound = () => {
   return (
-    <Layout className="w-[100vw]">
+    <Layout className="w-[100vw] mt-[100px]">
+      <Header />
       <Layout>
         <Content style={contentStyle}>
           <Result
@@ -33,6 +36,7 @@ const NotFound = () => {
           />
         </Content>
       </Layout>
+      <Footer />
     </Layout>
   );
 };
