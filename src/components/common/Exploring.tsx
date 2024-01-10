@@ -8,11 +8,11 @@ const Exploring = () => {
     <div className="bg-green-minst flex justify-center items-center">
       <div className="innerDiv w-[80%] my-20 grid grid-cols-2 gap-2">
         <div className="left w-[90%] flex flex-col justify-center items-start">
-          <h1 className="bebas text-[#333333] font-normal text-[32px] leading-[38.4px]">
+          <h1 className="bebas text-[#11142D] font-normal text-[32px] leading-[38.4px]">
             Exploring business opportunities for both countries
           </h1>
           <br />
-          <p className="text-[#333333] font-[450] text-[16px] leading-[24px]">
+          <p className="text-[#11142D] font-[450] text-[16px] leading-[24px]">
             In publishing and graphic design, Lorem ipsum is a placeholder text
             commonly used to demonstrate the visual form of a document or a
             typeface is a without relying on meaningful content. Lorem ipsum may
