@@ -5,7 +5,7 @@ import {
   companyLinks,
   informationLinks,
   resourcesLinks,
-} from "./components/data";
+} from "../../../mockData/footerData";
 import {
   ArrowRightUpIcon,
   InstagramIcon,
@@ -13,13 +13,13 @@ import {
   SlackIcon,
   TwitterIcon,
 } from "@/components/icons";
-import Dropdownitem from "./components/Dropdownitem";
+import Dropdownitem from "../../common/FooterDropdownitem";
 
 const Footer = () => {
   return (
     <footer className="bg-white w-full flex justify-center itmes-center">
       {/* <div > */}
-      <div className="innerDiv w-[90%] flex flex-col my-12">
+      <div className="innerDiv w-[80%] flex flex-col my-12">
         <section className="topSection grid grid-cols-12 text-[14px] gap-2">
           <div className="left w-full col-span-9 grid grid-cols-4">
             <div className="col1 grid col-span-1 grid-rows-2">

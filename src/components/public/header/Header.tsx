@@ -9,7 +9,7 @@ import React from "react";
 const Header = () => {
   return (
     <nav className="header bg-white bg-opacity-70 w-full h-[100px] z-10 flex justify-center items-center transition-all ease-in-out duration-300 fixed top-0 left-0 right-0">
-      <div className="innerDiv w-[90%] flex flex-row justify-between">
+      <div className="innerDiv w-[80%] flex flex-row justify-between">
         <Link href={"/"}>
           <Image
             src="/images/nigeria_saudi_arabia_logo.png"

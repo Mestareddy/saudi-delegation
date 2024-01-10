@@ -1,10 +1,11 @@
 import Footer from "@/components/public/footer/Footer";
 import Header from "@/components/public/header/Header";
 import React from "react";
-import Hero from "./components/Hero";
-import Partners from "./components/Partners";
-import Attend from "./components/Attend";
-import Speakers from "./components/Speakers";
+import Hero from "../../../components/homeComponents/Hero";
+import Partners from "../../../components/homeComponents/Partners";
+import Attend from "../../../components/homeComponents/Attend";
+import Speakers from "../../../components/homeComponents/Speakers";
+import Exploring from "@/components/common/Exploring";
 
 const HomePage = () => {
   return (
@@ -16,6 +17,7 @@ const HomePage = () => {
           <Partners />
           <Attend />
           <Speakers />
+          <Exploring />
         </div>
       </div>
       <Footer />
