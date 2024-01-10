@@ -1,6 +1,7 @@
 "use client";
-import CustomButton from "@/components/common/CustomButton";
+// import CustomButton from "@/components/common/CustomButton";
 import { ArrowRightUpIcon } from "@/components/icons";
+import { Button } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -16,7 +17,7 @@ const Hero = () => {
           width={195}
           height={80}
         />
-        <h1 className="heroTitle text-center text-white text-normal lg:text-[48px] font-normal leading-normal font-bebas uppercase">
+        <h1 className="heroTitle bebas text-center text-white text-normal lg:text-[48px] font-normal leading-normal font-bebas uppercase">
           The Nigeria Saudi Business Forum
         </h1>
         <p className="text-left sm:text-center text-white text-xl font-['Circular Std'] my-2">
@@ -29,13 +30,19 @@ const Hero = () => {
           </h1>
           <div className="rightDivider hidden sm:flex w-[100%] h-[0px] ml-3 origin-top-left border border-neutral-200" />
         </div>
-        <CustomButton
+        {/* <CustomButton
           buttonText={"Register to attend"}
           buttonUrl={"/register"}
           textColor={"[#333333]"}
           bgColor={"transparent"}
           border={"solid !border-2 !border-white"}
-        />
+        /> */}
+        <Button
+          // onClick={() => buttonAction()}
+          className=" hover:!bg-green-500 hover:!text-white hover:!border-green-500 !bg-transparent !border-2 !border-white !text-white !px-[30px] !lg:px-[40px] !py-[10px] !lg:py-[15px] !rounded-3xl"
+        >
+          Register to attend
+        </Button>
         <div className="links my-5 flex flex-row">
           <Link
             href={""}

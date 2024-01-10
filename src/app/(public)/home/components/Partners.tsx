@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Partners = () => {
   return (
-    <Marquee gradient={true} autoFill={true} className="py-2">
+    <Marquee gradient={true} autoFill={true} speed={20} className="py-2">
       {patnersData.map((partner) => (
         <Image
           key={partner.id}

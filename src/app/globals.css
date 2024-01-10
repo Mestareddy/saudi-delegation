@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -18,13 +20,12 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: '#fff'
+  background: "#fff";
 }
 
 .danger {
   color: #eb5757;
 }
-
 
 .ant-table-cell {
   font-size: 16px;
@@ -55,7 +56,6 @@ body {
   position: relative;
   right: 15rem;
 }
-
 
 /* ScrollBar Stylings*/
 .scroll-bar {
@@ -93,7 +93,7 @@ body {
 
 .ant-menu-light .ant-menu-item-selected,
 .ant-menu-light > .ant-menu .ant-menu-item-selected {
-  @apply relative before:absolute before:bg-white before:h-full before:w-1 before:left-0 ;
+  @apply relative before:absolute before:bg-white before:h-full before:w-1 before:left-0;
 }
 
 .ant-menu-inline.ant-menu-root .ant-menu-item,
@@ -123,6 +123,14 @@ body {
 .ant-btn-primary:disabled {
   background-color: #70ccac;
 }
-.ant-pagination-options{
+.ant-pagination-options {
   @apply !hidden;
+}
+
+.roboto {
+  font-family: var(--font-roboto);
+}
+
+.bebas {
+  font-family: var(--bebas);
 }

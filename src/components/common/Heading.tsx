@@ -6,9 +6,14 @@ interface HeadingProps {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-};
+}
 
-const Heading: React.FunctionComponent<HeadingProps> = ({ type, children, className, style }) => {
+const Heading: React.FunctionComponent<HeadingProps> = ({
+  type,
+  children,
+  className,
+  style,
+}) => {
   let template: React.JSX.Element | null = null;
 
   switch (type) {
@@ -16,7 +21,10 @@ const Heading: React.FunctionComponent<HeadingProps> = ({ type, children, classN
       template = (
         <h1
           style={style}
-          className={mergeClassnames("text-gray-10 text-5xl font-bebas font-semibold", className)}
+          className={mergeClassnames(
+            "text-gray-10 bebas text-5xl font-bebas font-semibold",
+            className
+          )}
         >
           {children}
         </h1>
@@ -36,7 +44,10 @@ const Heading: React.FunctionComponent<HeadingProps> = ({ type, children, classN
       template = (
         <h2
           style={style}
-          className={mergeClassnames("text-gray-10 text-2xl font-semibold", className)}
+          className={mergeClassnames(
+            "text-gray-10 text-2xl font-semibold",
+            className
+          )}
         >
           {children}
         </h2>
@@ -69,6 +80,6 @@ const Heading: React.FunctionComponent<HeadingProps> = ({ type, children, classN
   }
 
   return <>{template}</>;
-}
+};
 
 export default Heading;
