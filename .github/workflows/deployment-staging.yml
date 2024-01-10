@@ -69,5 +69,5 @@ jobs:
       run: |
         tar -xvf deployment-artifacts1.tar.gz
         
-    # - name: Start Application
-    #   run: pm2 reload --update-env grant
+    - name: Start Application
+      run: pm2 reload --update-env saudi-staging
