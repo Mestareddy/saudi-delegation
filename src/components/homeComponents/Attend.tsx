@@ -2,7 +2,7 @@
 import React from "react";
 import { Tabs } from "antd";
 import Image from "next/image";
-import { attendData } from "./data";
+import { attendData } from "@/mockData/homeData";
 
 interface CollapseTabsProps {
   // Add any necessary props
@@ -21,7 +21,7 @@ const Attend: React.FC<CollapseTabsProps> = () => {
 
   return (
     <div className="w-full flex justify-center items-center bg-gradient-to-b from-white via-white to-[#EAF9F4]">
-      <div className="innerDiv w-[90%] my-10">
+      <div className="innerDiv w-[80%] my-10">
         <div className="top grid grid-cols-6">
           <div className="innerItems col-span-2 my-5">
             <h1 className="text-zinc-800 bebas text-[36px] leading-[43.2px] font-normal font-bebas uppercase">

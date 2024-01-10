@@ -1,10 +1,9 @@
 "use client";
-// import CustomButton from "@/components/common/CustomButton";
 import { ArrowRightUpIcon } from "@/components/icons";
-import { Button } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import CustomButton from "../common/CustomButton";
 
 const Hero = () => {
   return (
@@ -30,19 +29,13 @@ const Hero = () => {
           </h1>
           <div className="rightDivider hidden sm:flex w-[100%] h-[0px] ml-3 origin-top-left border border-neutral-200" />
         </div>
-        {/* <CustomButton
+        <CustomButton
           buttonText={"Register to attend"}
           buttonUrl={"/register"}
-          textColor={"[#333333]"}
+          textColor={"white"}
           bgColor={"transparent"}
           border={"solid !border-2 !border-white"}
-        /> */}
-        <Button
-          // onClick={() => buttonAction()}
-          className=" hover:!bg-green-500 hover:!text-white hover:!border-green-500 !bg-transparent !border-2 !border-white !text-white !px-[30px] !lg:px-[40px] !py-[10px] !lg:py-[15px] !rounded-3xl"
-        >
-          Register to attend
-        </Button>
+        />
         <div className="links my-5 flex flex-row">
           <Link
             href={""}

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { message, type MenuProps, Dropdown, Space } from "antd";
-import { items } from "./data";
+import { items } from "../../mockData/footerData";
 import { ArrowDownIcon } from "@/components/icons";
 
 const Dropdownitem = () => {
