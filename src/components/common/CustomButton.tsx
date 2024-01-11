@@ -15,7 +15,7 @@ type Props = {
 
 const CustomButton = ({
   buttonText,
-  buttonurl,
+  // buttonurl,
   buttonIcon,
   textColor,
   bgColor,
@@ -23,16 +23,16 @@ const CustomButton = ({
   ...props
 }: Props) => {
   // const router = useRouter()
-  const buttonAction = () => {
-    console.log("buttonText", buttonText);
-    console.log("buttonUrl", buttonurl);
-    //   if (props.buttonUrl) {
-    //       router.push()
-    //   }
-  };
+  // const buttonAction = () => {
+  //   console.log("buttonText", buttonText);
+  //   console.log("buttonUrl", buttonurl);
+  //   //   if (props.buttonUrl) {
+  //   //       router.push()
+  //   //   }
+  // };
   return (
     <Button
-      onClick={() => buttonAction()}
+      // onClick={() => buttonAction()}
       className={`${textColor ? `!text-${textColor}` : "!text-white"} ${
         bgColor ? `!bg-${bgColor}` : "!bg-[#333333]"
       } ${

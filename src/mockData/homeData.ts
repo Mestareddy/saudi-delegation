@@ -1,5 +1,3 @@
-import { EyeIcon, PeopleIcon, ThumbsUpIcon } from "@/components/icons";
-
 export const patnersData = [
   {
     id: 1,
@@ -75,33 +73,6 @@ export const patnersData = [
     id: 15,
     name: "Saudi Sustainable Technologies",
     image: "/images/partners/partner-15.png",
-  },
-];
-
-export const attendData = [
-  {
-    id: 1,
-    title: "Tailored and value-based solutions",
-    paragraph:
-      "We offer clients tailored and value-based guidance specific to their unique situation and environment to improve their security posture through a continuous improvement approach.",
-    image: "/images/attend/image_1.png",
-    icon: PeopleIcon,
-  },
-  {
-    id: 2,
-    title: "Seamless and Scalable",
-    paragraph:
-      "We deliver and implement solutions and services that are seamless, scalable, and protect organisations ensuring the confidentiality, integrity, and availability of their information and assets.",
-    image: "/images/attend/image_2.png",
-    icon: ThumbsUpIcon,
-  },
-  {
-    id: 3,
-    title: "Vast and Fluid",
-    paragraph:
-      "We work with hundreds of organisations, from successful brands to local small businesses that cut across government agencies, financial institutions, network services providers, automobiles, health agencies, oil, aviation, and many more.",
-    image: "/images/attend/image_3.png",
-    icon: EyeIcon,
   },
 ];
 
