@@ -11,7 +11,7 @@ type Props = {
   textColor?: string;
   bgColor?: string;
   border?: string;
-} & ButtonProps
+} & ButtonProps;
 
 const CustomButton = ({
   buttonText,
@@ -33,9 +33,11 @@ const CustomButton = ({
   return (
     <Button
       // onClick={() => buttonAction()}
-      className={`${textColor ? `!text-${textColor}` : "!text-white"} ${bgColor ? `!bg-${bgColor}` : "!bg-[#333333]"
-        } ${border ? `!border-${border}` : "!border-0"
-        } hover:!bg-green-500 hover:!text-white hover:!border-green-500 !px-[30px] !lg:px-[40px] !py-[10px] !lg:py-[15px] !rounded-3xl`}
+      className={`${textColor ? `!text-${textColor}` : "!text-white"} ${
+        bgColor ? `!bg-${bgColor}` : "!bg-transparent"
+      } ${
+        border ? `!border-${border}` : "!border-0"
+      } hover:!bg-green-500 hover:!text-white hover:!border-green-500 !px-[30px] !lg:px-[40px] !py-[10px] !lg:py-[15px] !rounded-3xl`}
       {...props}
     >
       {buttonText}
