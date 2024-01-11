@@ -56,9 +56,9 @@ const Attend = () => {
 
   return (
     <div className="w-full flex justify-center items-center bg-gradient-to-b from-white via-white to-[#EAF9F4]">
-      <div className="innerDiv w-[80%] my-10">
+      <div className="innerDiv w-[95%] sm:w-[80%] lg:w-[1112px] my-10">
         <div className="top grid grid-cols-6">
-          <div className="innerItems col-span-2 my-5">
+          <div className="innerItems col-span-5 lg:col-span-2 my-5">
             <h1 className="text-zinc-800 bebas text-[36px] leading-[43.2px] font-normal font-bebas uppercase">
               Why you should{" "}
               <span className="text-emerald-600 bebas text-[36px] leading-[42.96px] font-normal font-bebas">
@@ -73,7 +73,7 @@ const Attend = () => {
           </div>
         </div>
         <div className="bottom my-2 grid grid-cols-6 gap-4">
-          <div className="left col-span-2">
+          <div className="left col-span-3 lg:col-span-2">
             <Collapse
               defaultActiveKey={["0"]}
               activeKey={activeKey}
@@ -87,11 +87,11 @@ const Attend = () => {
                   header={item.title}
                   className="bg-white border-none shadow-md rounded-[4px] mb-4"
                 >
-                  <div className="flex flex-col items-start">
+                  <div className="flex flex-col items-start ml-6">
                     {item.paragraph}
                     <Link
                       href=""
-                      className="flex flex-row items-center justify-center text-[16px] !text-[#333333] leading-[19px] font-semibold my-3"
+                      className="flex flex-row items-center justify-center text-[16px] !text-[#333333] leading-[19px] font-semibold my-5"
                     >
                       Attend <ArrowRightIcon size="16px" className="ml-1" />
                     </Link>
@@ -100,7 +100,7 @@ const Attend = () => {
               ))}
             </Collapse>
           </div>
-          <div className="right col-span-4">
+          <div className="right col-span-3 lg:col-span-4">
             <Image
               src={attendData[selectedId]?.image}
               alt={attendData[selectedId]?.title}

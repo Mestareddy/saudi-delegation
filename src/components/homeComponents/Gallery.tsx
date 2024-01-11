@@ -9,7 +9,7 @@ import CustomButton from "../common/CustomButton";
 const Gallery = () => {
   return (
     <div className="w-full flex justify-center items-center pt-10 pb-20">
-      <div className="innerDiv w-[80%] flex flex-col justify-center items-center">
+      <div className="innerDiv w-[95%] sm:w-[80%] lg:w-[1112px] flex flex-col justify-center items-center">
         <div className="top w-full flex flex-row justify-between">
           <h1 className="bebas text-[#333333] leading-[38px] font-bold text-[32px] uppercase">
             GALLERY
@@ -23,7 +23,7 @@ const Gallery = () => {
         </div>
         <div className="gallery w-full flex justify-center items-center my-5">
           <Image.PreviewGroup>
-            <div className="galleryImages gap-4 grid grid-cols-3">
+            <div className="galleryImages gap-4 grid grid-cols-2 sm:grid-cols-3">
               {galleryData.map((gallery) => (
                 <Image
                   // width={364}

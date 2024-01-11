@@ -18,12 +18,11 @@ import Dropdownitem from "../../common/FooterDropdownitem";
 const Footer = () => {
   return (
     <footer className="bg-white w-full flex justify-center itmes-center">
-      {/* <div > */}
-      <div className="innerDiv w-[80%] flex flex-col my-12">
-        <section className="topSection grid grid-cols-12 text-[14px] gap-2">
-          <div className="left w-full col-span-9 grid grid-cols-4">
-            <div className="col1 grid col-span-1 grid-rows-2">
-              <div className="top row-span-1">
+      <div className="innerDiv w-[95%] sm:w-[80%] lg:w-[1112px] flex flex-col my-12">
+        <section className="topSection flex text-[14px] gap-2">
+          <div className="left w-[50%] sm:w-[60%] flex gap-2 flex-col sm:flex-row">
+            <div className="col1 grow">
+              <div className="company my-2">
                 <h1 className="text-[#00A96E] text-sm font-bold font-['SF Pro Display']">
                   Company
                 </h1>
@@ -39,7 +38,7 @@ const Footer = () => {
                   ))}
                 </div>
               </div>
-              <div className="bottom row-span-1 mt-2">
+              <div className="resources my-2 lg:mt-2">
                 <h1 className="text-[#00A96E] text-sm font-bold font-['SF Pro Display']">
                   Resources
                 </h1>
@@ -56,10 +55,10 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="col2 grid col-span-1 grid-rows-2">
-              <div className="top row-span-1">
+            <div className="col2 grow my-2">
+              <div className="information">
                 <h1 className="text-[#00A96E] text-sm font-bold font-['SF Pro Display']">
-                  Company
+                  Information
                 </h1>
                 <div className="links flex flex-col">
                   {informationLinks.map((info) => (
@@ -74,8 +73,8 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="col3 grid col-span-2 grid-rows-2">
-              <div className="top row-span-1 ">
+            <div className="col3 grow-1 my-2">
+              <div className="nigeria">
                 <h1 className="text-[#00A96E] text-sm font-bold font-['SF Pro Display']">
                   Nigeria
                 </h1>
@@ -94,7 +93,7 @@ const Footer = () => {
                   </p>
                 </div>
               </div>
-              <div className="bottom row-span-1 mt-2">
+              <div className="saudi mt-2">
                 <h1 className="text-[#00A96E]  text-sm font-bold font-['SF Pro Display']">
                   Saudi Arabia
                 </h1>
@@ -109,12 +108,10 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="right w-full col-span-3 flex ">
-            {/* <Divider type="vertical" style={{ height: "100%", width: 0 }} /> */}
+          <div className="right w-[50%] sm:w-[40%] flex">
             <div className="divider w-[0px] h-[100%] mr-4 origin-top-left border border-neutral-200" />
-            {/* <div className="col4 grid col-span-2 grid-rows-2"> */}
-            <div className="rightContent grid grid-rows-2">
-              <div className="top row-span-1 ">
+            <div className="rightContent flex flex-col">
+              <div className="top row-span-1 sm:row-span-1 ">
                 <h1 className="text-[#00A96E] text-sm font-bold font-['SF Pro Display']">
                   Business
                 </h1>
@@ -128,7 +125,7 @@ const Footer = () => {
                   </p>
                 </div>
               </div>
-              <div className="bottom row-span-1 mt-2">
+              <div className="bottom row-span-1 sm:row-span-1 mt-2">
                 <h1 className="text-[#00A96E]  text-sm font-bold font-['SF Pro Display']">
                   Industries
                 </h1>
@@ -143,8 +140,6 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-
-            {/* </div> */}
           </div>
         </section>
         <section className="inquiriesSection mt-4">
@@ -158,13 +153,13 @@ const Footer = () => {
             <a href="https://twitter.com/">
               <TwitterIcon size="16" />
             </a>
-            <a href="https://twitter.com/">
+            <a href="https://linkedin.com/">
               <LinkedinIcon size="16" />
             </a>
-            <a href="https://twitter.com/">
+            <a href="https://slack.com/">
               <SlackIcon size="16" />
             </a>
-            <a href="https://twitter.com/">
+            <a href="https://instagram.com/">
               <InstagramIcon size="16" />
             </a>
           </Space>
@@ -178,7 +173,6 @@ const Footer = () => {
           <Dropdownitem />
         </section>
       </div>
-      {/* </div> */}
     </footer>
   );
 };
