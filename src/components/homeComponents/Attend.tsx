@@ -3,7 +3,13 @@ import React, { useEffect, useState } from "react";
 import { Collapse } from "antd";
 // import { attendData } from "@/mockData/homeData";
 import Image from "next/image";
-import { EyeIcon, PeopleIcon, ThumbsUpIcon } from "@/components/icons";
+import {
+  ArrowRightIcon,
+  EyeIcon,
+  PeopleIcon,
+  ThumbsUpIcon,
+} from "@/components/icons";
+import Link from "next/link";
 
 const { Panel } = Collapse;
 
@@ -48,14 +54,6 @@ const Attend = () => {
     setSelectedId(+key);
   };
 
-  const customPanelStyle = {
-    background: "#fff",
-    borderRadius: "4px",
-    marginBottom: "8px",
-    border: "none", // Remove default border
-    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", // Add shadow
-  };
-
   return (
     <div className="w-full flex justify-center items-center bg-gradient-to-b from-white via-white to-[#EAF9F4]">
       <div className="innerDiv w-[80%] my-10">
@@ -86,21 +84,23 @@ const Attend = () => {
               {attendData.map((item, index) => (
                 <Panel
                   key={index}
-                  header={
-                    <div className="flex items-center">
-                      <span className="mr-2">{item.icon}</span>
-                      {item.title}
-                    </div>
-                  }
-                  style={customPanelStyle}
+                  header={item.title}
+                  className="bg-white border-none shadow-md rounded-[4px] mb-4"
                 >
-                  {item.paragraph}
+                  <div className="flex flex-col items-start">
+                    {item.paragraph}
+                    <Link
+                      href=""
+                      className="flex flex-row items-center justify-center text-[16px] !text-[#333333] leading-[19px] font-semibold my-3"
+                    >
+                      Attend <ArrowRightIcon size="16px" className="ml-1" />
+                    </Link>
+                  </div>
                 </Panel>
               ))}
             </Collapse>
           </div>
           <div className="right col-span-4">
-            {/* {activeKey && ( */}
             <Image
               src={attendData[selectedId]?.image}
               alt={attendData[selectedId]?.title}
@@ -109,7 +109,6 @@ const Attend = () => {
               height={100}
               className="!w-full !h-[500px]"
             />
-            {/* )} */}
           </div>
         </div>
       </div>
