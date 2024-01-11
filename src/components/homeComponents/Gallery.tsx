@@ -39,7 +39,7 @@ const Gallery = () => {
         </div>
         <CustomButton
           buttonText={"Register to attend"}
-          buttonUrl={"/register"}
+          // buttonurl={"/register"}
           textColor={"[#333333]"}
           bgColor={"transparent"}
           border={"solid !border-2 !border-[#333333]"}
