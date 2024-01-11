@@ -11,14 +11,20 @@ export const customThemeColor = {
     200: "#F0F6F4",
     300: "#FCFCFC",
   },
+  green: {
+    bg: "#F0F6F4",
+    inactive: "#70CCAC",
+    minst: "#00E092",
+    hover: "#00A96E",
+  },
+  black: {
+    20: "#191819",
+  },
   gray: {
-    100: "#808191",
-    200: "#585A69",
-    300: "#11142D",
-    400: "#F2F2F2",
-    500: "#f0f6f4",
-    600: "#DEDEDE",
-    700: "#BDBDBD",
-    800: "#FAFAFA",
+    10: "#333",
+    20:"#4F4F4F",
+    30: "#828282",
+    40:"#BDBDBD",
+    50:"#FAFAFA",
   },
 };

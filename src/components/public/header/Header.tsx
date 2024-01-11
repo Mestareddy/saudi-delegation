@@ -4,9 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-// type Props = {}
+type HeaderProps = {
+  onRegister?: () => void
+}
 
-const Header = () => {
+const Header: React.FunctionComponent<HeaderProps> = ({ onRegister }) => {
   return (
     <nav className="header bg-white bg-opacity-70 w-full h-[100px] z-10 flex justify-center items-center transition-all ease-in-out duration-300 fixed top-0 left-0 right-0">
       <div className="innerDiv w-[80%] flex flex-row justify-between">
@@ -20,18 +22,18 @@ const Header = () => {
         </Link>
         <div className="Links flex flex-row items-center">
           <Link
-            href="#"
+            href="/speakers"
             className="text-[#11142D] hidden sm:flex font-semibold text-[16px] leading-[19px] mr-10"
           >
             Event Brochure
           </Link>
           <Link
-            href="#"
+            href="/gallery"
             className="text-[#11142D] hidden sm:flex font-semibold text-[16px] leading-[19px] mr-10"
           >
             Gallery
           </Link>
-          <CustomButton buttonText={"Register"} buttonurl={"/register"} />
+          <CustomButton onClick={onRegister} buttonText={"Register"} buttonurl={"/register"} />
         </div>
       </div>
     </nav>
