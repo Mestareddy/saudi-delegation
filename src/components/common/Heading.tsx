@@ -31,7 +31,7 @@ const Heading: React.FunctionComponent<HeadingProps> = ({
       template = (
         <h2
           style={style}
-          className={mergeClassnames("text-gray-10 md:text-[40px] text-2xl", className)}
+          className={mergeClassnames("text-gray-10 bebas  font-bebas md:text-[40px] text-2xl", className)}
         >
           {children}
         </h2>
@@ -39,7 +39,7 @@ const Heading: React.FunctionComponent<HeadingProps> = ({
       break;
     case "h3":
       template = (
-        <h2
+        <h3
           style={style}
           className={mergeClassnames(
             "text-gray-10 text-2xl font-semibold",
@@ -47,7 +47,7 @@ const Heading: React.FunctionComponent<HeadingProps> = ({
           )}
         >
           {children}
-        </h2>
+        </h3>
       );
       break;
     case "btn":
