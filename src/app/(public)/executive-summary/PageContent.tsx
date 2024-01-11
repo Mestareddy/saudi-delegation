@@ -1,4 +1,5 @@
 import { Heading } from "@/components/common";
+import Exploring from "@/components/common/Exploring";
 import React, { lazy } from "react";
 import { eventSummary } from "./data";
 
@@ -12,24 +13,29 @@ const HeroSection = lazy(
 const PageContent: React.FunctionComponent = () => {
   return (
     <div>
-      <Heading type="h1">Executive Summary</Heading>
-      <div className="mt-[30px]">
-        <HeroSection />
+      <div className="mx-auto max-w-[1112px] px-4 md:px-0">
+        <Heading type="h1">Executive Summary</Heading>
+        <div className="mt-[30px]">
+          <HeroSection />
+        </div>
+        <div className="mt-[30px] mx-auto space-y-[30px]">
+          {eventSummary.map((item) => (
+            <EventSummaryCard
+              key={item.id}
+              caption={item.caption}
+              day={item.day}
+              email={item.email}
+              description={item.description}
+              footer={item.footer}
+              highlights={item.highlights}
+              outcomes={item.outcomes}
+              sessions={item.sessions}
+            />
+          ))}
+        </div>
       </div>
-      <div className="mt-[30px] mx-auto space-y-[30px]">
-        {eventSummary.map((item) => (
-          <EventSummaryCard
-            key={item.id}
-            caption={item.caption}
-            day={item.day}
-            email={item.email}
-            description={item.description}
-            footer={item.footer}
-            highlights={item.highlights}
-            outcomes={item.outcomes}
-            sessions={item.sessions}
-          />
-        ))}
+      <div className="mt-16">
+        <Exploring />
       </div>
     </div>
   );

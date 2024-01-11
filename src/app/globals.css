@@ -52,6 +52,7 @@ body {
   display: none !important;
 }
 
+
 .ant-pagination-options {
   position: relative;
   right: 15rem;
@@ -133,4 +134,11 @@ body {
 
 .bebas {
   font-family: var(--bebas);
+}
+
+.ant-modal {
+  border-radius: 0px;
+}
+.ant-modal-content {
+  border-radius: 0px;
 }
