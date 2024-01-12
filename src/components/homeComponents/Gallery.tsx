@@ -4,9 +4,9 @@ import React from "react";
 import { ArrowRightUpIcon } from "../icons";
 import { Image } from "antd";
 import { galleryData } from "@/mockData/homeData";
-import CustomButton from "../common/CustomButton";
 import { useAppDispatch } from "@/lib/hooks";
 import { toggleRegisterModalOpen } from "@/lib/features/registerModalSlice";
+import { CustomButton } from "../common";
 
 const Gallery = () => {
   const dispatch = useAppDispatch();
@@ -45,12 +45,11 @@ const Gallery = () => {
           </Image.PreviewGroup>
         </div>
         <CustomButton
-          buttonText={"Register to attend"}
+          variant="outlined"
           onClick={toggleRegisterModal}
-          textColor={"[#333333]"}
-          bgColor={"transparent"}
-          border={"solid !border-2 !border-[#333333]"}
-        />
+        >
+          Register to attend
+        </CustomButton>
         <p className="text-center text-[#191819] my-5 font-[450] text-[16px] leading-[24px]">
           In publishing and graphic design, Lorem ipsum is a placeholder text
           commonly used to demonstrate the visual form of a document or a

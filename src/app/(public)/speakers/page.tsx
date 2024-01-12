@@ -1,3 +1,4 @@
+"use client";
 import { PageHeader } from "@/components/common";
 import React from "react";
 import { lazy } from "react";

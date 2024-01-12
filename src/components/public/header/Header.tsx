@@ -1,5 +1,4 @@
 "use client";
-import CustomButton from "@/components/common/CustomButton";
 import { useAppDispatch } from "@/lib/hooks";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,13 +7,13 @@ import { toggleMenuOpen } from "../../../lib/features/menuModalSlice";
 import MenuModal from "../menumodal/MenuModal";
 import HamburgerIcon from "@/components/icons/HamburgerIcon";
 import { toggleRegisterModalOpen } from "@/lib/features/registerModalSlice";
+import { CustomButton } from "@/components/common";
 
 type HeaderProps = {
   onRegister?: () => void;
 };
 
 const Header: React.FunctionComponent<HeaderProps> = () => {
-  // const menuStatus = useAppSelector((state: RootState) => state.menuSlice);
   const dispatch = useAppDispatch();
   const toggleMenuModal = () => {
     dispatch(toggleMenuOpen());
@@ -59,12 +58,9 @@ const Header: React.FunctionComponent<HeaderProps> = () => {
           >
             Gallery
           </Link>
-          <CustomButton
-            onClick={toggleRegisterModal}
-            buttonText={"Register"}
-            buttonurl={"/register"}
-            bgColor={"[#333333]"}
-          />
+          <CustomButton onClick={toggleRegisterModal} variant="contained">
+            Register
+          </CustomButton>
         </div>
       </div>
       <MenuModal />

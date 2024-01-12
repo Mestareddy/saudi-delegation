@@ -5,8 +5,8 @@ import React from "react";
 import { toggleMenuClose } from "../../../lib/features/menuModalSlice";
 import { RootState } from "@/lib/store";
 import Link from "next/link";
-import CustomButton from "@/components/common/CustomButton";
 import { toggleRegisterModalOpen } from "@/lib/features/registerModalSlice";
+import { CustomButton } from "@/components/common";
 
 const MenuModal = () => {
   const menuStatus = useAppSelector(
@@ -51,11 +51,11 @@ const MenuModal = () => {
         </Link>
         <CustomButton
           onClick={triggerRegister}
-          buttonText={"Register"}
-          buttonurl={"/register"}
-          bgColor={"[#333333]"}
-          className="!w-full !bg-[#333333] !rounded-3xl !text-white hover:!bg-green-500 !border-none"
-        />
+          href={"/register"}
+          className="w-full "
+        >
+          Register
+        </CustomButton>
       </div>
     </Modal>
   );
