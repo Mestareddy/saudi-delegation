@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { ArrowRightUpIcon } from "../icons";
 import { Image } from "antd";
 import { galleryData } from "@/mockData/homeData";
 import { useAppDispatch } from "@/lib/hooks";
 import { toggleRegisterModalOpen } from "@/lib/features/registerModalSlice";
-import { CustomButton } from "../common";
+import { ArrowRightUpIcon } from "@/components/icons";
+import { CustomButton } from "@/components/common";
 
 const Gallery = () => {
   const dispatch = useAppDispatch();
@@ -44,10 +44,7 @@ const Gallery = () => {
             </div>
           </Image.PreviewGroup>
         </div>
-        <CustomButton
-          variant="outlined"
-          onClick={toggleRegisterModal}
-        >
+        <CustomButton variant="outlined" onClick={toggleRegisterModal}>
           Register to attend
         </CustomButton>
         <p className="text-center text-[#191819] my-5 font-[450] text-[16px] leading-[24px]">

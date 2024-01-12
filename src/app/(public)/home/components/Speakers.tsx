@@ -3,7 +3,7 @@ import { speakers } from "@/mockData/speakers";
 import { Col } from "antd";
 import Link from "next/link";
 import React from "react";
-import { EventSpeaker } from "../common";
+import { EventSpeaker } from "../../../../components/common";
 
 const Speakers = () => {
   return (

@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { useAppDispatch } from "@/lib/hooks";
 import { toggleRegisterModalOpen } from "@/lib/features/registerModalSlice";
-import { CustomButton } from "../common";
+import { CustomButton } from "../../../../components/common";
 
 const Hero = () => {
   const dispatch = useAppDispatch();
@@ -36,10 +36,7 @@ const Hero = () => {
           <div className="rightDivider w-[100%] h-[0px] ml-3 origin-top-left border border-neutral-200" />
         </div>
         <div className="flex justify-center">
-          <CustomButton
-            onClick={toggleRegisterModal}
-            variant="outlined-light"
-          >
+          <CustomButton onClick={toggleRegisterModal} variant="outlined-light">
             Register to attend
           </CustomButton>
         </div>
