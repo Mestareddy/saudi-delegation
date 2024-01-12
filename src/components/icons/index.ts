@@ -18,3 +18,4 @@ export { default as XIcon } from "./X";
 export { default as RoundedCloseIcon } from "./RoundedClose";
 export { default as UnCheckedBoxIcon } from "./UnCheckedBox";
 export { default as CheckedBoxIcon } from "./CheckedBox";
+export { default as RefreshIcon } from "./Refresh";
