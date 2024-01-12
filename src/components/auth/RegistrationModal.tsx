@@ -39,19 +39,23 @@ const RegistrationModal: React.FunctionComponent<
       {isSuccess ? (
         <RegistrationCompleted />
       ) : (
-        <div className="p-[100px]">
+        <div className="md:p-[100px]">
           <Heading type="h1">
             Register to <span className="text-green-hover">attend</span>{" "}
           </Heading>
-          <div className="flex flex-row  items-start gap-[70px] self-stretch mt-[30px]">
+          <div className="flex flex-col md:flex-row  items-start md:gap-[70px] self-stretch mt-[30px]">
             <div className="basis-2/4">
               <AuthHeader />
-              <div className="mt-5">
+              <div className="mt-5 hidden md:block">
                 <PartnershipSection />
               </div>
             </div>
             <div className="basis-[75%]">
               <RegistrationForm />
+            </div>
+            <div className="block md:hidden">
+              <div className="h-[1px] w-full bg-gray-60 my-2.5" />
+              <PartnershipSection />
             </div>
           </div>
         </div>

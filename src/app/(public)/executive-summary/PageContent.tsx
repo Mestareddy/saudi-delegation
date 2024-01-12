@@ -13,7 +13,7 @@ const HeroSection = lazy(
 const PageContent: React.FunctionComponent = () => {
   return (
     <div>
-      <div className="mx-auto max-w-[1112px] px-4 md:px-0">
+      <div className="mx-auto max-w-[1112px] px-2.5 md:px-0">
         <Heading type="h1">Executive Summary</Heading>
         <div className="mt-[30px]">
           <HeroSection />

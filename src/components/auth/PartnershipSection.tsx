@@ -4,7 +4,7 @@ import React from 'react'
 
 const PartnershipSection: React.FunctionComponent = () => {
   return (
-    <div className="grid grid-cols-4 h-auto gap-x-[53px] gap-y-10">
+    <div className="grid grid-cols-5 md:grid-cols-4 h-auto gap-x-6  md:gap-x-[53px] gap-y-[15px] md:gap-y-10">
       {patnersData.map((partner) => (
         <div className="h-[50px]" key={partner.id}>
           <Image

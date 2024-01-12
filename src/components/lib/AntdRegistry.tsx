@@ -67,7 +67,7 @@ const appTheme: ThemeConfig = {
       controlHeight: 44,
     },
     Select: {
-      controlHeight: 56,
+      controlHeight: 59,
       colorBgContainer: white[100],
       controlPaddingHorizontal: 16,
       fontSize: 16,
@@ -89,10 +89,12 @@ const appTheme: ThemeConfig = {
       borderRadiusLG: 0,
       borderRadiusXS: 0,
       borderRadiusOuter: 0,
-      boxShadow: " 0px 10px 20px 0px rgba(0, 0, 0, 0.25)",
-    },
-  },
-};
+      paddingContentHorizontal: 0,
+      boxShadow: ' 0px 10px 20px 0px rgba(0, 0, 0, 0.25)'
+    }
+
+  }
+}
 
 const StyledComponentsRegistry = ({ children }: React.PropsWithChildren) => {
   const cache = React.useMemo<Entity>(() => createCache(), []);
