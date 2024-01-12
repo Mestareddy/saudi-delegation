@@ -19,3 +19,7 @@ export { default as RoundedCloseIcon } from "./RoundedClose";
 export { default as UnCheckedBoxIcon } from "./UnCheckedBox";
 export { default as CheckedBoxIcon } from "./CheckedBox";
 export { default as RefreshIcon } from "./Refresh";
+export { default as SpinLoader } from "./SpinLoader";
+export { default as ReceiptTextIcon } from "./ReceiptText";
+export { default as StoreIcon } from "./Store";
+export { default as UserIcon } from "./User";
