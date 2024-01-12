@@ -42,19 +42,19 @@ const Header: React.FunctionComponent<HeaderProps> = () => {
         <div className="Links hidden sm:flex flex-row items-center">
           <Link
             href="/speakers"
-            className="text-[#11142D] font-semibold text-[16px] leading-[19px] mr-10 hover:text-green-500"
+            className="text-[#11142D] font-semibold text-[16px] leading-[19px] mr-3 lg:mr-10 hover:text-green-500"
           >
             Event Brochure
           </Link>
           <Link
             href="/speakers"
-            className="text-[#11142D] font-semibold text-[16px] leading-[19px] mr-10 hover:text-green-500"
+            className="text-[#11142D] font-semibold text-[16px] leading-[19px] mr-3 lg:mr-10 hover:text-green-500"
           >
             Speakers
           </Link>
           <Link
             href="/gallery"
-            className="text-[#11142D] font-semibold text-[16px] leading-[19px] mr-10 hover:text-green-500"
+            className="text-[#11142D] font-semibold text-[16px] leading-[19px] mr-3 lg:mr-10 hover:text-green-500"
           >
             Gallery
           </Link>
