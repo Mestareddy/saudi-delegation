@@ -30,25 +30,21 @@ const appTheme: ThemeConfig = {
     },
     Button: {
       fontSize: 16,
-      paddingInline: 16,
-      controlHeight: 42,
-      borderRadius: 8,
+      paddingInline: 40,
+      controlHeight: 49,
+      borderRadius: 30,
       lineHeight: 1,
       algorithm: true,
-
       defaultBg: white[100],
-
-      defaultColor: primary[100],
-      defaultBorderColor: primary[100],
-
+      defaultColor: white[100],
+      defaultBorderColor: white[100],
       colorBgTextHover: primary[100],
-
-      colorPrimary: primary[100],
+      colorPrimary: gray[10],
       colorPrimaryHover: primary[200],
       colorPrimaryActive: primary[400],
-      colorText: primary[100],
+      colorText: white[100],
       textHoverBg: gray[10],
-      colorBgTextActive: primary[400],
+      colorBgTextActive: white[100],
       colorTextDisabled: white[100],
     },
     Input: {

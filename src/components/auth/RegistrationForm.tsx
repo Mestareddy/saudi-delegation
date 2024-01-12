@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Form, Select, Input } from "antd";
-import { Paragraph } from "../common";
-import { ArrowDownIcon, CheckedBoxIcon, UnCheckedBoxIcon } from "../icons";
-import CustomButton from "../common/CustomButton";
+import { Paragraph, CustomButton } from "../common";
+import { ArrowDownIcon, CheckedBoxIcon, UnCheckedBoxIcon } from "../icons"
 
 const formItemStyle = { marginBlock: "0px", marginInline: '0px' };
 
@@ -167,7 +166,9 @@ const RegistrationForm: React.FunctionComponent = () => {
         <div className="h-[1px] w-full bg-gray-60 my-5" />
       </div>
       <Form.Item style={formItemStyle}>
-        <CustomButton buttonText={"Submit"} className="w-full" />
+        <CustomButton className="text-white-100 w-full md:w-auto sm:w-auto" >
+          Submit
+        </CustomButton>
       </Form.Item>
     </Form>
   );

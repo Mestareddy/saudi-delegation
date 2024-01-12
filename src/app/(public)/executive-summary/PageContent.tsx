@@ -1,3 +1,4 @@
+"use client";
 import { Heading } from "@/components/common";
 import Exploring from "@/components/common/Exploring";
 import React, { lazy } from "react";

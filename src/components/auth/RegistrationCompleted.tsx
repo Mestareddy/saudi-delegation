@@ -1,7 +1,6 @@
 import React from 'react'
 import Lottie from "lottie-react";
-import { Heading, Paragraph } from '../common'
-import CustomButton from '../common/CustomButton'
+import { Heading, Paragraph, CustomButton } from '../common'
 import SuccessAnimation from "../../../public/animations/success.lottie.json";
 
 const RegistrationCompleted: React.FunctionComponent = () => {
@@ -13,7 +12,7 @@ const RegistrationCompleted: React.FunctionComponent = () => {
             height: 170,
           }} animationData={SuccessAnimation} loop={true} />
         </div>
-        <Heading type="h2" className="font-">
+        <Heading type="h2">
           Submitted
         </Heading>
         <Paragraph className="text-lg">
@@ -24,7 +23,9 @@ const RegistrationCompleted: React.FunctionComponent = () => {
         </Paragraph>
         <div className="h-[1px] w-2/5  mx-auto bg-gray-40" />
         <div className="flex flex-col justify-center items-center mx-auto">
-          <CustomButton buttonText={"New Registration"} />
+          <CustomButton >
+            New Registration
+          </CustomButton>
         </div>
       </div>
     </div>
