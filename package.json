@@ -17,6 +17,7 @@
     "@ant-design/cssinjs": "^1.17.2",
     "@ant-design/plots": "^1.2.5",
     "@next/font": "^14.0.4",
+    "@reduxjs/toolkit": "^2.0.1",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@types/numeral": "^2.0.5",
     "antd": "^5.11.0",
@@ -27,6 +28,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-fast-marquee": "^1.6.2",
+    "react-redux": "^9.0.4",
     "swr": "^2.2.4",
     "tailwind-merge": "^2.0.0"
   },

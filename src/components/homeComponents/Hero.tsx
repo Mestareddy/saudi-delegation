@@ -4,8 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import CustomButton from "../common/CustomButton";
+import { useAppDispatch } from "@/lib/hooks";
+import { toggleRegisterModalOpen } from "@/lib/features/registerModalSlice";
 
 const Hero = () => {
+  const dispatch = useAppDispatch();
+  const toggleRegisterModal = () => {
+    dispatch(toggleRegisterModalOpen());
+  };
   return (
     <div className="h-[634px] md:h-[756px] bg-[url('/images/mobile_home_hero_bg.png')] sm:bg-[url('/images/home_hero_bg.png')] bg-cover w-full flex justify-center items-end">
       <div className="innerDiv mb-5 flex flex-col sm:items-center mx-5">
@@ -32,7 +38,7 @@ const Hero = () => {
         <div className="flex justify-center">
           <CustomButton
             buttonText={"Register to attend"}
-            // buttonurl={"/register"}
+            onClick={toggleRegisterModal}
             textColor={"white"}
             bgColor={"transparent"}
             border={"solid !border-2 !border-white"}

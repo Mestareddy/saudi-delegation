@@ -5,8 +5,15 @@ import { ArrowRightUpIcon } from "../icons";
 import { Image } from "antd";
 import { galleryData } from "@/mockData/homeData";
 import CustomButton from "../common/CustomButton";
+import { useAppDispatch } from "@/lib/hooks";
+import { toggleRegisterModalOpen } from "@/lib/features/registerModalSlice";
 
 const Gallery = () => {
+  const dispatch = useAppDispatch();
+
+  const toggleRegisterModal = () => {
+    dispatch(toggleRegisterModalOpen());
+  };
   return (
     <div className="w-full flex justify-center items-center pt-10 pb-20">
       <div className="innerDiv w-[95%] sm:w-[80%] lg:w-[1112px] flex flex-col justify-center items-center">
@@ -39,7 +46,7 @@ const Gallery = () => {
         </div>
         <CustomButton
           buttonText={"Register to attend"}
-          // buttonurl={"/register"}
+          onClick={toggleRegisterModal}
           textColor={"[#333333]"}
           bgColor={"transparent"}
           border={"solid !border-2 !border-[#333333]"}
