@@ -6,24 +6,33 @@ import AuthHeader from "./AuthHeader";
 import PartnershipSection from "./PartnershipSection";
 import RegistrationCompleted from "./RegistrationCompleted";
 import RegistrationForm from "./RegistrationForm";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { RootState } from "@/lib/store";
+import { toggleRegisterModalClose } from "@/lib/features/registerModalSlice";
 
 interface RegistrationModalProps {
   open: boolean;
   onClose: () => void;
 }
 
-const RegistrationModal: React.FunctionComponent<RegistrationModalProps> = ({
-  onClose,
-  open,
-}) => {
+const RegistrationModal: React.FunctionComponent<
+  RegistrationModalProps
+> = () => {
   const isSuccess = false;
+  const dispatch = useAppDispatch();
+  const registerModalStatus = useAppSelector(
+    (state: RootState) => state.registerModalSlice.value
+  );
+  const handleCancel = () => {
+    dispatch(toggleRegisterModalClose());
+  };
   return (
     <Modal
       footer={null}
       width={isSuccess ? 622 : 1480}
-      className="border-0 -p-10"
-      open={open}
-      onCancel={onClose}
+      className="border-0"
+      open={registerModalStatus}
+      onCancel={handleCancel}
       style={{ top: 0 }}
       closeIcon={<RoundedCloseIcon />}
     >

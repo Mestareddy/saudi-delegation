@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Collapse } from "antd";
+import { Button, Collapse } from "antd";
 // import { attendData } from "@/mockData/homeData";
 import Image from "next/image";
 import {
@@ -9,7 +9,8 @@ import {
   PeopleIcon,
   ThumbsUpIcon,
 } from "@/components/icons";
-import Link from "next/link";
+import { useAppDispatch } from "@/lib/hooks";
+import { toggleRegisterModalOpen } from "@/lib/features/registerModalSlice";
 
 const { Panel } = Collapse;
 
@@ -43,6 +44,7 @@ const attendData = [
 const Attend = () => {
   const [activeKey, setActiveKey] = useState<string | string[]>("0");
   const [selectedId, setSelectedId] = useState(0);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     setActiveKey("0"); // Force initial image to show
@@ -52,6 +54,10 @@ const Attend = () => {
   const handleCollapseChange = (key: string | string[]) => {
     setActiveKey(key);
     setSelectedId(+key);
+  };
+
+  const toggleRegisterModal = () => {
+    dispatch(toggleRegisterModalOpen());
   };
 
   return (
@@ -89,12 +95,19 @@ const Attend = () => {
                 >
                   <div className="flex flex-col items-start ml-6">
                     {item.paragraph}
-                    <Link
-                      href=""
-                      className="flex flex-row items-center justify-center text-[16px] !text-[#333333] leading-[19px] font-semibold my-5"
+                    <Button
+                      type="default"
+                      style={{
+                        border: "none",
+                        boxShadow: "none",
+                        borderRadius: "0",
+                      }}
+                      ghost
+                      onClick={toggleRegisterModal}
+                      className="flex flex-row items-center justify-center text-[16px] !text-[#333333] leading-[19px] font-semibold my-5 !border-none !p-0"
                     >
                       Attend <ArrowRightIcon size="16px" className="ml-1" />
-                    </Link>
+                    </Button>
                   </div>
                 </Panel>
               ))}

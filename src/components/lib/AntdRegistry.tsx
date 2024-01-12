@@ -9,6 +9,7 @@ import type Entity from "@ant-design/cssinjs/es/Cache";
 import { useServerInsertedHTML } from "next/navigation";
 import { ConfigProvider, ThemeConfig } from "antd";
 import { customThemeColor } from "@/constants";
+import StoreProvider from "@/app/StoreProvider";
 
 const { primary, gray, white } = customThemeColor;
 
@@ -98,7 +99,6 @@ const appTheme: ThemeConfig = {
 const StyledComponentsRegistry = ({ children }: React.PropsWithChildren) => {
   const cache = React.useMemo<Entity>(() => createCache(), []);
 
-
   useServerInsertedHTML(() => {
     return (
       <style
@@ -109,7 +109,9 @@ const StyledComponentsRegistry = ({ children }: React.PropsWithChildren) => {
   });
   return (
     <StyleProvider cache={cache} hashPriority="high" autoClear>
-      <ConfigProvider theme={appTheme}>{children}</ConfigProvider>
+      <ConfigProvider theme={appTheme}>
+        <StoreProvider>{children}</StoreProvider>
+      </ConfigProvider>
     </StyleProvider>
   );
 };

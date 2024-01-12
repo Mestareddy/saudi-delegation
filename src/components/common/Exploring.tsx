@@ -2,8 +2,16 @@ import Image from "next/image";
 import React from "react";
 import CustomButton from "./CustomButton";
 import { ArrowRightIcon } from "../icons";
+import { useAppDispatch } from "@/lib/hooks";
+import { toggleRegisterModalOpen } from "@/lib/features/registerModalSlice";
 
 const Exploring = () => {
+  const dispatch = useAppDispatch();
+
+  const toggleRegisterModal = () => {
+    dispatch(toggleRegisterModalOpen());
+  };
+
   return (
     <div className="bg-green-minst flex justify-center items-center">
       <div className="innerDiv w-[95%] sm:w-[80%] lg:w-[1112px] my-20 flex flex-col md:flex-row gap-2">
@@ -21,10 +29,9 @@ const Exploring = () => {
             <div className="my-3">
               <CustomButton
                 buttonText={"Register"}
-                // buttonUrl={"/register"}
+                onClick={toggleRegisterModal}
                 textColor={"white"}
                 bgColor={"[#333333]"}
-                // border={"solid !border-2 !border-white"}
                 buttonIcon={<ArrowRightIcon stroke="#ffffff" />}
               />
             </div>
