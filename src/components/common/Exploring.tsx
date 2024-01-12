@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
-import CustomButton from "./CustomButton";
 import { ArrowRightIcon } from "../icons";
 import { useAppDispatch } from "@/lib/hooks";
 import { toggleRegisterModalOpen } from "@/lib/features/registerModalSlice";
+import CustomButton from "./CustomButton";
 
 const Exploring = () => {
   const dispatch = useAppDispatch();
@@ -28,12 +28,11 @@ const Exploring = () => {
             </p>
             <div className="my-3">
               <CustomButton
-                buttonText={"Register"}
                 onClick={toggleRegisterModal}
-                textColor={"white"}
-                bgColor={"[#333333]"}
-                buttonIcon={<ArrowRightIcon stroke="#ffffff" />}
-              />
+                endIcon={<ArrowRightIcon stroke="#ffffff" />}
+              >
+                Register
+              </CustomButton>
             </div>
           </div>
         </div>

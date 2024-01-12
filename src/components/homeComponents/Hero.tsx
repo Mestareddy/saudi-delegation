@@ -3,9 +3,9 @@ import { ArrowRightUpIcon } from "@/components/icons";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import CustomButton from "../common/CustomButton";
 import { useAppDispatch } from "@/lib/hooks";
 import { toggleRegisterModalOpen } from "@/lib/features/registerModalSlice";
+import { CustomButton } from "../common";
 
 const Hero = () => {
   const dispatch = useAppDispatch();
@@ -37,12 +37,11 @@ const Hero = () => {
         </div>
         <div className="flex justify-center">
           <CustomButton
-            buttonText={"Register to attend"}
             onClick={toggleRegisterModal}
-            textColor={"white"}
-            bgColor={"transparent"}
-            border={"solid !border-2 !border-white"}
-          />
+            variant="outlined-light"
+          >
+            Register to attend
+          </CustomButton>
         </div>
         <div className="links my-5 flex flex-row items-center justify-center">
           <Link

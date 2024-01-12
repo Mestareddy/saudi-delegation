@@ -1,3 +1,4 @@
+"use client";
 import { EventSpeaker, Heading, Paragraph } from "@/components/common";
 import Exploring from "@/components/common/Exploring";
 import { speakers } from "@/mockData/speakers";
