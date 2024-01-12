@@ -4,14 +4,14 @@ import { Paragraph } from "../common";
 import { ArrowDownIcon, CheckedBoxIcon, UnCheckedBoxIcon } from "../icons";
 import CustomButton from "../common/CustomButton";
 
-const formItemStyle = { marginBlock: "0px" };
+const formItemStyle = { marginBlock: "0px", marginInline: '0px' };
 
 const RegistrationForm: React.FunctionComponent = () => {
   const [requestSpeaking, setRequestSpeaking] = useState(false)
   const [requestBooth, setRequestBooth] = useState(false)
   return (
     <Form className="space-y-5" layout="vertical" requiredMark={false}>
-      <div style={formItemStyle} className="flex flex-row gap-5 w-full">
+      <div style={formItemStyle} className="flex flex-col md:flex-row  gap-2.5 md:gap-5 w-full">
         <Form.Item
           name="first_name"
           label="First name"
@@ -31,7 +31,7 @@ const RegistrationForm: React.FunctionComponent = () => {
           <Input placeholder="Type here" />
         </Form.Item>
       </div>
-      <div className="flex flex-row gap-5  w-full">
+      <div className="flex flex-col md:flex-row  gap-2.5 md:gap-5 w-full">
         <Form.Item
           name="company_name"
           label="Company Name"
@@ -51,7 +51,7 @@ const RegistrationForm: React.FunctionComponent = () => {
           <Input placeholder="Type here" />
         </Form.Item>
       </div>
-      <div className="flex flex-row gap-5 w-full">
+      <div className="flex flex-col md:flex-row  gap-2.5 md:gap-5 w-full">
         <Form.Item
           name="company_phone_number"
           label="Company Phone Number"
@@ -92,7 +92,7 @@ const RegistrationForm: React.FunctionComponent = () => {
           </Select>
         </Form.Item>
       </div>
-      <div className="flex flex-row gap-5  w-full">
+      <div className="flex flex-col md:flex-row  gap-2.5 md:gap-5 w-full">
         <Form.Item
           name="industry"
           label="Industry"
@@ -167,7 +167,7 @@ const RegistrationForm: React.FunctionComponent = () => {
         <div className="h-[1px] w-full bg-gray-60 my-5" />
       </div>
       <Form.Item style={formItemStyle}>
-        <CustomButton buttonText={"Submit"} />
+        <CustomButton buttonText={"Submit"} className="w-full" />
       </Form.Item>
     </Form>
   );

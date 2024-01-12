@@ -1,5 +1,4 @@
 import { Heading, Paragraph } from "@/components/common";
-import { Col, Row } from "antd";
 import Image from "next/image";
 import React from "react";
 import { EventSummary } from "../type";
@@ -76,25 +75,25 @@ const EventSummaryCard: React.FunctionComponent<EventSummaryCardProps> = ({
             <Paragraph>{item.description}</Paragraph>
           </div>
         ))}
-        <Row gutter={[10, 30]} wrap>
+        <div className="grid grid-cols-3 sm:grid-cols-3 gap-2.5 md:grid-cols-3">
           {sessions.sectionBImage.map((item) => (
-            <Col key={item} className="gutter-row" span={8} md={8} xs={24}>
+            <div key={item}>
               <Image
                 height={195}
                 width={351.6}
                 alt="sectionBImage"
                 src={item}
               />
-            </Col>
+            </div>
           ))}
-        </Row>
+        </div>
       </div>
       <div className="mt-[30px]">
         <Paragraph className="my-[30px]">
           {footer} <span className="text-green-hover">{email}</span>
         </Paragraph>
         <div className="h-[1px] bg-gray-40 mt-[30px]" />
-        <Paragraph className="text-2xl font-semibold text-right mt-[30px]">
+        <Paragraph className="text-2xl font-normal font-bebas bebas  md:font-semibold text-right mt-[30px]">
           {day}
         </Paragraph>
       </div>
