@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Marquee from "react-fast-marquee";
-import { patnersData } from "../../mockData/homeData";
+import { patnersData } from "../../../../mockData/homeData";
 import Image from "next/image";
 
 const Partners = () => {

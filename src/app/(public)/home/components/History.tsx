@@ -1,5 +1,10 @@
 import React from "react";
-import { BriecaseIcon, FactoryIcon, LocationIcon, UsersIcon } from "../icons";
+import {
+  BriecaseIcon,
+  FactoryIcon,
+  LocationIcon,
+  UsersIcon,
+} from "../../../../components/icons";
 
 const History = () => {
   return (
