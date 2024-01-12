@@ -140,5 +140,15 @@ body {
   border-radius: 0px;
 }
 .ant-modal-content {
-  border-radius: 0px;
+  border-radius: 0px; 
+}
+
+.ant-input:focus {
+   border-color: #333;
+   outline: none; 
+}
+
+.ant-input:active {
+ border-width: 0 !important;
+ border: none !important;
 }
