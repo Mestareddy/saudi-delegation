@@ -35,14 +35,6 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
       setCheckboxErrors((prev) => ({ ...prev, accept_terms: true }));
       return;
     }
-    if (!checkboxes.request_as_speaker) {
-      setCheckboxErrors((prev) => ({ ...prev, request_as_speaker: true }));
-      return;
-    }
-    if (!checkboxes.request_booth) {
-      setCheckboxErrors((prev) => ({ ...prev, accept_terms: true }));
-      return;
-    }
     setCheckboxErrors(defaultCheckboxErrors);
     onSubmit({
       ...data,
@@ -159,7 +151,9 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
           label="How may we help? "
           className="basis-2/4"
           style={formItemStyle}
-          rules={[{ required: true, message: "Request help field is required" }]}
+          rules={[
+            { required: false, message: "Request help field is required" },
+          ]}
         >
           <Input placeholder="Type here" />
         </Form.Item>
@@ -180,8 +174,8 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
             className={`${checkboxErrors.accept_terms ? "text-red-100" : "text-black-20"
               }`}
           >
-            By submitting this form, you agree to our Terms of{" "}
-            <span className="underline">Service</span> ,{" "}
+            By submitting this form, you agree to our
+            <span className="underline mx-1">Terms of Service</span> ,
             <span className="underline">Privacy Policy</span>, and contacting
             you.
           </Paragraph>
@@ -189,7 +183,10 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
         <div className="h-[1px] w-full bg-gray-60 my-5" />
       </div>
       <Form.Item style={formItemStyle}>
-        <CustomButton isLoading={isLoading} className="text-white-100 w-full md:w-auto sm:w-auto">
+        <CustomButton
+          isLoading={isLoading}
+          className="text-white-100 w-full md:w-auto sm:w-auto"
+        >
           Submit
         </CustomButton>
       </Form.Item>
