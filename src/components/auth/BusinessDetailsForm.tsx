@@ -3,7 +3,6 @@ import { Form, Select, Input } from "antd";
 import { ArrowDownIcon } from '../icons';
 import { COMPANY_SIZE, formItemStyle, INDUSRY } from './utils';
 
-
 interface BusinessDetailsFormProps {
   isLoading: boolean
 }
@@ -78,15 +77,6 @@ const BusinessDetailsForm: React.FunctionComponent<BusinessDetailsFormProps> = (
             placeholder="Select"
             showSearch
             disabled={isLoading}
-            optionFilterProp="children"
-            filterOption={(input, option: any) =>
-              (option?.children.toLowerCase() ?? "").includes(input)
-            }
-            filterSort={(optionA: any, optionB: any) => {
-              return (optionA?.children ?? "")
-                .toLowerCase()
-                .localeCompare((optionB?.children ?? "").toLowerCase());
-            }}
           >
             {COMPANY_SIZE.map((state: any) => (
               <Select.Option key={state.id} value={state.name}>
