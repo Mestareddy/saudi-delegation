@@ -23,11 +23,12 @@ const commonStyles =
 const disabledStyles = "!bg-gray-40 text-white";
 
 const variantStyles = {
-  contained: "!bg-black-20 !text-white hover:bg-gray-10",
-  outlined: "bg-white hover:opacity-50 border-2 text-black-20 border-black-20",
-  text: "text-black-20",
+  contained: "!bg-black-20 !text-white hover:!bg-green-hover",
+  outlined:
+    "bg-white hover:bg-green-hover border-2 text-black-20 hover:text-white hover:border-green-hover border-black-20 ",
+  text: "text-black-20 hover:bg-green-hover",
   "outlined-light":
-    "bg-transparent hover:opacity-20 border-2 text-white border-white",
+    "bg-transparent hover:bg-green-hover hover:border-green-hover border-2 text-white border-white",
 };
 
 const variantSizes = {
@@ -95,6 +96,6 @@ const CustomButton: React.FunctionComponent<CustomButtonProps> = forwardRef<
   }
 );
 
-CustomButton.displayName = "CustomButton"
+CustomButton.displayName = "CustomButton";
 
 export default CustomButton;
