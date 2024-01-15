@@ -1,4 +1,4 @@
-import { Roboto, Bebas_Neue } from "@next/font/google";
+import { Roboto, Bebas_Neue } from "next/font/google";
 
 export const roboto_init = Roboto({
   subsets: ["latin"],

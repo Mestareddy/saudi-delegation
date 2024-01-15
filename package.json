@@ -16,7 +16,6 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.2",
     "@ant-design/plots": "^1.2.5",
-    "@next/font": "^14.0.4",
     "@reduxjs/toolkit": "^2.0.1",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@types/numeral": "^2.0.5",

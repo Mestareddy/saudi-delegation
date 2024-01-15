@@ -1,7 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Button, Form, Input } from "antd";
+import { Form, Input, message } from "antd";
 import Link from "next/link";
+import { CustomButton } from "@/components/common";
+import useLogin from "@/components/auth/useLogin";
+import { apiErrorHandler } from "@/services";
+import { useRouter } from "next/navigation";
+import { setLocalStorageItem } from "@/util";
 
 type FieldType = {
   email?: string;
@@ -13,6 +18,7 @@ const LoginForm = () => {
   const [clientReady, setClientReady] = useState<boolean>(false);
   // To disable submit button at the beginning.
   const [form] = Form.useForm();
+  const router = useRouter();
 
   // Watch all values
   const values = Form.useWatch([], form);
@@ -28,19 +34,34 @@ const LoginForm = () => {
     );
   }, [values]);
 
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
-  };
+  const {
+    loginSWR: { error, isMutating, trigger },
+  } = useLogin();
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
+  const onFinish = (values: any) => {
+    trigger({
+      data: values,
+    })
+      .then((data) => {
+        message.open({
+          type: "success",
+          content: "Successfully logged in",
+        });
+        setLocalStorageItem("user_details", data.data);
+        router.push("/app/dashboard");
+      })
+      .catch(() => {
+        message.open({
+          type: "error",
+          content: apiErrorHandler(error),
+        });
+      });
   };
 
   return (
     <Form
       name="basic"
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       autoComplete="off"
       layout="vertical"
       className="!w-full !my-5"
@@ -78,7 +99,6 @@ const LoginForm = () => {
             message: "Please input your password!",
           },
         ]}
-        hasFeedback
       >
         <Input.Password
           placeholder="Enter password"
@@ -96,14 +116,13 @@ const LoginForm = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button
-          type="primary"
-          htmlType="submit"
+        <CustomButton
+          isLoading={isMutating}
           disabled={!clientReady}
-          className="!m-0 !w-full !bg-[#11142D] hover:!bg-green-500 !text-white"
+          className="text-white-100 w-full md:w-full sm:w-auto"
         >
-          Submit
-        </Button>
+          Login
+        </CustomButton>
       </Form.Item>
     </Form>
   );
