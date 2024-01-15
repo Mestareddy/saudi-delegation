@@ -43,7 +43,8 @@ const LoginForm = () => {
       onFinishFailed={onFinishFailed}
       autoComplete="off"
       layout="vertical"
-      className="w-full !my-5"
+      className="!w-full !my-5"
+      style={{ width: "100%" }}
     >
       <Form.Item<FieldType>
         label={
