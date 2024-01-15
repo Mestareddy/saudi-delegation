@@ -57,7 +57,6 @@ const appTheme: ThemeConfig = {
       fontWeightStrong: 400,
       colorBorderBg: gray[10],
       colorTextPlaceholder: gray[30],
-      colorBgContainerDisabled: gray[30],
       margin: 0,
       colorPrimaryActive: gray[10],
       controlHeight: 44,

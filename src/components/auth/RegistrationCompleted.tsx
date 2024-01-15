@@ -2,8 +2,21 @@ import React from 'react'
 import Lottie from "lottie-react";
 import { Heading, Paragraph, CustomButton } from '../common'
 import SuccessAnimation from "../../../public/animations/success.lottie.json";
+import { useAppDispatch } from '@/lib/hooks';
+import { toggleRegisterModalOpen } from '@/lib/features/registerModalSlice';
 
-const RegistrationCompleted: React.FunctionComponent = () => {
+interface RegistrationCompletedProps {
+  onClose: () => void
+}
+
+const RegistrationCompleted: React.FunctionComponent<RegistrationCompletedProps> = ({ onClose }) => {
+  const dispatch = useAppDispatch();
+
+  const handleOpenModal = () => {
+    onClose()
+    dispatch(toggleRegisterModalOpen());
+  };
+
   return (
     <div className="p-[50px]">
       <div className="text-center space-y-5">
@@ -23,7 +36,7 @@ const RegistrationCompleted: React.FunctionComponent = () => {
         </Paragraph>
         <div className="h-[1px] w-2/5  mx-auto bg-gray-40" />
         <div className="flex flex-col justify-center items-center mx-auto">
-          <CustomButton >
+          <CustomButton onClick={handleOpenModal}>
             New Registration
           </CustomButton>
         </div>
