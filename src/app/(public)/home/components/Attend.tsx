@@ -62,7 +62,7 @@ const Attend = () => {
 
   return (
     <div className="w-full flex justify-center items-center bg-gradient-to-b from-white via-white to-[#EAF9F4]">
-      <div className="innerDiv w-[95%] sm:w-[80%] lg:w-[1112px] my-10">
+      <div className="innerDiv w-[95%] sm:w-[90%] lg:w-[85%] my-10">
         <div className="top grid grid-cols-6">
           <div className="innerItems col-span-5 lg:col-span-2 my-5">
             <h1 className="text-zinc-800 bebas text-[36px] leading-[43.2px] font-normal font-bebas uppercase">

@@ -49,11 +49,7 @@ const MenuModal = () => {
         <Link href="/gallery" className="!text-[#333333]">
           Gallery
         </Link>
-        <CustomButton
-          onClick={triggerRegister}
-          href={"/register"}
-          className="w-full "
-        >
+        <CustomButton onClick={triggerRegister} className="w-full ">
           Register
         </CustomButton>
       </div>

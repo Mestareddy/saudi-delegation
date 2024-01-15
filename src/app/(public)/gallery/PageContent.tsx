@@ -1,19 +1,20 @@
-"use client"
+"use client";
 import { Heading, Paragraph } from "@/components/common";
 import Exploring from "@/components/common/Exploring";
 import { galleryData } from "@/mockData/homeData";
 import { Image } from "antd";
 import React from "react";
 
-
 const PageContent: React.FunctionComponent = () => {
   return (
     <div>
-      <div className="mx-auto max-w-[1112px] px-2.5 md:px-0">
+      <div className="mx-auto w-[95%] sm:w-[90%] lg:w-[85%] px-2.5 md:px-0">
         <Heading type="h1">Gallery</Heading>
         <div className="flex flex-row mt-4">
           <Paragraph className="text-base md:text-xl  md:font-medium md:basis-2/4">
-            We offer clients tailored and value-based guidance specific to their unique situation and environment to improve their security posture through a continuous improvement approach.
+            We offer clients tailored and value-based guidance specific to their
+            unique situation and environment to improve their security posture
+            through a continuous improvement approach.
           </Paragraph>
           <div className="basis-2/4 hidden md:hidden" />
         </div>
@@ -26,7 +27,7 @@ const PageContent: React.FunctionComponent = () => {
                     key={gallery.id}
                     src={gallery.image}
                     style={{
-                      background: 'cover'
+                      background: "cover",
                     }}
                     alt={gallery.image}
                     className="bg-contain rounded-[5px]"

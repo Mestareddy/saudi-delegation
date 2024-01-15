@@ -15,7 +15,7 @@ const Exploring = () => {
 
   return (
     <div className="bg-green-minst flex justify-center items-center">
-      <div className="innerDiv w-[95%] sm:w-[80%] lg:w-[1112px] my-20 flex flex-col md:flex-row gap-2">
+      <div className="innerDiv w-[95%] sm:w-[90%] lg:w-[85%] my-20 flex flex-col sm:flex-row gap-2">
         <div className="left w-full sm:w-[50%] mb-3 flex flex-col justify-center items-start">
           <div className="w-full sm:w-[90%] flex flex-col justify-center items-start mb-3">
             <h1 className="bebas text-[#11142D] font-normal text-[32px] leading-[38.4px]">
