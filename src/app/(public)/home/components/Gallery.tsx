@@ -22,7 +22,7 @@ const Gallery = () => {
             GALLERY
           </h1>
           <Link
-            href=""
+            href="/gallery"
             className="flex flex-row items-center justify-center text-[16px] text-[#333333] leading-[19px] font-semibold"
           >
             View all <ArrowRightUpIcon size="16px" className="ml-1" />

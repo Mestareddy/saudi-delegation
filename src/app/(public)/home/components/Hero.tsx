@@ -42,14 +42,14 @@ const Hero = () => {
         </div>
         <div className="links my-5 flex flex-row items-center justify-center">
           <Link
-            href={""}
+            href={"/executive-summary"}
             className="event mx-3 sm:mx-8 flex items-center flex-row"
           >
             Event brochure
             <ArrowRightUpIcon size="18px" className="ml-1" stroke="#ffffff" />
           </Link>
           <Link
-            href={""}
+            href={"/gallery"}
             className="gallery mx-3 sm:mx-8 flex items-center flex-row"
           >
             Gallery
