@@ -1,17 +1,25 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { ArrowRightIcon } from "../icons";
 import { useAppDispatch } from "@/lib/hooks";
 import { toggleRegisterModalOpen } from "@/lib/features/registerModalSlice";
 import CustomButton from "./CustomButton";
+import { RegistrationModal } from "../auth";
 
 const Exploring = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useAppDispatch();
 
   const toggleRegisterModal = () => {
     dispatch(toggleRegisterModalOpen());
   };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  console.log("isModalOpen", isModalOpen);
 
   return (
     <div className="bg-green-minst flex justify-center items-center">
@@ -47,6 +55,7 @@ const Exploring = () => {
           />
         </div>
       </div>
+      <RegistrationModal open={isModalOpen} onClose={handleCancel} />
     </div>
   );
 };
