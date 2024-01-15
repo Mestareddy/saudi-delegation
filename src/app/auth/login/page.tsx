@@ -5,7 +5,7 @@ const PageContent = lazy(() => import("./PageContent"));
 
 const LoginPage = () => {
   return (
-    <div>
+    <div className="!w-full">
       <PageHeader title="Login" description="Admin Login" />
       <PageContent />
     </div>
