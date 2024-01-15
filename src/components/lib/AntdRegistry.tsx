@@ -15,14 +15,14 @@ const { primary, gray, white } = customThemeColor;
 
 const appTheme: ThemeConfig = {
   token: {
-    colorPrimary: primary[100],
-    colorPrimaryHover: primary[200],
-    colorTextHeading: gray[10],
-    colorTextLabel: gray[10],
-    colorTextPlaceholder: gray[30],
-    colorTextSecondary: gray[30],
-    colorText: gray[10],
-    colorFillTertiary: gray[10],
+    // colorPrimary: primary[100],
+    // colorPrimaryHover: primary[200],
+    // colorTextHeading: gray[10],
+    // colorTextLabel: gray[10],
+    // colorTextPlaceholder: gray[30],
+    // colorTextSecondary: gray[30],
+    // colorText: gray[10],
+    // colorFillTertiary: gray[10],
   },
   components: {
     Form: {
@@ -87,7 +87,7 @@ const appTheme: ThemeConfig = {
       borderRadiusOuter: 0,
       paddingContentHorizontal: 0,
       boxShadow: ' 0px 10px 20px 0px rgba(0, 0, 0, 0.25)'
-    }
+    },
 
   }
 }
