@@ -18,7 +18,7 @@ import Dropdownitem from "../../common/FooterDropdownitem";
 const Footer = () => {
   return (
     <footer className="bg-white w-full flex justify-center itmes-center">
-      <div className="innerDiv w-[95%] sm:w-[80%] lg:w-[1112px] flex flex-col my-12">
+      <div className="innerDiv w-[95%] sm:w-[90%] lg:w-[85%] flex flex-col my-12">
         <section className="topSection flex text-[14px] gap-2">
           <div className="left w-[50%] sm:w-[60%] flex gap-2 flex-col sm:flex-row">
             <div className="col1 grow">
