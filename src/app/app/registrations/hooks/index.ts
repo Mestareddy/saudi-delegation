@@ -1,0 +1,1 @@
+export {default as useRegTableColumn } from './useRegTableColumn'
