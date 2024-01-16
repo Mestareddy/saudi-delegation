@@ -19,8 +19,6 @@ const Exploring = () => {
     setIsModalOpen(false);
   };
 
-  console.log("isModalOpen", isModalOpen);
-
   return (
     <div className="bg-green-minst flex justify-center items-center">
       <div className="innerDiv w-[95%] sm:w-[90%] lg:w-[85%] my-20 flex flex-col sm:flex-row gap-2">

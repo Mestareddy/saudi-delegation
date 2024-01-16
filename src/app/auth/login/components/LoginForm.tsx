@@ -32,7 +32,7 @@ const LoginForm = () => {
         setClientReady(false);
       }
     );
-  }, [values]);
+  }, [form, values]);
 
   const {
     loginSWR: { error, isMutating, trigger },
@@ -48,7 +48,7 @@ const LoginForm = () => {
           content: "Successfully logged in",
         });
         setLocalStorageItem("user_details", data.data);
-        router.push("/app/dashboard");
+        router.push("/app/registrations");
       })
       .catch(() => {
         message.open({
