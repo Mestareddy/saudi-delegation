@@ -1,6 +1,11 @@
 import React from "react";
 import type { MenuProps } from "antd";
-import { PeopleIcon, ReceiptTextIcon, StoreIcon, UserIcon } from "@/components/icons";
+import {
+  GroupOfPeopleIcon,
+  ReceiptTextIcon,
+  StoreIcon,
+  UserIcon,
+} from "@/components/icons";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -23,34 +28,33 @@ export function getItem(
 const navItems = {
   REGISTRATIONS: getItem(
     <span>Registration</span>,
-    "/app/dashboard",
+    "/app/registrations",
     <span className="mr-2">
-      <PeopleIcon />
+      <GroupOfPeopleIcon />
     </span>
   ),
   ATTENDEES: getItem(
     <span>Approved Attendees</span>,
-    "/app/sources",
+    "/app/approved",
     <span className="mr-2">
       <ReceiptTextIcon />
     </span>
   ),
   SPEAKERS: getItem(
     <span>Speakers</span>,
-    "/app/disbursement",
+    "/app/speakers",
     <span className="mr-2">
       <UserIcon />
     </span>
   ),
   BOOTHS: getItem(
     <span>Booths</span>,
-    "/app/payment",
+    "/app/booths",
     <span className="mr-2">
       <StoreIcon />
     </span>
   ),
 };
-
 
 const superAdminNav = [
   navItems.REGISTRATIONS,
@@ -60,9 +64,7 @@ const superAdminNav = [
 ];
 
 export const menuItemRenderer = () => {
-  const items: MenuItem[] = [
-    ...superAdminNav,
-  ];
+  const items: MenuItem[] = [...superAdminNav];
   return items;
 };
 

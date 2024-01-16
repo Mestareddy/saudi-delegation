@@ -1,45 +1,54 @@
 import React from "react";
-import { Dropdown, MenuProps, Avatar, Layout, } from "antd";
+import { Dropdown, MenuProps, Avatar, Layout } from "antd";
 import { Heading, Paragraph } from "@/components/common";
+import { LogoutIcon, NotificationIcon, UserIcon } from "@/components/icons";
 
 const { Header } = Layout;
 
 const AppHeader: React.FunctionComponent = () => {
-
   const items: MenuProps["items"] = [
     {
       key: "1",
       icon: (
-        <span className="">
-
+        <span>
+          <UserIcon />
         </span>
       ),
-      label: "View Profile",
+      label: <Paragraph className="font-semibold">View Profile</Paragraph>,
     },
     {
       key: "2",
       icon: (
-        <span className="">
-
+        <span>
+          <LogoutIcon />
         </span>
       ),
-      label: "Logout",
+      label: <Paragraph className="font-semibold">Logout</Paragraph>,
     },
   ];
   return (
-    <Header className="bg-gray-70 py-4 px-5 flex w-full justify-between items-center">
+    <Header className="!bg-gray-70 py-2.5 px-2.5 flex w-full justify-between items-center">
       <div />
       <div className="gap-x-2.5 flex items-center">
+        <div className="p-3.5">
+          <NotificationIcon />
+        </div>
         <Dropdown menu={{ items }} placement="bottom" className="flex h-auto">
           <div className="cursor-pointer flex items-center">
             <Avatar
               size={40}
+              style={{
+                borderRadius: 15,
+              }}
             />
-            <div className="ml-2.5 flex flex-col">
-              <Heading type="h2" className="text-sm  font-mono mb-0.5">
+            <div className="flex flex-col px-2.5">
+              <Heading
+                type="btn"
+                className="text-sm  font-medium font-robot mb-0.5"
+              >
                 user
               </Heading>
-              <Paragraph className="font-normal !text-xs !text-gray-mist-body">
+              <Paragraph className="font-normal !text-sm !text-gray-80">
                 Adim
               </Paragraph>
             </div>

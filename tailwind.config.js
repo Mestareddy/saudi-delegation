@@ -10,9 +10,11 @@ module.exports = {
           inactive: "#70CCAC",
           minst: "#00E092",
           hover: "#00A96E",
+          10:"#DCF5EC"
         },
         black: {
           20: "#191819",
+          30:'#1212121A'
         },
         red:{
           100:'red',
@@ -24,11 +26,13 @@ module.exports = {
           40:"#BDBDBD",
           50:"#FAFAFA",
           60:"#E6E6E6",
-          70:"#E0E0E0"
+          70:"#E0E0E0",
+          80:"#808191"
         },
       },
       fontFamily: {
         bebas: ['Bebas Neue','sans-serif'],
+        robot: ['Roboto','sans-serif'],
       },
     },
   },
