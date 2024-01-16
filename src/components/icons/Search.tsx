@@ -4,8 +4,8 @@ import { Icon } from "./type";
 const Search: Icon = ({ fill = "#808191", ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="18"
-    height="19"
+    width={size}
+    height={size}
     viewBox="0 0 18 19"
     fill="none"
     {...props}
