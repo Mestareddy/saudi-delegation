@@ -2,25 +2,24 @@ import { Divider, theme } from "antd";
 import React, { InputHTMLAttributes } from "react";
 import { FilterIcon, RoundedCloseIcon, SearchIcon } from "../icons";
 
-
-const { useToken } = theme
-interface SearchInputProps
-  extends InputHTMLAttributes<HTMLInputElement> {
+const { useToken } = theme;
+interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
   onFilter?: () => void;
   onClear?: () => void;
 }
 
-const SearchInput: React.FunctionComponent<
-  SearchInputProps
-> = ({ onFilter, onClear, value, ...otherInputProps }) => {
-  const { token } = useToken()
+const SearchInput: React.FunctionComponent<SearchInputProps> = ({
+  onFilter,
+  onClear,
+  value,
+  ...otherInputProps
+}) => {
+  const { token } = useToken();
   return (
-    <div
-      className="flex justify-between items-center bg-gray-50 px-[15px] py-2.5 rounded-lg active:border-green-minst border border-gray-40"
-    >
+    <div className="flex justify-between items-center bg-gray-50 px-[15px] py-2.5 rounded-lg active:border-green-minst border border-gray-40">
       <div className="flex items-center">
         <span>
-          <SearchIcon color={token.colorText} />
+          <SearchIcon size="16" color={token.colorText} />
         </span>
         <input
           type="text"
