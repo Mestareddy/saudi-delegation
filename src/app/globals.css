@@ -30,9 +30,9 @@ body {
 .ant-table-cell {
   font-size: 16px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 450;
   line-height: normal;
-  @apply !py-3 !leading-5;
+  color: #11142D;
 }
 
 .ant-table-thead .ant-table-cell:first-child,
@@ -77,7 +77,7 @@ body {
 
 .scroll-bar::-webkit-scrollbar-thumb {
   background-color: #c4c4c4;
-}
+}#E0E0E0
 
 .ant-picker-content th:first-child,
 .ant-picker-content td:first-child,
@@ -94,12 +94,12 @@ body {
 
 .ant-menu-light .ant-menu-item-selected,
 .ant-menu-light > .ant-menu .ant-menu-item-selected {
-  @apply relative before:absolute before:bg-white before:h-full before:w-1 before:left-0;
+  @apply relative before:absolute before:bg-[#333] before:h-[70%] before:w-1 before:left-0 rounded-md;
 }
 
 .ant-menu-inline.ant-menu-root .ant-menu-item,
 .ant-menu-inline.ant-menu-root .ant-menu-submenu-title {
-  @apply !rounded-none !px-4;
+  @apply !rounded-none !px-[15px] !py-4;
 }
 
 .ant-menu-inline.ant-menu-root .ant-menu-inline > .ant-menu-item,

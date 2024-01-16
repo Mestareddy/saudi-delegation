@@ -23,3 +23,8 @@ export { default as SpinLoader } from "./SpinLoader";
 export { default as ReceiptTextIcon } from "./ReceiptText";
 export { default as StoreIcon } from "./Store";
 export { default as UserIcon } from "./User";
+export { default as GroupOfPeopleIcon } from "./GroupOfPeople";
+export { default as LogoutIcon } from "./Logout";
+export { default as NotificationIcon } from "./Notification";
+export { default as SearchIcon } from "./Search";
+export { default as FilterIcon } from "./Filter";

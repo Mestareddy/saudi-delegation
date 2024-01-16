@@ -11,6 +11,9 @@ import {
   menuItemRenderer,
   rootSubmenuKeys,
 } from "./helper";
+import { Paragraph } from "@/components/common";
+import { LogoutIcon } from "@/components/icons";
+import HamburgerIcon from "@/components/icons/HamburgerIcon";
 
 const { Sider } = Layout;
 
@@ -48,39 +51,48 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
     <Sider
       collapsed={collapsed}
       width={250}
-      className="h-screen !bg-gray-70"
-      style={{ paddingTop: 32, background: "#E0E0E0" }}
+      className="!bg-gray-70"
     >
-      {!lg && (
-        <div className="flex items-end justify-between" style={{ padding: 16 }}>
-          <div />
-          <button className="bg-white" onClick={toggleCollapsed}>
-            {/* {collapsed ? <Hambuger size="18" /> : <Close size="18" />} */}
-          </button>
+      <>
+        <div className="">
+          {!lg && (
+            <div className="flex items-end justify-between" style={{ padding: 0 }}>
+              <div />
+              <button onClick={toggleCollapsed}>
+                {collapsed ? <HamburgerIcon size="18" /> : <HamburgerIcon size="18" />}
+              </button>
+            </div>
+          )}
+          <div className="w-full flex flex-col justify-between h-full py-6 gap-y-12 mt-10">
+            <div>
+              <Image
+                src="/images/app_logo_green.png"
+                alt="nigeria_saudi_arabia_logo_outlined"
+                width={98}
+                height={40}
+                className="mx-auto w-auto"
+                priority
+              />
+            </div>
+            <div className="bg-gray-70 h-[1px] w-full my-10" />
+            <Menu
+              mode="inline"
+              openKeys={openKeys}
+              onOpenChange={onOpenChange}
+              items={menuItemRenderer()}
+              onClick={({ key }) => router.push(key)}
+              defaultSelectedKeys={[generateDefaultKey(pathname)]}
+              style={{ background: "#E0E0E0", fontWeight: '600', fontSize: 14, lineHeight: 22, paddingLeft: 10 }}
+            />
+          </div>
         </div>
-      )}
-      <div className="w-full flex flex-col py-6 gap-y-12">
-        <div>
-          <Image
-            src="/images/app_logo_green.png"
-            alt="nigeria_saudi_arabia_logo_outlined"
-            width={98}
-            height={40}
-            className="mx-auto w-auto"
-            priority
-          />
+        <div className="absolute flex flex-row  items-center bottom-0 mb-5 py-5 px-[15px]">
+          <LogoutIcon />
+          <Paragraph className="text-sm font-semibold ml-2.5">
+            Logout
+          </Paragraph>
         </div>
-        <div className="bg-gray-70 border h-[1p] w-full my-10" />
-        <Menu
-          mode="inline"
-          openKeys={openKeys}
-          onOpenChange={onOpenChange}
-          defaultSelectedKeys={[generateDefaultKey(pathname)]}
-          onClick={({ key }) => router.push(key)}
-          items={menuItemRenderer()}
-          style={{ background: "#E0E0E0", fontWeight: '600', fontSize: 14, lineHeight: 22 }}
-        />
-      </div>
+      </>
     </Sider>
   );
 }

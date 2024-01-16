@@ -11,12 +11,12 @@ import { ConfigProvider, ThemeConfig } from "antd";
 import { customThemeColor } from "@/constants";
 import StoreProvider from "@/app/StoreProvider";
 
-const { primary, gray, white } = customThemeColor;
+const { primary, gray, white, green, black } = customThemeColor;
 
 const appTheme: ThemeConfig = {
   token: {
-    // colorPrimary: primary[100],
-    // colorPrimaryHover: primary[200],
+    colorPrimary: primary[100],
+    colorPrimaryHover: primary[200],
     // colorTextHeading: gray[10],
     // colorTextLabel: gray[10],
     // colorTextPlaceholder: gray[30],
@@ -25,6 +25,17 @@ const appTheme: ThemeConfig = {
     // colorFillTertiary: gray[10],
   },
   components: {
+    Table: {
+      headerBg: black[30],
+      rowHoverBg: black[30],
+      fontSize: 16,
+      borderRadius: 0,
+      headerBorderRadius: 6,
+      borderRadiusOuter: 0,
+      cellFontSize: 16,
+      cellPaddingInline: 10,
+      cellPaddingBlock: 10,
+    },
     Form: {
       fontWeightStrong: 500,
     },
@@ -87,7 +98,22 @@ const appTheme: ThemeConfig = {
       paddingContentHorizontal: 0,
       boxShadow: ' 0px 10px 20px 0px rgba(0, 0, 0, 0.25)'
     },
-
+    Menu: {
+      subMenuItemBg: primary[100],
+      itemActiveBg: green[10],
+      itemBg: green[10],
+      itemMarginBlock: 0,
+      itemMarginInline: 0,
+      itemPaddingInline: "0",
+      colorText: gray[10],
+      itemColor: gray[10],
+      itemHoverBg: green[10],
+      itemHoverColor: gray[10],
+      itemSelectedBg: green[10],
+      itemSelectedColor: gray[10],
+      itemHeight: 54,
+      groupTitleFontSize: 16,
+    },
   }
 }
 
