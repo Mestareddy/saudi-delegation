@@ -5,3 +5,6 @@ export { default as EventSpeaker } from "./EventSpeaker";
 export { default as CustomButton } from "./CustomButton";
 export { default as TableSkeleton } from "./TableSkeleton";
 export { default as AppPageLoader } from "./AppPageLoader";
+export { default as CustomTable } from "./CustomTable";
+export { default as SearchInput } from "./SearchInput";
+export { default as PaginationHeader } from "./PaginationHeader";
