@@ -14,6 +14,9 @@ const PageContent: React.FunctionComponent = () => {
   const dispatch = useAppDispatch();
   const { columns } = useRegTableColumn();
   const {
+    totalPages,
+    currentPage,
+    handleSearchQuery,
     attendeeSWR: { data, isLoading, isValidating },
   } = useAttendee();
 
@@ -40,19 +43,27 @@ const PageContent: React.FunctionComponent = () => {
     onChange: onSelectChange,
   };
 
+  const searchPanel = (
+    <div className="flex items-center space-x-2">
+      <SearchInput
+        placeholder="Search"
+        onFilter={handleFilter}
+        onChange={handleSearchQuery}
+      />
+    </div>
+  )
+
   return (
     <div>
       <CustomTable
         sticky
         columns={columns}
-        dataSource={dataSource}
         tableTitle="Booths"
+        dataSource={dataSource}
+        totalContent={totalPages}
+        searchPanel={searchPanel}
+        currentPage={currentPage}
         loading={isLoading || isValidating}
-        searchPanel={
-          <div className="flex items-center space-x-2">
-            <SearchInput onFilter={handleFilter} placeholder="Search" />
-          </div>
-        }
         rowSelection={rowSelection}
         onRow={(record) => ({
           onClick: () => {
