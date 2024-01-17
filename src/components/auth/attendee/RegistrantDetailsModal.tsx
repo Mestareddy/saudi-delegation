@@ -4,8 +4,8 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { RootState } from "@/lib/store";
 import { Modal } from "antd";
 import React from "react";
-import RegistrantMainDetails from "./RegistrantMainDetails";
 import RegistrantMoreDetails from "./RegistrantMoreDetails";
+import RegistrantMainDetails from "./RegistrantMainDetails";
 
 interface Props {
   registrantModalStatus?: boolean;
@@ -29,9 +29,12 @@ const RegistrantDetailsModal = ({ registrantModalStatus }: Props) => {
       onCancel={handleCancel}
       footer={null}
       width={1000}
+      className="!w-[100vw]"
     >
-      <RegistrantMainDetails registrantInfo={registrantInfo} />
-      <RegistrantMoreDetails registrantInfo={registrantInfo} />
+      <div className="flex flex-col justify-center items-center gap-5">
+        <RegistrantMainDetails registrantInfo={registrantInfo} />
+        <RegistrantMoreDetails registrantInfo={registrantInfo} />
+      </div>
     </Modal>
   );
 };
