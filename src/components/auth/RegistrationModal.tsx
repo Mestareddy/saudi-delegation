@@ -27,7 +27,7 @@ const RegistrationModal: React.FunctionComponent<RegistrationModalProps> =
     );
 
     const {
-      registerEventSWR: { error, isMutating, trigger },
+      registerEventSWR: { isMutating, trigger },
     } = useRegister();
 
     const registerEvent = (data: TRegisterform) => {
@@ -38,7 +38,7 @@ const RegistrationModal: React.FunctionComponent<RegistrationModalProps> =
         .then(() => {
           setHasRegistered(true);
         })
-        .catch(() => {
+        .catch((error) => {
           message.open({
             type: "error",
             content: apiErrorHandler(error),
