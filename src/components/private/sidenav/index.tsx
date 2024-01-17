@@ -77,7 +77,7 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
                 priority
               />
             </div>
-            <div className="bg-gray-70 border-gray-70 h-[1px] w-[90%] mt-5 mb-7" />
+            <div className="bg-gray-70 border border-gray-70 h-[1px] w-[90%] mt-5 mb-7" />
             <Menu
               mode="inline"
               openKeys={openKeys}

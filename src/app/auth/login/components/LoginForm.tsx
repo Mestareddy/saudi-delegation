@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Form, Input, message } from "antd";
 import Link from "next/link";
 import { CustomButton } from "@/components/common";
-import useLogin from "@/components/auth/useLogin";
+import useLogin from "@/components/hooks/useLogin";
 import { apiErrorHandler } from "@/services";
 import { useRouter } from "next/navigation";
 import { setLocalStorageItem } from "@/util";
