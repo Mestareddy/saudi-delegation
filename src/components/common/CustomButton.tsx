@@ -4,7 +4,14 @@ import Link from "next/link";
 import { Url } from "next/dist/shared/lib/router/router";
 
 type Size = "sm" | "md" | "lg";
-type ButtonVariant = "contained" | "outlined" | "text" | "outlined-light";
+type ButtonVariant =
+  | "contained"
+  | "outlined"
+  | "text"
+  | "outlined-light"
+  | "acceptButton"
+  | "declineButton"
+  | "greyedButton";
 
 interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -26,6 +33,12 @@ const variantStyles = {
   contained: "!bg-black-20 !text-white hover:!bg-green-hover",
   outlined:
     "bg-white hover:bg-green-hover border-2 text-black-20 hover:text-white hover:border-green-hover border-black-20 ",
+  acceptButton:
+    "border-2 border-[#00A96E] hover:!border-[#00A96E] bg-white h-[38px] px-5",
+  declineButton:
+    "border-2 border-[#EB5757] hover:!border-[#EB5757] bg-white h-[38px] px-5",
+  greyedButton:
+    "border-2 border-[#BDBDBD] hover:!border-[#BDBDBD] bg-white h-[38px] px-5",
   text: "text-black-20 hover:bg-green-hover",
   "outlined-light":
     "bg-transparent hover:bg-green-hover hover:border-green-hover border-2 text-white border-white",

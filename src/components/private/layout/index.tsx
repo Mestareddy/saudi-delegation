@@ -4,7 +4,7 @@ import { Layout as AntLayout } from "antd";
 import SideNav from "../sidenav";
 import AppHeader from "../header";
 import { User, UserPreDefinedRole } from "@/types/auth";
-import RegistrantDetailsModal from "@/components/auth/RegistrantDetailsModal";
+import RegistrantDetailsModal from "@/components/auth/attendee/RegistrantDetailsModal";
 import { useAppSelector } from "@/lib/hooks";
 import { RootState } from "@/lib/store";
 

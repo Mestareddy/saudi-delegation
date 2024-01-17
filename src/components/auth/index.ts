@@ -5,7 +5,6 @@ export { default as AuthHeader } from "./AuthHeader";
 export { default as PartnershipSection } from "./PartnershipSection";
 export { default as RegistrationCompleted } from "./RegistrationCompleted";
 export { default as BusinessDetailsForm } from "./BusinessDetailsForm";
-export { default as useRegister } from "./useRegister";
+export { default as useRegister } from "../hooks/useRegister";
 
-
-export * from './types'
+export * from "./types";

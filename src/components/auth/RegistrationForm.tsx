@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Select, Input } from "antd";
 import { Paragraph, CustomButton } from "../common";
 import { ArrowDownIcon, CheckedBoxIcon, UnCheckedBoxIcon } from "../icons";
-import useRegister from "./useRegister";
+import useRegister from "../hooks/useRegister";
 import { TCheckboxes, TRegisterform } from "./types";
 import BusinessDetailsForm from "./BusinessDetailsForm";
 import { defaultCheckboxErrors, formItemStyle } from "./utils";
@@ -117,10 +117,11 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
             />
           )}
           <Paragraph
-            className={`font-semibold ${checkboxErrors.request_as_speaker
-              ? "text-red-100"
-              : "text-black-20"
-              }`}
+            className={`font-semibold ${
+              checkboxErrors.request_as_speaker
+                ? "text-red-100"
+                : "text-black-20"
+            }`}
           >
             Request Speaking Opportunity
           </Paragraph>
@@ -138,8 +139,9 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
             />
           )}
           <Paragraph
-            className={`font-semibold ${checkboxErrors.request_booth ? "text-red-100" : "text-black-20"
-              }`}
+            className={`font-semibold ${
+              checkboxErrors.request_booth ? "text-red-100" : "text-black-20"
+            }`}
           >
             Request a Booth
           </Paragraph>
@@ -171,8 +173,9 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
           )}
           <Paragraph
             type="body2"
-            className={`${checkboxErrors.accept_terms ? "text-red-100" : "text-black-20"
-              }`}
+            className={`${
+              checkboxErrors.accept_terms ? "text-red-100" : "text-black-20"
+            }`}
           >
             By submitting this form, you agree to our
             <span className="underline mx-1">Terms of Service</span> ,

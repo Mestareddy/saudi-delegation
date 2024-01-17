@@ -6,8 +6,7 @@ import {
 } from "@/services";
 import useSWR from "swr";
 import useSWRMutation from "swr/mutation";
-import { Country } from "./types";
-
+import { Country } from "../auth/types";
 
 const useRegister = () => {
   const countrySWR = useSWR<{
