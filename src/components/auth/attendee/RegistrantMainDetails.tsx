@@ -9,7 +9,7 @@ const RegistrantMainDetails = ({ registrantInfo }: RegistrantMainInfo) => {
   // console.log(registrantInfo);
 
   return (
-    <div className="w-[90%] sm:w-[70%] lg:w-[60%] border border-[#BDBDBD] rounded-lg">
+    <div className="w-[90%] md:w-[70%] lg:w-[70%] border border-[#BDBDBD] rounded-lg">
       <div className="m-5">
         <h1 className="font-semibold leading-[20.24px] text-[16px] text-[#4F4F4F]">
           Main Details
