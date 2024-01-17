@@ -24,7 +24,7 @@ const SearchInput: React.FunctionComponent<SearchInputProps> = ({
         <input
           type="text"
           {...otherInputProps}
-          className="placeholder:text-sm ml-2.5 text-gray-minst-main outline-none !border-transparent !focus:border-transparent"
+          className="placeholder:text-sm placeholder:text-black-20 ml-2.5 text-black-20 outline-none !border-transparent !focus:border-transparent"
         />
         {value && <RoundedCloseIcon onClick={onClear} size="20" />}
       </div>

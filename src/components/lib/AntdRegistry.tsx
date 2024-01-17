@@ -27,7 +27,7 @@ const appTheme: ThemeConfig = {
   components: {
     Table: {
       headerBg: black[30],
-      rowHoverBg: black[30],
+      rowHoverBg: primary[300],
       fontSize: 16,
       borderRadius: 0,
       headerBorderRadius: 6,

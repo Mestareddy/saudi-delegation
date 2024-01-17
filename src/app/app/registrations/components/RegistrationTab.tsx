@@ -1,9 +1,10 @@
 import { Tabs, TabsProps } from "antd";
 import React from "react";
+import { TAttendeeStatus } from "../types";
 
 interface RegistrationTabProps {
   /* eslint-disable-next-line */
-  onTabSelect?: (key: string) => void;
+  onTabSelect?: (key: TAttendeeStatus) => void;
   defaultKey?: string;
 }
 
@@ -13,26 +14,25 @@ const RegistrationTab: React.FunctionComponent<RegistrationTabProps> = ({
 }) => {
   const onChange = (key: string) => {
     if (onTabSelect) {
-      onTabSelect(key);
+      onTabSelect(key as TAttendeeStatus);
     }
   };
 
   const items: TabsProps["items"] = [
     {
-      key: "Submissions",
+      key: "register",
       label: "Submissions",
     },
     {
-      key: "Declined Registrations",
+      key: "reject",
       label: "Declined Registrations",
     },
   ];
+
   return (
     <Tabs
       tabBarStyle={{
         fontWeight: 600,
-        // paddingInline: 30,
-        // marginBottom: 40
       }}
       tabBarGutter={30}
       defaultActiveKey={defaultKey}

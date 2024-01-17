@@ -46,8 +46,8 @@ const CustomTable = <T extends object>({
         </div>
         <div className="flex flex-col">{searchPanel}</div>
       </div>
-      <div className="h-full bg-white flex flex-col">
-        <div className="h-[calc(100vh-160px)] overflow-auto">
+      <div className="h-full flex flex-col">
+        <div className="h-[calc(100vh-100px)] overflow-auto">
           <Table
             {...otherTableProps}
             scroll={{ x: "max-content" }}
