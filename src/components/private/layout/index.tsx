@@ -4,6 +4,9 @@ import { Layout as AntLayout } from "antd";
 import SideNav from "../sidenav";
 import AppHeader from "../header";
 import { User, UserPreDefinedRole } from "@/types/auth";
+import RegistrantDetailsModal from "@/components/auth/RegistrantDetailsModal";
+import { useAppSelector } from "@/lib/hooks";
+import { RootState } from "@/lib/store";
 
 const { Content } = AntLayout;
 
@@ -13,6 +16,9 @@ type Props = {
 };
 
 function Layout({ children, user }: Props) {
+  const registrantModalStatus = useAppSelector(
+    (state: RootState) => state.registrantDetailsModalSlice.value
+  );
   return (
     <AntLayout className="!bg-gray-70">
       <div className="h-screen flex w-full">
@@ -21,6 +27,7 @@ function Layout({ children, user }: Props) {
           <AppHeader />
           <Content className="w-full p-2.5">{children}</Content>
         </AntLayout>
+        <RegistrantDetailsModal registrantModalStatus={registrantModalStatus} />
       </div>
     </AntLayout>
   );

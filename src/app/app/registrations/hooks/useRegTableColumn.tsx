@@ -1,20 +1,20 @@
-import { ColumnsType } from 'antd/es/table';
-import { useMemo } from 'react'
+import { ColumnsType } from "antd/es/table";
+import { useMemo } from "react";
 
 const useRegTableColumn = () => {
-
   const columns = useMemo(() => {
     const header: ColumnsType<any> = [
       {
         title: "Company Name",
         dataIndex: "business_name",
-        // ellipsis: true,
+        ellipsis: true,
+        width: 150,
       },
       {
         title: "Industry",
         dataIndex: "industry",
         width: 200,
-        key: 'surname',
+        key: "surname",
         // ellipsis: true,
       },
       {
@@ -26,7 +26,7 @@ const useRegTableColumn = () => {
       {
         title: "Attendance",
         dataIndex: "attendance",
-        key: 'gender',
+        key: "gender",
         width: 200,
         // ellipsis: true,
       },
@@ -45,13 +45,14 @@ const useRegTableColumn = () => {
         title: "Company/Employee Size",
         dataIndex: "company_size",
         ellipsis: true,
+        width: 250,
       },
     ];
-    return header
-  }, [])
+    return header;
+  }, []);
   return {
-    columns
-  }
-}
+    columns,
+  };
+};
 
-export default useRegTableColumn
+export default useRegTableColumn;

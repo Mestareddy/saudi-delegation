@@ -18,9 +18,9 @@ const Hero = () => {
         <Image
           src="/images/nigeria_saudi_arabia_white_logo.png"
           alt=""
-          className="logoWhite hidden sm:flex w-[150px] lg:w-[195px] h-[60px] lg:h-[80px] "
+          className="logoWhite hidden sm:flex w-[150px] lg:w-[345px] h-[60px] lg:h-[100px] "
           width={195}
-          height={80}
+          height={100}
         />
         <h1 className="heroTitle bebas text-center text-white text-normal text-[30px] sm:text-[48px] font-normal leading-normal font-bebas uppercase">
           The Nigeria Saudi Business Forum

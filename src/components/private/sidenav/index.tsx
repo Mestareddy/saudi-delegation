@@ -18,7 +18,7 @@ import HamburgerIcon from "@/components/icons/HamburgerIcon";
 const { Sider } = Layout;
 
 interface SideNavProps {
-  role?: UserPreDefinedRole
+  role?: UserPreDefinedRole;
 }
 
 const SideNav: React.FunctionComponent<SideNavProps> = () => {
@@ -48,25 +48,28 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
   };
 
   return (
-    <Sider
-      collapsed={collapsed}
-      width={250}
-      className="!bg-gray-70"
-    >
+    <Sider collapsed={collapsed} width={250} className="!bg-gray-70">
       <>
         <div className="">
           {!lg && (
-            <div className="flex items-end justify-between" style={{ padding: 0 }}>
+            <div
+              className="flex items-end justify-between"
+              style={{ padding: 0 }}
+            >
               <div />
               <button onClick={toggleCollapsed}>
-                {collapsed ? <HamburgerIcon size="18" /> : <HamburgerIcon size="18" />}
+                {collapsed ? (
+                  <HamburgerIcon size="18" />
+                ) : (
+                  <HamburgerIcon size="18" />
+                )}
               </button>
             </div>
           )}
-          <div className="w-full flex flex-col justify-between h-full py-6 gap-y-12 mt-10">
+          <div className="w-full flex flex-col justify-between h-full py-6 gap-y-3 mt-10 items-center">
             <div>
               <Image
-                src="/images/app_logo_green.png"
+                src="/images/nigeria_saudi_arabia_logo.png"
                 alt="nigeria_saudi_arabia_logo_outlined"
                 width={98}
                 height={40}
@@ -74,7 +77,7 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
                 priority
               />
             </div>
-            <div className="bg-gray-70 h-[1px] w-full my-10" />
+            <div className="bg-gray-70 border-gray-70 h-[1px] w-[90%] mt-5 mb-7" />
             <Menu
               mode="inline"
               openKeys={openKeys}
@@ -82,19 +85,23 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
               items={menuItemRenderer()}
               onClick={({ key }) => router.push(key)}
               defaultSelectedKeys={[generateDefaultKey(pathname)]}
-              style={{ background: "#E0E0E0", fontWeight: '600', fontSize: 14, lineHeight: 22, paddingLeft: 10 }}
+              style={{
+                background: "#E0E0E0",
+                fontWeight: "600",
+                fontSize: 14,
+                lineHeight: 22,
+                paddingLeft: 10,
+              }}
             />
           </div>
         </div>
         <div className="absolute flex flex-row  items-center bottom-0 mb-5 py-5 px-[15px]">
           <LogoutIcon />
-          <Paragraph className="text-sm font-semibold ml-2.5">
-            Logout
-          </Paragraph>
+          <Paragraph className="text-sm font-semibold ml-2.5">Logout</Paragraph>
         </div>
       </>
     </Sider>
   );
-}
+};
 
 export default SideNav;
