@@ -4,6 +4,8 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { RootState } from "@/lib/store";
 import { Modal } from "antd";
 import React from "react";
+import RegistrantMainDetails from "./RegistrantMainDetails";
+import RegistrantMoreDetails from "./RegistrantMoreDetails";
 
 interface Props {
   registrantModalStatus?: boolean;
@@ -22,16 +24,14 @@ const RegistrantDetailsModal = ({ registrantModalStatus }: Props) => {
 
   return (
     <Modal
-      title="Modal 1000px width"
       centered
       open={registrantModalStatus}
       onCancel={handleCancel}
       footer={null}
       width={1000}
     >
-      <p>{registrantInfo.business_name}</p>
-      <p>some contents...</p>
-      <p>some contents...</p>
+      <RegistrantMainDetails registrantInfo={registrantInfo} />
+      <RegistrantMoreDetails registrantInfo={registrantInfo} />
     </Modal>
   );
 };
