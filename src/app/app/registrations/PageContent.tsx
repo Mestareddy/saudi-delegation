@@ -1,12 +1,12 @@
 import { CustomTable, SearchInput } from "@/components/common";
 import React from "react";
 import { RegistrationTab } from "./components";
-import { useRegTableColumn } from "./hooks";
 import { useAppDispatch } from "@/lib/hooks";
 import {
   setRegistrantData,
   toggleRegistrantDetailsModalOpen,
 } from "@/lib/features/registrantDetailsModalSlice";
+import { useAttendee, useRegTableColumn } from "./hooks";
 
 const data = [
   {
@@ -29,6 +29,8 @@ const duplicatedData = Array.from({ length: 50 }, (_, index) => ({
 const PageContent: React.FunctionComponent = () => {
   const dispatch = useAppDispatch();
   const { columns } = useRegTableColumn();
+  const { attendeeSWR: { data } } = useAttendee()
+
   const handleFilter = () => {
     return true;
   };
@@ -57,6 +59,7 @@ const PageContent: React.FunctionComponent = () => {
           },
           style: { cursor: "pointer" },
         })}
+        scroll={{ x: 1500, y: 300 }}
       />
     </div>
   );

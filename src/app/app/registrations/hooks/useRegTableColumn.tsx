@@ -21,14 +21,14 @@ const useRegTableColumn = () => {
         title: "Company Email",
         dataIndex: "business_email",
         width: 200,
-        // ellipsis: true,
+        ellipsis: true,
       },
       {
         title: "Attendance",
         dataIndex: "attendance",
         key: "gender",
         width: 200,
-        // ellipsis: true,
+        ellipsis: true,
       },
       {
         title: "Speaking Opportunity",
@@ -44,6 +44,7 @@ const useRegTableColumn = () => {
       {
         title: "Company/Employee Size",
         dataIndex: "company_size",
+        width: 250,
         ellipsis: true,
         width: 250,
       },
