@@ -1,13 +1,13 @@
 import { CustomTable, SearchInput } from "@/components/common";
 import React, { useState } from "react";
-import { RegistrationTab } from "./components";
 import { useAppDispatch } from "@/lib/hooks";
 import {
   setRegistrantData,
   toggleRegistrantDetailsModalOpen,
 } from "@/lib/features/registrantDetailsModalSlice";
-import { useAttendee, useRegTableColumn } from "./hooks";
 import { TableRowSelection } from "antd/es/table/interface";
+import { useAttendee, useRegTableColumn } from "../registrations/hooks";
+import { TAttendee } from "../registrations/types";
 
 const PageContent: React.FunctionComponent = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
@@ -15,10 +15,9 @@ const PageContent: React.FunctionComponent = () => {
   const { columns } = useRegTableColumn();
   const {
     attendeeSWR: { data, isLoading, isValidating },
-    changeAttendeeStatus,
   } = useAttendee();
 
-  const dataSource = data?.data.map((item) => ({
+  const dataSource = data?.data.map((item: TAttendee) => ({
     ...item,
     key: item.id,
   }));
@@ -47,7 +46,7 @@ const PageContent: React.FunctionComponent = () => {
         sticky
         columns={columns}
         dataSource={dataSource}
-        tableTitle="Registrations"
+        tableTitle="Speakers"
         loading={isLoading || isValidating}
         searchPanel={
           <div className="flex items-center space-x-2">
@@ -61,12 +60,6 @@ const PageContent: React.FunctionComponent = () => {
           },
           style: { cursor: "pointer" },
         })}
-        tabs={
-          <RegistrationTab
-            onTabSelect={changeAttendeeStatus}
-            defaultKey={"Submissions"}
-          />
-        }
       />
     </div>
   );

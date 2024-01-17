@@ -3,7 +3,6 @@ import {
   getLocalStorageItem,
   removeLocalStorageItem,
   USER_DETAILS,
-  USER_SESSION,
 } from "@/util";
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 
@@ -18,9 +17,9 @@ export const apiInstance: AxiosInstance = axios.create({
 
 apiInstance.interceptors.request.use(
   (config) => {
-    const token = getLocalStorageItem(USER_SESSION);
+    const token = getLocalStorageItem<any>(USER_DETAILS);
     if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+      config.headers.Authorization = `Bearer ${token.access_token}`;
     }
     return config;
   },
@@ -32,7 +31,6 @@ apiInstance.interceptors.response.use(
   async (error: AxiosError) => {
     if (error.status === 401 || error?.response?.status === 401) {
       removeLocalStorageItem(USER_DETAILS);
-      removeLocalStorageItem(USER_SESSION);
       // Router.replace("/auth/login");
     }
     return Promise.reject(error);
