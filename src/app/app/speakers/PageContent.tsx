@@ -15,6 +15,9 @@ const PageContent: React.FunctionComponent = () => {
   const { columns } = useRegTableColumn();
   const {
     attendeeSWR: { data, isLoading, isValidating },
+    totalPages,
+    currentPage,
+    handleSearchQuery,
   } = useAttendee();
 
   const dataSource = data?.data.map((item: TAttendee) => ({
@@ -40,6 +43,17 @@ const PageContent: React.FunctionComponent = () => {
     onChange: onSelectChange,
   };
 
+
+  const searchPanel = (
+    <div className="flex items-center space-x-2">
+      <SearchInput
+        placeholder="Search"
+        onFilter={handleFilter}
+        onChange={handleSearchQuery}
+      />
+    </div>
+  )
+
   return (
     <div>
       <CustomTable
@@ -47,12 +61,10 @@ const PageContent: React.FunctionComponent = () => {
         columns={columns}
         dataSource={dataSource}
         tableTitle="Speakers"
+        totalContent={totalPages}
+        currentPage={currentPage}
         loading={isLoading || isValidating}
-        searchPanel={
-          <div className="flex items-center space-x-2">
-            <SearchInput onFilter={handleFilter} placeholder="Search" />
-          </div>
-        }
+        searchPanel={searchPanel}
         rowSelection={rowSelection}
         onRow={(record) => ({
           onClick: () => {

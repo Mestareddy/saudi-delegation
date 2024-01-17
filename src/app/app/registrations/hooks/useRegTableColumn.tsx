@@ -1,4 +1,6 @@
 import { Paragraph } from "@/components/common";
+import { CircleCloseIcon, MoreIcon, TickCircleIcon } from "@/components/icons";
+import { MenuProps, Space, Dropdown } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { useMemo } from "react";
 
@@ -50,6 +52,63 @@ const useRegTableColumn = () => {
         dataIndex: "company_size",
         width: 250,
         ellipsis: true,
+      },
+      {
+        title: "Action",
+        key: "action",
+        ellipsis: true,
+        width: 200,
+        onCell: () => {
+          return {
+            onClick: (event: React.MouseEvent) => {
+              event.stopPropagation();
+            },
+          };
+        },
+        render: (record) => {
+          const handleMenuClick: MenuProps["onClick"] = () => {
+            return record;
+          };
+
+          const items: MenuProps["items"] = [
+            {
+              key: "1",
+              label: (
+                <div className="flex flex-row items-center mb-1">
+                  <TickCircleIcon />
+                  <Paragraph className="ml-2 font-semibold">Approve</Paragraph>
+                </div>
+              ),
+            },
+            {
+              key: "2",
+              label: (
+                <div className="flex flex-row items-center">
+                  <CircleCloseIcon />
+                  <Paragraph className="ml-2 font-semibold">Decline</Paragraph>
+                </div>
+              ),
+            },
+          ];
+          return (
+            <>
+              <Space size="middle">
+                <Dropdown
+                  menu={{
+                    items, onClick: handleMenuClick, style: {
+                      padding: 15
+                    }
+                  }}
+                  placement="bottomRight"
+                >
+                  <Space>
+                    <MoreIcon />
+                  </Space>
+                </Dropdown>
+              </Space>
+            </>
+          );
+        },
       },
     ];
     return header;
