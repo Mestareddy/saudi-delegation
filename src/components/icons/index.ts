@@ -31,3 +31,4 @@ export { default as FilterIcon } from "./Filter";
 export { default as MoreIcon } from "./More";
 export { default as TickCircleIcon } from "./TickCircle";
 export { default as CircleCloseIcon } from "./CircleClose";
+export { default as DocumentDownloadIcon } from "./DocumentDownload";
