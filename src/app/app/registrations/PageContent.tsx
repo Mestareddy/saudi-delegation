@@ -1,5 +1,5 @@
 import { CustomTable, SearchInput } from "@/components/common";
-import React from "react";
+import React, { useState } from "react";
 import { RegistrationTab } from "./components";
 import { useAppDispatch } from "@/lib/hooks";
 import {
@@ -7,29 +7,21 @@ import {
   toggleRegistrantDetailsModalOpen,
 } from "@/lib/features/registrantDetailsModalSlice";
 import { useAttendee, useRegTableColumn } from "./hooks";
-
-const data = [
-  {
-    id: 1,
-    business_name: "Chill Co",
-    industry: "Banking/finance",
-    business_email: "chillco@gmail.com",
-    attendance: "Requested",
-    speaking_opportunity: "N/A",
-    booth: "Requested",
-    company_size: "100-150",
-  },
-];
-
-const duplicatedData = Array.from({ length: 50 }, (_, index) => ({
-  ...data[0],
-  id: index + 1, // Assuming you want unique IDs for duplicated objects
-}));
+import { TableRowSelection } from "antd/es/table/interface";
 
 const PageContent: React.FunctionComponent = () => {
+  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const dispatch = useAppDispatch();
   const { columns } = useRegTableColumn();
-  const { attendeeSWR: { data } } = useAttendee()
+  const {
+    attendeeSWR: { data, isLoading, isValidating },
+    changeAttendeeStatus,
+  } = useAttendee();
+
+  const dataSource = data?.data.map((item) => ({
+    ...item,
+    key: item.id,
+  }));
 
   const handleFilter = () => {
     return true;
@@ -38,28 +30,43 @@ const PageContent: React.FunctionComponent = () => {
   const toggleRegistrantModal = (record: any) => {
     dispatch(setRegistrantData(record));
     dispatch(toggleRegistrantDetailsModalOpen());
-    // console.log(record);
   };
+
+  const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
+    setSelectedRowKeys(newSelectedRowKeys);
+  };
+
+  const rowSelection: TableRowSelection<any> = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+  };
+
   return (
     <div>
       <CustomTable
         sticky
-        tableTitle="Registrations"
         columns={columns}
-        dataSource={duplicatedData}
-        tabs={<RegistrationTab defaultKey={"Submissions"} />}
+        dataSource={dataSource}
+        tableTitle="Registrations"
+        loading={isLoading || isValidating}
         searchPanel={
           <div className="flex items-center space-x-2">
             <SearchInput onFilter={handleFilter} placeholder="Search" />
           </div>
         }
+        rowSelection={rowSelection}
         onRow={(record) => ({
           onClick: () => {
             toggleRegistrantModal(record);
           },
           style: { cursor: "pointer" },
         })}
-        scroll={{ x: 1500, y: 300 }}
+        tabs={
+          <RegistrationTab
+            onTabSelect={changeAttendeeStatus}
+            defaultKey={"Submissions"}
+          />
+        }
       />
     </div>
   );

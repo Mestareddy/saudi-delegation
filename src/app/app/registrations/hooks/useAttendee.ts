@@ -1,14 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { apiFetcher } from "@/services";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
-
-type TAttendeeStatus = "register" | "reject" | "approve";
+import { TAttendee, TAttendeeStatus } from "../types";
 
 const useAttendee = () => {
   const [attendeeStatus, setAttendeeStatus] =
     useState<TAttendeeStatus>("register");
   const attendeeSWR = useSWR<{
-    data: any[];
+    data: TAttendee[];
   }>(`/event?status=${attendeeStatus}`, apiFetcher, {
     revalidateOnFocus: false,
   });
