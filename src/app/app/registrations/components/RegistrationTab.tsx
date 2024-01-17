@@ -3,16 +3,18 @@ import React from "react";
 
 interface RegistrationTabProps {
   /* eslint-disable-next-line */
-  onTabSelect?: (key: string) => void
-  defaultKey?: string
+  onTabSelect?: (key: string) => void;
+  defaultKey?: string;
 }
 
-const RegistrationTab: React.FunctionComponent<RegistrationTabProps> = ({ onTabSelect, defaultKey }) => {
+const RegistrationTab: React.FunctionComponent<RegistrationTabProps> = ({
+  onTabSelect,
+  defaultKey,
+}) => {
   const onChange = (key: string) => {
     if (onTabSelect) {
-      onTabSelect(key)
+      onTabSelect(key);
     }
-
   };
 
   const items: TabsProps["items"] = [
@@ -21,7 +23,7 @@ const RegistrationTab: React.FunctionComponent<RegistrationTabProps> = ({ onTabS
       label: "Submissions",
     },
     {
-      key: "pDeclined Registrationsaid",
+      key: "Declined Registrations",
       label: "Declined Registrations",
     },
   ];

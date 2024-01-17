@@ -29,9 +29,9 @@ const Header: React.FunctionComponent<HeaderProps> = () => {
           <Image
             src="/images/nigeria_saudi_arabia_logo.png"
             alt=""
-            height={60}
-            width={148}
-            className="h-[30px] w-[74px] sm:h-[60px] sm:w-[148px]"
+            height={50}
+            width={172}
+            className="h-[30px] w-[94px] sm:h-[50px] sm:w-[172px]"
           />
         </Link>
         <HamburgerIcon
