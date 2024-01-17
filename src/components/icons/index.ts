@@ -28,3 +28,6 @@ export { default as LogoutIcon } from "./Logout";
 export { default as NotificationIcon } from "./Notification";
 export { default as SearchIcon } from "./Search";
 export { default as FilterIcon } from "./Filter";
+export { default as MoreIcon } from "./More";
+export { default as TickCircleIcon } from "./TickCircle";
+export { default as CircleCloseIcon } from "./CircleClose";
