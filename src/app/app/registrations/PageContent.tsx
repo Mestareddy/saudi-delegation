@@ -15,12 +15,12 @@ const PageContent: React.FunctionComponent = () => {
   const dispatch = useAppDispatch();
   const { columns } = useRegTableColumn();
   const {
-    attendeeSWR: { data, isLoading, isValidating },
     totalPages,
     currentPage,
     attendeeStatus,
     handleSearchQuery,
     changeAttendeeStatus,
+    attendeeSWR: { data, isLoading, isValidating },
   } = useAttendee();
 
   const dataSource = data?.data.map((item) => ({

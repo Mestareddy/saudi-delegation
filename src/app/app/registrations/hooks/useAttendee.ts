@@ -5,9 +5,10 @@ import { ChangeEvent, useEffect, useState } from "react";
 import useSWR from "swr";
 import { TAttendee, TAttendeeStatus } from "../types";
 
-const useAttendee = () => {
-  const [attendeeStatus, setAttendeeStatus] =
-    useState<TAttendeeStatus>("register");
+const useAttendee = (defaultStatus?: TAttendeeStatus) => {
+  const [attendeeStatus, setAttendeeStatus] = useState<TAttendeeStatus>(
+    defaultStatus || "register"
+  );
   const [searchQuery, setSearchQuery] = useState<string | undefined>(undefined);
   const {
     itemPerPage,
@@ -36,7 +37,6 @@ const useAttendee = () => {
     }
   );
 
-
   useEffect(() => {
     if (debouncedValue) {
       attendeeSWR.mutate();
@@ -44,7 +44,7 @@ const useAttendee = () => {
   }, [debouncedValue]);
 
   useEffect(() => {
-      attendeeSWR.mutate();
+    attendeeSWR.mutate();
   }, [attendeeStatus, currentPage]);
 
   const paginate = (page: number) => {
@@ -64,8 +64,8 @@ const useAttendee = () => {
     if (event.target.value) {
       const queries = getParams(event.target.value);
       setSearchQuery(queries);
-    }else{
-      setSearchQuery(undefined)
+    } else {
+      setSearchQuery(undefined);
     }
   };
 

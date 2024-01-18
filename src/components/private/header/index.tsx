@@ -2,10 +2,13 @@ import React from "react";
 import { Dropdown, MenuProps, Avatar, Layout } from "antd";
 import { Heading, Paragraph } from "@/components/common";
 import { LogoutIcon, NotificationIcon, UserIcon } from "@/components/icons";
+import useLogin from "@/components/hooks/useLogin";
 
 const { Header } = Layout;
 
 const AppHeader: React.FunctionComponent = () => {
+  const { user, logout } = useLogin()
+
   const items: MenuProps["items"] = [
     {
       key: "1",
@@ -20,7 +23,7 @@ const AppHeader: React.FunctionComponent = () => {
       key: "2",
       icon: (
         <span>
-          <LogoutIcon />
+          <LogoutIcon onClick={logout} role="button" />
         </span>
       ),
       label: <Paragraph className="font-semibold">Logout</Paragraph>,
@@ -46,10 +49,10 @@ const AppHeader: React.FunctionComponent = () => {
                 type="btn"
                 className="text-sm  font-medium font-robot mb-0.5"
               >
-                user
+                {user?.first_name}
               </Heading>
               <Paragraph className="font-normal !text-sm !text-gray-80">
-                Adim
+                {user?.role}
               </Paragraph>
             </div>
           </div>
