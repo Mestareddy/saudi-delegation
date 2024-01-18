@@ -2,7 +2,7 @@ import { Paragraph } from "@/components/common";
 import { CircleCloseIcon, MoreIcon, TickCircleIcon } from "@/components/icons";
 import { MenuProps, Space, Dropdown } from "antd";
 import { ColumnsType } from "antd/es/table";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 
 const useRegTableColumn = () => {
   const columns = useMemo(() => {
