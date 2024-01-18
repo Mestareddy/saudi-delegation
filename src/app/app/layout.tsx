@@ -2,10 +2,22 @@
 import { SWRConfig } from "swr";
 import React, { lazy, Suspense } from "react";
 import { SpinLoader } from "@/components/icons";
+import ApproveModal from "@/components/attendee/ApproveModal";
+import DeclineModal from "@/components/attendee/DeclineModal";
+import { useAppSelector } from "@/lib/hooks";
+import { RootState } from "@/lib/store";
 
 const AppLayout = lazy(() => import("../../components/private/layout"));
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const approvalModalStatus = useAppSelector(
+    (state: RootState) =>
+      state.registrantDetailsModalSlice.registrantApproveModal
+  );
+  const declienModalStatus = useAppSelector(
+    (state: RootState) =>
+      state.registrantDetailsModalSlice.registrantDeclineModal
+  );
   return (
     <SWRConfig value={{ provider: () => new Map() }}>
       <Suspense
@@ -16,6 +28,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         }
       >
         <AppLayout user={null}>{children}</AppLayout>
+        <ApproveModal approvalModalStatus={approvalModalStatus} />
+        <DeclineModal declienModalStatus={declienModalStatus} />
       </Suspense>
     </SWRConfig>
   );

@@ -1,13 +1,11 @@
 import React from "react";
 import AttendeeData from "./AttendeeData";
 import SpeakingData from "./SpeakingData";
-import { RegistrantMainInfo } from "../types";
+import { RegistrantMainInfo } from "../auth/types";
 import BoothData from "./BoothData";
 import DeclinedData from "./DeclinedData";
 
 const RegistrantMainDetails = ({ registrantInfo }: RegistrantMainInfo) => {
-  // console.log(registrantInfo);
-
   return (
     <div className="w-[90%] md:w-[70%] lg:w-[70%] border border-[#BDBDBD] rounded-lg">
       <div className="m-5">
