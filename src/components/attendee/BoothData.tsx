@@ -1,8 +1,8 @@
 import StatusBox from "@/components/common/StatusBox";
 import React from "react";
 import { RegistrantMainInfo } from "../auth/types";
-import { CustomButton } from "@/components/common";
-import { CancelIcon, TickIcon } from "@/components/icons";
+import AddButton from "./AcceptButton";
+import DeclineButton from "./DeclineButton";
 
 const BoothData = ({ registrantInfo }: RegistrantMainInfo) => {
   const acceptanceStatus: string =
@@ -11,14 +11,6 @@ const BoothData = ({ registrantInfo }: RegistrantMainInfo) => {
       : registrantInfo.status === "approved"
       ? "approved"
       : "declined";
-
-  const onAccept = () => {
-    console.log("Accept button clicked");
-  };
-
-  const onDecline = () => {
-    console.log("Decline button clicked");
-  };
 
   return (
     <div className="attendee grid grid-rows-1 sm:grid-cols-8 my-3">
@@ -39,16 +31,8 @@ const BoothData = ({ registrantInfo }: RegistrantMainInfo) => {
           </h1>
         )}
         <div className="buttons gap-3 flex flex-row my-3">
-          <CustomButton variant="acceptButton" onClick={onAccept}>
-            <div>
-              <TickIcon size="22" fill="#292D32" />
-            </div>
-          </CustomButton>
-          <CustomButton variant="declineButton" onClick={onDecline}>
-            <div>
-              <CancelIcon size="22" fill="#292D32" />
-            </div>
-          </CustomButton>
+          <AddButton registrantInfo={registrantInfo} />
+          <DeclineButton registrantInfo={registrantInfo} />
         </div>
       </div>
     </div>
