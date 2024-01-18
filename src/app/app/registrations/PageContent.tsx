@@ -1,4 +1,4 @@
-import { CustomTable, SearchInput } from "@/components/common";
+import { CustomButton, CustomTable, SearchInput } from "@/components/common";
 import React, { useState } from "react";
 import { RegistrationTab } from "./components";
 import { useAppDispatch } from "@/lib/hooks";
@@ -8,14 +8,19 @@ import {
 } from "@/lib/features/registrantDetailsModalSlice";
 import { useAttendee, useRegTableColumn } from "./hooks";
 import { TableRowSelection } from "antd/es/table/interface";
+import DocumentDownload from "@/components/icons/DocumentDownload";
 
 const PageContent: React.FunctionComponent = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const dispatch = useAppDispatch();
   const { columns } = useRegTableColumn();
   const {
-    attendeeSWR: { data, isLoading, isValidating },
+    totalPages,
+    currentPage,
+    attendeeStatus,
+    handleSearchQuery,
     changeAttendeeStatus,
+    attendeeSWR: { data, isLoading, isValidating },
   } = useAttendee();
 
   const dataSource = data?.data.map((item) => ({
@@ -41,6 +46,21 @@ const PageContent: React.FunctionComponent = () => {
     onChange: onSelectChange,
   };
 
+  const searchPanel = (
+    <div className="flex items-center space-x-2">
+      <SearchInput
+        placeholder="Search"
+        onFilter={handleFilter}
+        onChange={handleSearchQuery}
+      />
+      {attendeeStatus === "reject" ? (
+        <CustomButton variant="icon">
+          <DocumentDownload />
+        </CustomButton>
+      ) : null}
+    </div>
+  )
+
   return (
     <div>
       <CustomTable
@@ -48,12 +68,10 @@ const PageContent: React.FunctionComponent = () => {
         columns={columns}
         dataSource={dataSource}
         tableTitle="Registrations"
+        totalContent={totalPages}
+        currentPage={currentPage}
         loading={isLoading || isValidating}
-        searchPanel={
-          <div className="flex items-center space-x-2">
-            <SearchInput onFilter={handleFilter} placeholder="Search" />
-          </div>
-        }
+        searchPanel={searchPanel}
         rowSelection={rowSelection}
         onRow={(record) => ({
           onClick: () => {

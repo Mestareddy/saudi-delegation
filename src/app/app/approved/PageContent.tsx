@@ -15,7 +15,7 @@ const PageContent: React.FunctionComponent = () => {
   const { columns } = useRegTableColumn();
   const {
     attendeeSWR: { data, isLoading, isValidating },
-  } = useAttendee();
+  } = useAttendee('approve');
 
   const dataSource = data?.data.map((item: TAttendee) => ({
     ...item,

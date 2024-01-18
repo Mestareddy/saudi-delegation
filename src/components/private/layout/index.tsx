@@ -3,7 +3,7 @@ import React from "react";
 import { Layout as AntLayout } from "antd";
 import SideNav from "../sidenav";
 import AppHeader from "../header";
-import { User, UserPreDefinedRole } from "@/types/auth";
+import { User } from "@/types/auth";
 import RegistrantDetailsModal from "@/components/auth/attendee/RegistrantDetailsModal";
 import { useAppSelector } from "@/lib/hooks";
 import { RootState } from "@/lib/store";
@@ -22,7 +22,7 @@ function Layout({ children, user }: Props) {
   return (
     <AntLayout className="!bg-gray-70">
       <div className="h-screen flex w-full">
-        <SideNav role={user?.["role.name"] as UserPreDefinedRole} />
+        <SideNav role={user?.role} />
         <AntLayout className="flex flex-col !bg-gray-70 h-screen overflow-y-scroll w-full">
           <AppHeader />
           <Content className="w-full p-2.5">{children}</Content>

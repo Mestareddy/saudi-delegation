@@ -11,9 +11,10 @@ import {
   menuItemRenderer,
   rootSubmenuKeys,
 } from "./helper";
-import { Paragraph } from "@/components/common";
+import { CustomButton, Paragraph } from "@/components/common";
 import { LogoutIcon } from "@/components/icons";
 import HamburgerIcon from "@/components/icons/HamburgerIcon";
+import { useLogin } from "@/components/hooks";
 
 const { Sider } = Layout;
 
@@ -27,6 +28,7 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
   const [openKeys, setOpenKeys] = useState(["sub1"]);
   const [collapsed, setCollapsed] = useState(false);
   const { lg } = useBreakpoint();
+  const { logout } = useLogin();
 
   useEffect(() => {
     if (lg) {
@@ -95,10 +97,14 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
             />
           </div>
         </div>
-        <div className="absolute flex flex-row  items-center bottom-0 mb-5 py-5 px-[15px]">
+        <CustomButton
+          variant="text"
+          onClick={logout}
+          className="absolute flex flex-row  items-center bottom-0 mb-5 py-5 px-[15px]"
+        >
           <LogoutIcon />
           <Paragraph className="text-sm font-semibold ml-2.5">Logout</Paragraph>
-        </div>
+        </CustomButton>
       </>
     </Sider>
   );

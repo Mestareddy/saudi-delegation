@@ -4,10 +4,12 @@ import Link from "next/link";
 import { Url } from "next/dist/shared/lib/router/router";
 
 type Size = "sm" | "md" | "lg";
+
 type ButtonVariant =
   | "contained"
   | "outlined"
   | "text"
+  | "icon"
   | "outlined-light"
   | "acceptButton"
   | "declineButton"
@@ -30,6 +32,7 @@ const commonStyles =
 const disabledStyles = "!bg-gray-40 text-white";
 
 const variantStyles = {
+  icon: "!bg-white hover:!bg-green-hover rounded-[5px]",
   contained: "!bg-black-20 !text-white hover:!bg-green-hover",
   outlined:
     "bg-white hover:bg-green-hover border-2 text-black-20 hover:text-white hover:border-green-hover border-black-20 ",
@@ -69,7 +72,7 @@ const CustomButton: React.FunctionComponent<CustomButtonProps> = forwardRef<
     },
     ref
   ) => {
-    const commonClassNames = `${commonStyles} ${variantSizes[size]} ${variantStyles[variant]} ${className}`;
+    const commonClassNames = `${commonStyles} ${variant === 'icon' ? 'p-2' : variantSizes[size]} ${variantStyles[variant]} ${className}`;
     const disabledClassname = disabled || isLoading ? disabledStyles : "";
 
     const content = (
