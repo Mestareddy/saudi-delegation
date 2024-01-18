@@ -5,6 +5,7 @@ export { default as ArrowRightIcon } from "./ArrowRight";
 export { default as BriecaseIcon } from "./Briefcase";
 export { default as CancelIcon } from "./Cancel";
 export { default as EyeIcon } from "./Eye";
+export { default as InfoIcon } from "./Info";
 export { default as FactoryIcon } from "./Factory";
 export { default as InstagramIcon } from "./Instagram";
 export { default as LinkedinIcon } from "./Linkedin";

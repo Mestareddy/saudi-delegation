@@ -4,7 +4,7 @@ import { Layout as AntLayout } from "antd";
 import SideNav from "../sidenav";
 import AppHeader from "../header";
 import { User } from "@/types/auth";
-import RegistrantDetailsModal from "@/components/auth/attendee/RegistrantDetailsModal";
+import RegistrantDetailsModal from "@/components/attendee/RegistrantDetailsModal";
 import { useAppSelector } from "@/lib/hooks";
 import { RootState } from "@/lib/store";
 
@@ -17,7 +17,8 @@ type Props = {
 
 function Layout({ children, user }: Props) {
   const registrantModalStatus = useAppSelector(
-    (state: RootState) => state.registrantDetailsModalSlice.value
+    (state: RootState) =>
+      state.registrantDetailsModalSlice.registrantDetailsModal
   );
   return (
     <AntLayout className="!bg-gray-70">

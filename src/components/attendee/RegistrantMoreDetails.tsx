@@ -1,6 +1,6 @@
 import React from "react";
-import useRegister from "../../hooks/useRegister";
-import { HeadOneProps, RegistrantMoreInfo } from "../types";
+import useRegister from "../hooks/useRegister";
+import { HeadOneProps, RegistrantMoreInfo } from "../auth/types";
 
 const HeadOne = ({ text }: HeadOneProps) => {
   return (
@@ -32,27 +32,27 @@ const RegistrantMoreDetails = ({ registrantInfo }: RegistrantMoreInfo) => {
         <div className="attendee grid grid-rows-1 sm:grid-cols-8 my-5">
           <HeadOne text="Full Name" />
           <div className="right row-span-1 sm:col-span-5 font-bold leading-[20.24px] text-[16px]">
-            {registrantInfo?.first_name.charAt(0).toUpperCase() +
-              registrantInfo?.first_name.slice(1) +
+            {registrantInfo?.first_name?.charAt(0).toUpperCase() +
+              registrantInfo?.first_name?.slice(1) +
               " " +
-              registrantInfo?.last_name.charAt(0).toUpperCase() +
-              registrantInfo?.last_name.slice(1)}
+              registrantInfo?.last_name?.charAt(0).toUpperCase() +
+              registrantInfo?.last_name?.slice(1)}
           </div>
         </div>
         <Divider />
         <div className="attendee grid grid-rows-1 sm:grid-cols-8 my-5">
           <HeadOne text="Job Title" />
           <div className="right row-span-1 sm:col-span-5 font-bold leading-[20.24px] text-[16px]">
-            {registrantInfo?.job_title.charAt(0).toUpperCase() +
-              registrantInfo?.job_title.slice(1)}
+            {registrantInfo?.job_title?.charAt(0).toUpperCase() +
+              registrantInfo?.job_title?.slice(1)}
           </div>
         </div>
         <Divider />
         <div className="attendee grid grid-rows-1 sm:grid-cols-8 my-5">
           <HeadOne text="Company Name" />
           <div className="right row-span-1 sm:col-span-5 font-bold leading-[20.24px] text-[16px]">
-            {registrantInfo?.company_name.charAt(0).toUpperCase() +
-              registrantInfo?.company_name.slice(1)}
+            {registrantInfo?.company_name?.charAt(0).toUpperCase() +
+              registrantInfo?.company_name?.slice(1)}
           </div>
         </div>
         <Divider />
