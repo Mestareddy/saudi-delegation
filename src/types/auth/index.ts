@@ -9,6 +9,18 @@ export type UserRoles =
 
 
   export interface User {
-    access_token: string;
-    "role.name":string;
+    access_token: string
+  refresh_token: string
+  id: number
+  first_name: string
+  last_name: string
+  email: string
+  phone: any
+  role: any
+  active: boolean
+  created_at: string
+  updated_at: string
+  reset_count: number
   }
+
+
