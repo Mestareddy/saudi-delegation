@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import axios, { AxiosResponse } from "axios";
 import { apiInstance } from "./config";
 
 export type apiRequestorArgs<T = object> = {
   data: T;
-  type?: "post" | "put" | "patch"|"delete";
+  type?: "post" | "put" | "patch" | "delete";
 };
 
 export type TAxiosResponseData<T> = AxiosResponse<T>;

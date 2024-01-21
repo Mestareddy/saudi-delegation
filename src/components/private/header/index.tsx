@@ -7,7 +7,7 @@ import useLogin from "@/components/hooks/useLogin";
 const { Header } = Layout;
 
 const AppHeader: React.FunctionComponent = () => {
-  const { user, logout } = useLogin()
+  const { user, logout } = useLogin();
 
   const items: MenuProps["items"] = [
     {

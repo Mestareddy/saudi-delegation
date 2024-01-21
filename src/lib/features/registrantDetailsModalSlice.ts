@@ -7,6 +7,7 @@ interface RegistrantDetailsModalState {
   registrantDeclineModal: boolean;
   approveId: string;
   rejectId: string;
+  rejectSuccessModal: boolean;
 }
 
 const initialState = {
@@ -16,10 +17,11 @@ const initialState = {
   registrantDeclineModal: false,
   approveId: "",
   rejectId: "",
+  rejectSuccessModal: false,
 } as RegistrantDetailsModalState;
 
 const registrantDetailsModalSlice = createSlice({
-  name: "menu",
+  name: "registrant",
   initialState,
   reducers: {
     toggleRegistrantDetailsModalOpen(state) {
@@ -49,6 +51,12 @@ const registrantDetailsModalSlice = createSlice({
     setDeclineData(state, action: PayloadAction<string>) {
       state.rejectId = action.payload;
     },
+    declineSuccessModalOpen(state) {
+      state.rejectSuccessModal = true;
+    },
+    declineSuccessModalClose(state) {
+      state.rejectSuccessModal = false;
+    },
   },
 });
 
@@ -62,5 +70,7 @@ export const {
   toggleRegistrantDeclineModalClose,
   setApproveData,
   setDeclineData,
+  declineSuccessModalOpen,
+  declineSuccessModalClose,
 } = registrantDetailsModalSlice.actions;
 export default registrantDetailsModalSlice.reducer;
