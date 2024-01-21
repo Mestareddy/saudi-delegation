@@ -2,15 +2,23 @@ import { apiRequester, apiRequestorArgs, TAxiosResponseData } from "@/services";
 import useSWRMutation from "swr/mutation";
 
 const useRegistrant = () => {
-  const registrantActionSWR = useSWRMutation<
+  const registrantApproveSWR = useSWRMutation<
     TAxiosResponseData<any[]>,
     string,
     string,
     apiRequestorArgs
-  >(`/event`, apiRequester);
+  >(`/event/approve`, apiRequester);
+
+  const registrantRejectSWR = useSWRMutation<
+    TAxiosResponseData<any[]>,
+    string,
+    string,
+    apiRequestorArgs
+  >(`/event/reject`, apiRequester);
 
   return {
-    registrantActionSWR,
+    registrantApproveSWR,
+    registrantRejectSWR,
   };
 };
 

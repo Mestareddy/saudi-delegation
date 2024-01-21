@@ -1,19 +1,21 @@
 "use client";
-import { toggleRegistrantDeclineModalClose } from "@/lib/features/registrantDetailsModalSlice";
+import {
+  declineSuccessModalOpen,
+  toggleRegistrantDeclineModalClose,
+} from "@/lib/features/registrantDetailsModalSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { RootState } from "@/lib/store";
 import { Modal, message } from "antd";
 import React from "react";
 import useRegistrant from "../hooks/useRegistrant";
-// import { setLocalStorageItem } from "@/util";
 import { apiErrorHandler } from "@/services";
 import { CustomButton } from "../common";
 
 interface Props {
-  declienModalStatus: boolean;
+  declineModalStatus: boolean;
 }
 
-const DeclineModal = ({ declienModalStatus }: Props) => {
+const DeclineModal = ({ declineModalStatus }: Props) => {
   const dispatch = useAppDispatch();
 
   const handleCancel = () => {
@@ -25,7 +27,7 @@ const DeclineModal = ({ declienModalStatus }: Props) => {
   );
 
   const {
-    registrantActionSWR: { error, trigger },
+    registrantRejectSWR: { error, trigger },
   } = useRegistrant();
 
   const onAccept = () => {
@@ -34,14 +36,15 @@ const DeclineModal = ({ declienModalStatus }: Props) => {
         action: "reject",
         applications: [declineId],
       },
+      type: "patch",
     })
       .then(() => {
         message.open({
           type: "success",
-          content: "Successfully logged in",
+          content: "Successfully Declined Request",
         });
-        // setLocalStorageItem("user_details", data.data);
-        // router.push("/app/registrations");
+        dispatch(toggleRegistrantDeclineModalClose());
+        dispatch(declineSuccessModalOpen());
       })
       .catch(() => {
         message.open({
@@ -55,10 +58,11 @@ const DeclineModal = ({ declienModalStatus }: Props) => {
 
   return (
     <Modal
-      open={declienModalStatus}
+      open={declineModalStatus}
       onCancel={handleCancel}
       footer={null}
       centered
+      width={400}
     >
       <div className="flex flex-col justify-center items-start w-full">
         <div className="w-full">
@@ -69,14 +73,14 @@ const DeclineModal = ({ declienModalStatus }: Props) => {
             What’s the reason for declining this registration?
           </p>
         </div>
-        <div className="w-full my-3">
-          <h1 className="text-[14px] leading-[17.71px] font-[500] text-[#333333] my-2">
+        <div className="w-full my-1">
+          <h1 className="text-[14px] leading-[17.71px] font-[500] text-[#333333] mb-2">
             Reason for Declination
           </h1>
           <textarea
             name=""
             id=""
-            className="w-full my-3 border border-[#333333]"
+            className="w-full mb-3 mt-2 border border-[#333333] p-2"
           />
         </div>
         <CustomButton variant="contained" onClick={onAccept} className="w-full">

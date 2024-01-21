@@ -7,7 +7,7 @@ interface RegisterModalState {
 const initialState = { value: false } as RegisterModalState;
 
 const registerModalSlice = createSlice({
-  name: "menu",
+  name: "register",
   initialState,
   reducers: {
     toggleRegisterModalOpen(state) {

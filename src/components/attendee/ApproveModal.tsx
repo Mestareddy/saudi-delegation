@@ -6,7 +6,6 @@ import { Modal, message } from "antd";
 import React from "react";
 import { InfoIcon } from "../icons";
 import useRegistrant from "../hooks/useRegistrant";
-// import { setLocalStorageItem } from "@/util";
 import { apiErrorHandler } from "@/services";
 
 interface Props {
@@ -25,7 +24,7 @@ const ApproveModal = ({ approvalModalStatus }: Props) => {
   );
 
   const {
-    registrantActionSWR: { error, trigger },
+    registrantApproveSWR: { error, trigger },
   } = useRegistrant();
 
   const onAccept = () => {
@@ -34,14 +33,13 @@ const ApproveModal = ({ approvalModalStatus }: Props) => {
         action: "approve",
         applications: [approvedId],
       },
+      type: "patch",
     })
       .then(() => {
         message.open({
           type: "success",
-          content: "Successfully logged in",
+          content: "Successfully Approved Request",
         });
-        // setLocalStorageItem("user_details", data.data);
-        // router.push("/app/registrations");
       })
       .catch(() => {
         message.open({
@@ -58,6 +56,7 @@ const ApproveModal = ({ approvalModalStatus }: Props) => {
       footer={null}
       closable={false}
       centered
+      width={400}
     >
       <div className="flex flex-col justify-center items-center w-full">
         <InfoIcon />
