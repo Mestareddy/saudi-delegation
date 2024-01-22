@@ -1,10 +1,29 @@
 import { Paragraph } from "@/components/common";
 import { CircleCloseIcon, MoreIcon, TickCircleIcon } from "@/components/icons";
+import {
+  setApproveData,
+  toggleRegistrantApproveModalOpen,
+  toggleRegistrantDeclineModalOpen,
+} from "@/lib/features/registrantDetailsModalSlice";
+import { setDeclineData } from "@/lib/features/userSlice";
+import { useAppDispatch } from "@/lib/hooks";
 import { MenuProps, Space, Dropdown } from "antd";
 import { ColumnsType } from "antd/es/table";
 import React, { useMemo } from "react";
 
 const useRegTableColumn = () => {
+  const dispatch = useAppDispatch();
+
+  const onAccept = (id: string) => {
+    dispatch(toggleRegistrantApproveModalOpen());
+    dispatch(setApproveData(id));
+  };
+  const onDecline = (id: string) => {
+    dispatch(toggleRegistrantDeclineModalOpen());
+    dispatch(setDeclineData(id));
+    console.log("Decline button clicked");
+  };
+
   const columns = useMemo(() => {
     const header: ColumnsType<any> = [
       {
@@ -66,8 +85,21 @@ const useRegTableColumn = () => {
           };
         },
         render: (record) => {
-          const handleMenuClick: MenuProps["onClick"] = () => {
-            return record;
+          const handleMenuClick: MenuProps["onClick"] = (event) => {
+            const itemKey = event.key;
+            if (itemKey) {
+              switch (itemKey) {
+                case "1":
+                  onAccept(record.id);
+                  break;
+                case "2": {
+                  onDecline(record.id);
+                  break;
+                }
+                default:
+                  break;
+              }
+            }
           };
 
           const items: MenuProps["items"] = [
@@ -95,9 +127,11 @@ const useRegTableColumn = () => {
               <Space size="middle">
                 <Dropdown
                   menu={{
-                    items, onClick: handleMenuClick, style: {
-                      padding: 15
-                    }
+                    items,
+                    onClick: handleMenuClick,
+                    style: {
+                      padding: 15,
+                    },
                   }}
                   placement="bottomRight"
                 >

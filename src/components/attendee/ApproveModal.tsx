@@ -24,7 +24,7 @@ const ApproveModal = ({ approvalModalStatus }: Props) => {
   );
 
   const {
-    registrantApproveSWR: { error, trigger },
+    registrantApproveSWR: { trigger },
   } = useRegistrant();
 
   const onAccept = () => {
@@ -41,7 +41,7 @@ const ApproveModal = ({ approvalModalStatus }: Props) => {
           content: "Successfully Approved Request",
         });
       })
-      .catch(() => {
+      .catch((error) => {
         message.open({
           type: "error",
           content: apiErrorHandler(error),
