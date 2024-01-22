@@ -18,55 +18,51 @@ interface RegistrationModalProps {
   onClose: () => void;
 }
 
-const RegistrationModal: React.FunctionComponent<
-  RegistrationModalProps
-> = () => {
-  const [hasRegistered, setHasRegistered] = useState(false);
-  const dispatch = useAppDispatch();
-  const registerModalStatus = useAppSelector(
-    (state: RootState) => state.registerModalSlice.value
-  );
+const RegistrationModal: React.FunctionComponent<RegistrationModalProps> =
+  () => {
+    const [hasRegistered, setHasRegistered] = useState(false);
+    const dispatch = useAppDispatch();
+    const registerModalStatus = useAppSelector(
+      (state: RootState) => state.registerModalSlice.value
+    );
 
-  const {
-    registerEventSWR: { isMutating, trigger },
-  } = useRegister();
+    const {
+      registerEventSWR: { isMutating, trigger },
+    } = useRegister();
 
-  const registerEvent = (data: TRegisterform) => {
-    data.business_phone = data.business_phone.replace(/^0/, "+234");
-    trigger({
-      data: data,
-    })
-      .then(() => {
-        setHasRegistered(true);
+    const registerEvent = (data: TRegisterform) => {
+      data.business_phone = data.business_phone.replace(/^0/, "+234");
+      trigger({
+        data: data,
       })
-      .catch((error) => {
-        message.open({
-          type: "error",
-          content: apiErrorHandler(error),
+        .then(() => {
+          setHasRegistered(true);
+        })
+        .catch((error) => {
+          message.open({
+            type: "error",
+            content: apiErrorHandler(error),
+          });
         });
-      });
-  };
+    };
 
-  const handleCancel = () => {
-    dispatch(toggleRegisterModalClose());
-  };
+    const handleCancel = () => {
+      dispatch(toggleRegisterModalClose());
+    };
 
-  const handleCloseStatusModal = () => {
-    setHasRegistered(false);
-  };
-  return (
-    <Modal
-      footer={null}
-      width={hasRegistered ? 622 : 1480}
-      className="border-0"
-      open={registerModalStatus}
-      onCancel={handleCancel}
-      style={{ top: !hasRegistered ? 0 : "20%" }}
-      closeIcon={<RoundedCloseIcon />}
-    >
-      {hasRegistered ? (
-        <RegistrationCompleted onClose={handleCloseStatusModal} />
-      ) : (
+    const handleCloseStatusModal = () => {
+      setHasRegistered(false);
+    };
+    return (
+      <Modal
+        footer={null}
+        width={1480}
+        className="border-0"
+        open={registerModalStatus}
+        onCancel={handleCancel}
+        closeIcon={<RoundedCloseIcon />}
+        style={{ top: 0 }}
+      >
         <div className="md:p-[100px]">
           <Heading type="h1">
             Register to <span className="text-green-hover">attend</span>{" "}
@@ -79,10 +75,14 @@ const RegistrationModal: React.FunctionComponent<
               </div>
             </div>
             <div className="basis-[75%]">
-              <RegistrationForm
-                onSubmit={registerEvent}
-                isLoading={isMutating}
-              />
+              {hasRegistered ? (
+                <RegistrationCompleted onClose={handleCloseStatusModal} />
+              ) : (
+                <RegistrationForm
+                  onSubmit={registerEvent}
+                  isLoading={isMutating}
+                />
+              )}
             </div>
             <div className="block md:hidden">
               <div className="h-[1px] w-full bg-gray-60 my-2.5" />
@@ -90,9 +90,8 @@ const RegistrationModal: React.FunctionComponent<
             </div>
           </div>
         </div>
-      )}
-    </Modal>
-  );
-};
+      </Modal>
+    );
+  };
 
 export default RegistrationModal;
