@@ -14,15 +14,6 @@ import React, { useMemo } from "react";
 const useRegTableColumn = () => {
   const dispatch = useAppDispatch();
 
-  const onAccept = (id: string) => {
-    dispatch(toggleRegistrantApproveModalOpen());
-    dispatch(setApproveData(id));
-  };
-  const onDecline = (id: string) => {
-    dispatch(toggleRegistrantDeclineModalOpen());
-    dispatch(setDeclineData(id));
-    console.log("Decline button clicked");
-  };
 
   const columns = useMemo(() => {
     const header: ColumnsType<any> = [
@@ -85,6 +76,15 @@ const useRegTableColumn = () => {
           };
         },
         render: (record) => {
+
+          const onAccept = (id: string) => {
+            dispatch(toggleRegistrantApproveModalOpen());
+            dispatch(setApproveData(id));
+          };
+          const onDecline = (id: string) => {
+            dispatch(toggleRegistrantDeclineModalOpen());
+            dispatch(setDeclineData(id));
+          };
           const handleMenuClick: MenuProps["onClick"] = (event) => {
             const itemKey = event.key;
             if (itemKey) {
@@ -146,7 +146,8 @@ const useRegTableColumn = () => {
       },
     ];
     return header;
-  }, []);
+
+  }, [dispatch]);
   return {
     columns,
   };
