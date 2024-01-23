@@ -20,7 +20,7 @@ const layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
             className="w-[50%] h-full hidden sm:flex"
           />
           <div className="w-[90%] sm:w-[50%] flex justify-center items-center">
-            <div className="border border-[#3E3E3E] flex justify-center items-center rounded-2xl w-[90%] md:w-[80%] lg:w-[60%]">
+            <div className="border border-[#3E3E3E] flex justify-center items-center rounded-2xl w-[375px]">
               <div className="p-5 flex flex-col justify-center items-center w-full">
                 <Image
                   src={"/images/nigeria_saudi_arabia_logo.png"}

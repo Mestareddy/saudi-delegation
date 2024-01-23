@@ -2,12 +2,12 @@ import React from "react";
 import { Dropdown, MenuProps, Avatar, Layout } from "antd";
 import { Heading, Paragraph } from "@/components/common";
 import { LogoutIcon, NotificationIcon, UserIcon } from "@/components/icons";
-import useLogin from "@/components/hooks/useLogin";
+import useAuth from "@/components/hooks/useAuth";
 
 const { Header } = Layout;
 
 const AppHeader: React.FunctionComponent = () => {
-  const { user, logout } = useLogin();
+  const { user, logout } = useAuth();
 
   const items: MenuProps["items"] = [
     {
