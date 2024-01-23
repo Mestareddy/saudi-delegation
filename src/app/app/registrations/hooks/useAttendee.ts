@@ -5,7 +5,8 @@ import { ChangeEvent, useEffect, useState } from "react";
 import useSWR from "swr";
 import { TAttendee, TAttendeeStatus } from "../types";
 
-const useAttendee = (defaultStatus?: TAttendeeStatus) => {
+
+const useAttendee = (defaultStatus?: TAttendeeStatus, queryParmas?: string) => {
   const [attendeeStatus, setAttendeeStatus] = useState<TAttendeeStatus>(
     defaultStatus || "register"
   );
@@ -25,7 +26,7 @@ const useAttendee = (defaultStatus?: TAttendeeStatus) => {
   }>(
     `/event?status=${attendeeStatus}&limit=${itemPerPage}&page=${currentPage}${
       debouncedValue ? debouncedValue : ""
-    }`,
+    }${queryParmas || ""}`,
     apiFetcher,
     {
       revalidateOnFocus: false,

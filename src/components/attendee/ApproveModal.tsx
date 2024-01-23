@@ -1,5 +1,4 @@
 "use client";
-import { toggleRegistrantApproveModalClose } from "@/lib/features/registrantDetailsModalSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { RootState } from "@/lib/store";
 import { Modal, message } from "antd";
@@ -7,51 +6,57 @@ import React from "react";
 import { InfoIcon } from "../icons";
 import useRegistrant from "../hooks/useRegistrant";
 import { apiErrorHandler } from "@/services";
+import { toggleRegistrantApproveModal } from "@/lib/features/registrantDetailsModalSlice";
 
-interface Props {
-  approvalModalStatus: boolean;
-}
-
-const ApproveModal = ({ approvalModalStatus }: Props) => {
+const ApproveModal = () => {
   const dispatch = useAppDispatch();
 
+  const modalState = useAppSelector(
+    (state: RootState) =>
+      state.registrantDetailsModalSlice.registrantApproveModal
+  );
+
   const handleCancel = () => {
-    dispatch(toggleRegistrantApproveModalClose());
+    dispatch(toggleRegistrantApproveModal(false));
   };
 
-  const approvedId = useAppSelector(
-    (state: RootState) => state.registrantDetailsModalSlice.approveId
+  const registrantData = useAppSelector(
+    (state: RootState) => state.registrantDetailsModalSlice.registrantAction
   );
 
   const {
-    registrantApproveSWR: { trigger },
-  } = useRegistrant();
+    registrantSWR: { trigger, isMutating },
+  } = useRegistrant({ eventType: registrantData.event, action: registrantData.action });
 
   const onAccept = () => {
-    trigger({
-      data: {
-        action: "approve",
-        applications: [approvedId],
-      },
-      type: "patch",
-    })
-      .then(() => {
-        message.open({
-          type: "success",
-          content: "Successfully Approved Request",
-        });
+    if (registrantData) {
+      const { action, registrantId } = registrantData
+      trigger({
+        data: {
+          action,
+          applications: [registrantId],
+        },
+        type: "patch",
       })
-      .catch((error) => {
-        message.open({
-          type: "error",
-          content: apiErrorHandler(error),
+        .then(() => {
+          message.open({
+            type: "success",
+            content: "Successfully Approved Request",
+          });
+          handleCancel()
+        })
+        .catch((error) => {
+          message.open({
+            type: "error",
+            content: apiErrorHandler(error),
+          });
         });
-      });
+    }
   };
 
   return (
     <Modal
-      open={approvalModalStatus}
+      open={modalState}
       onCancel={handleCancel}
       footer={null}
       closable={false}
@@ -74,6 +79,7 @@ const ApproveModal = ({ approvalModalStatus }: Props) => {
           </button>
           <button
             onClick={onAccept}
+            disabled={isMutating}
             className="hover:opacity-60 cursor-pointer p-0 appearance-none bg-transparent w-[50%] font-semibold leading-[19.09px] text-[16px] text-center"
           >
             Yes, Approve

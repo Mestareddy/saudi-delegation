@@ -1,16 +1,13 @@
 import { CustomTable, SearchInput } from "@/components/common";
-import React, { useState } from "react";
+import React from "react";
 import { useAppDispatch } from "@/lib/hooks";
 import {
   setRegistrantData,
-  toggleRegistrantDetailsModalOpen,
+  toggleRegistrantDetailsModal,
 } from "@/lib/features/registrantDetailsModalSlice";
-import { TableRowSelection } from "antd/es/table/interface";
 import { useAttendee, useRegTableColumn } from "../registrations/hooks";
-import { TAttendee } from "../registrations/types";
 
 const PageContent: React.FunctionComponent = () => {
-  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const dispatch = useAppDispatch();
   const { columns } = useRegTableColumn();
   const {
@@ -18,12 +15,7 @@ const PageContent: React.FunctionComponent = () => {
     totalPages,
     currentPage,
     handleSearchQuery,
-  } = useAttendee();
-
-  const dataSource = data?.data.map((item: TAttendee) => ({
-    ...item,
-    key: item.id,
-  }));
+  } = useAttendee(undefined, '&request_as_speaker=1');
 
   const handleFilter = () => {
     return true;
@@ -31,16 +23,7 @@ const PageContent: React.FunctionComponent = () => {
 
   const toggleRegistrantModal = (record: any) => {
     dispatch(setRegistrantData(record));
-    dispatch(toggleRegistrantDetailsModalOpen());
-  };
-
-  const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
-    setSelectedRowKeys(newSelectedRowKeys);
-  };
-
-  const rowSelection: TableRowSelection<any> = {
-    selectedRowKeys,
-    onChange: onSelectChange,
+    dispatch(toggleRegistrantDetailsModal(true));
   };
 
 
@@ -59,13 +42,12 @@ const PageContent: React.FunctionComponent = () => {
       <CustomTable
         sticky
         columns={columns}
-        dataSource={dataSource}
+        dataSource={data?.data}
         tableTitle="Speakers"
         totalContent={totalPages}
         currentPage={currentPage}
         loading={isLoading || isValidating}
         searchPanel={searchPanel}
-        rowSelection={rowSelection}
         onRow={(record) => ({
           onClick: () => {
             toggleRegistrantModal(record);
