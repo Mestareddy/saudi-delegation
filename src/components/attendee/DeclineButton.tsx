@@ -14,7 +14,6 @@ const DeclineButton = ({ registrantInfo }: RegistrantMainInfo) => {
   const onDecline = () => {
     dispatch(toggleRegistrantDeclineModalOpen());
     dispatch(setDeclineData(registrantInfo.id));
-    console.log("Decline button clicked");
   };
   return (
     <CustomButton variant="declineButton" onClick={onDecline}>

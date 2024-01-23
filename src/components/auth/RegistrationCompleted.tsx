@@ -18,7 +18,7 @@ const RegistrationCompleted: React.FunctionComponent<RegistrationCompletedProps>
   };
 
   return (
-    <div className="p-[50px]">
+    <div className="p-[50px] border border-gray-40">
       <div className="text-center space-y-5">
         <div className="mb-6 md:mb-0">
           <Lottie style={{

@@ -117,11 +117,10 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
             />
           )}
           <Paragraph
-            className={`font-semibold ${
-              checkboxErrors.request_as_speaker
+            className={`font-semibold ${checkboxErrors.request_as_speaker
                 ? "text-red-100"
                 : "text-black-20"
-            }`}
+              }`}
           >
             Request Speaking Opportunity
           </Paragraph>
@@ -139,9 +138,8 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
             />
           )}
           <Paragraph
-            className={`font-semibold ${
-              checkboxErrors.request_booth ? "text-red-100" : "text-black-20"
-            }`}
+            className={`font-semibold ${checkboxErrors.request_booth ? "text-red-100" : "text-black-20"
+              }`}
           >
             Request a Booth
           </Paragraph>
@@ -173,9 +171,8 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
           )}
           <Paragraph
             type="body2"
-            className={`${
-              checkboxErrors.accept_terms ? "text-red-100" : "text-black-20"
-            }`}
+            className={`${checkboxErrors.accept_terms ? "text-red-100" : "text-black-20"
+              }`}
           >
             By submitting this form, you agree to our
             <span className="underline mx-1">Terms of Service</span> ,
