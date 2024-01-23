@@ -25,14 +25,14 @@ const ResetPasswordForm = () => {
   } = useAuth();
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
+  const token = searchParams.get("token");
 
   const handleResetCode = (values: FormValues) => {
     const data = {
       email,
-      code: values?.code,
-      // confirm_password: values?.confirmPassword,
-
+      code: token,
       new_password: values.newPassword,
+      // confirm_password: values?.confirmPassword,
     };
     trigger({ data })
       .then(() => {
@@ -51,7 +51,7 @@ const ResetPasswordForm = () => {
   };
 
   return (
-    <div>
+    <div className="my-5">
       {error && (
         <Alert
           className="mb-2"
@@ -62,7 +62,7 @@ const ResetPasswordForm = () => {
         />
       )}
       <Form layout="vertical" onFinish={handleResetCode} requiredMark={false}>
-        <Form.Item
+        {/* <Form.Item
           name="code"
           label="OTP Code"
           rules={[{ required: true, message: "Please input your code" }]}
@@ -72,7 +72,7 @@ const ResetPasswordForm = () => {
             disabled={isMutating}
             placeholder="Enter OTP Code"
           />
-        </Form.Item>
+        </Form.Item> */}
         <Form.Item
           name="newPassword"
           label="New Password"

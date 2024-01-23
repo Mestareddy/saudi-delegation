@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
 
-const DEFAULT_TIMER = 180;
+const DEFAULT_TIMER = 0;
 
 const VerifyForm = () => {
   const [otp, setOtp] = useState("");
@@ -63,6 +63,7 @@ const VerifyForm = () => {
   };
 
   const handleSubmit = () => {
+    // router.push(`/auth/reset-password?email=${emailParams}&token=${otp}`);
     verifyTrigger({
       data: { code: otp, email: emailParams },
       type: "post",
@@ -72,7 +73,7 @@ const VerifyForm = () => {
           type: "success",
           content: "Email successfully verified",
         });
-        router.push(`/auth/reset-password?email=${emailParams}`);
+        router.push(`/auth/reset-password?email=${emailParams}&token=${otp}`);
       })
       .catch(() => {
         message.open({
@@ -105,7 +106,9 @@ const VerifyForm = () => {
         <CustomButton
           variant="contained"
           onClick={handleSubmit}
-          disabled={verifyMutating || resendLoading || countdown !== 0}
+          disabled={
+            verifyMutating || resendLoading || countdown !== 0 || +otp === 0
+          }
           isLoading={verifyMutating}
           className="w-full"
         >
