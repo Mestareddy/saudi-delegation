@@ -14,7 +14,7 @@ import {
 import { CustomButton, Paragraph } from "@/components/common";
 import { LogoutIcon } from "@/components/icons";
 import HamburgerIcon from "@/components/icons/HamburgerIcon";
-import { useLogin } from "@/components/hooks";
+import { useAuth } from "@/components/hooks";
 
 const { Sider } = Layout;
 
@@ -28,7 +28,7 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
   const [openKeys, setOpenKeys] = useState(["sub1"]);
   const [collapsed, setCollapsed] = useState(false);
   const { lg } = useBreakpoint();
-  const { logout } = useLogin();
+  const { logout } = useAuth();
 
   useEffect(() => {
     if (lg) {

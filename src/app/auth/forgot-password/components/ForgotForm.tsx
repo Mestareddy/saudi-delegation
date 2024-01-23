@@ -5,8 +5,7 @@ import Link from "next/link";
 import { CustomButton } from "@/components/common";
 import { apiErrorHandler } from "@/services";
 import { useRouter } from "next/navigation";
-import { setLocalStorageItem } from "@/util";
-import useAuth from "@/components/hooks/useAuth";
+import { useAuth } from "@/components/hooks";
 
 type FieldType = {
   email?: string;
@@ -14,7 +13,7 @@ type FieldType = {
   remember?: string;
 };
 
-const LoginForm = () => {
+const ForgotForm = () => {
   const [clientReady, setClientReady] = useState<boolean>(false);
   // To disable submit button at the beginning.
   const [form] = Form.useForm();
@@ -35,20 +34,19 @@ const LoginForm = () => {
   }, [form, values]);
 
   const {
-    loginSWR: { error, isMutating, trigger },
+    forgotPasswordSWR: { error, isMutating, trigger },
   } = useAuth();
 
   const onFinish = (values: any) => {
     trigger({
       data: values,
     })
-      .then((data) => {
+      .then(() => {
         message.open({
           type: "success",
-          content: "Successfully logged in",
+          content: "Reset email successfully sent",
         });
-        setLocalStorageItem("user_details", data.data);
-        router.push("/app/registrations");
+        router.push(`/auth/verify?email=${values.email}`);
       })
       .catch(() => {
         message.open({
@@ -86,46 +84,26 @@ const LoginForm = () => {
         <Input className="w-full !border-[#333333]" placeholder="Enter email" />
       </Form.Item>
 
-      <Form.Item<FieldType>
-        label={
-          <h3 className="text-[14px] leading-[17.71px] font-medium">
-            Password
-          </h3>
-        }
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: "Please input your password!",
-          },
-        ]}
-      >
-        <Input.Password
-          placeholder="Enter password"
-          className="w-full !border-[#333333]"
-        />
-      </Form.Item>
-
-      <Form.Item className="flex justify-center">
-        <Link
-          href={"/auth/forgot-password"}
-          className="!text-[#121212] !text-[14px] !leading-[17.71px] !font-bold !text-center"
-        >
-          Forgot Password
-        </Link>
-      </Form.Item>
-
       <Form.Item>
         <CustomButton
           isLoading={isMutating}
           disabled={!clientReady}
           className="text-white-100 w-full md:w-full sm:w-auto"
         >
-          Login
+          Continue
         </CustomButton>
+      </Form.Item>
+
+      <Form.Item className="flex justify-center">
+        <Link
+          href={"/auth/login"}
+          className="!text-[#121212] !text-[14px] !leading-[17.71px] !font-bold !text-center"
+        >
+          Login
+        </Link>
       </Form.Item>
     </Form>
   );
 };
 
-export default LoginForm;
+export default ForgotForm;

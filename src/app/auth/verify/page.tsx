@@ -3,13 +3,13 @@ import React, { lazy } from "react";
 
 const PageContent = lazy(() => import("./PageContent"));
 
-const ForgotPassword = () => {
+const Verify = () => {
   return (
     <div className="!w-full">
-      <PageHeader title="Forgot Password" description="Admin Forgot Password" />
+      <PageHeader title="Forgot" description="Admin Forgot Password" />
       <PageContent />
     </div>
   );
 };
 
-export default ForgotPassword;
+export default Verify;

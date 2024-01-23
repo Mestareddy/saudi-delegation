@@ -13,7 +13,8 @@ type ButtonVariant =
   | "outlined-light"
   | "acceptButton"
   | "declineButton"
-  | "greyedButton";
+  | "greyedButton"
+  | "noStyleButton";
 
 interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -45,6 +46,7 @@ const variantStyles = {
   text: "text-black-20 hover:bg-green-hover",
   "outlined-light":
     "bg-transparent hover:bg-green-hover hover:border-green-hover border-2 text-white border-white",
+  noStyleButton: "!bg-none !border-none text-[#11142D]",
 };
 
 const variantSizes = {
@@ -72,7 +74,9 @@ const CustomButton: React.FunctionComponent<CustomButtonProps> = forwardRef<
     },
     ref
   ) => {
-    const commonClassNames = `${commonStyles} ${variant === 'icon' ? 'p-2' : variantSizes[size]} ${variantStyles[variant]} ${className}`;
+    const commonClassNames = `${commonStyles} ${
+      variant === "icon" ? "p-2" : variantSizes[size]
+    } ${variantStyles[variant]} ${className}`;
     const disabledClassname = disabled || isLoading ? disabledStyles : "";
 
     const content = (
