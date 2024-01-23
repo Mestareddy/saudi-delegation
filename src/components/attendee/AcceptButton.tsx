@@ -3,17 +3,21 @@ import { CustomButton } from "../common";
 import { TickIcon } from "../icons";
 import { useAppDispatch } from "@/lib/hooks";
 import {
-  setApproveData,
-  toggleRegistrantApproveModalOpen,
+  setRegistrantAction,
+  toggleRegistrantApproveModal,
 } from "@/lib/features/registrantDetailsModalSlice";
 import { RegistrantMainInfo } from "../auth";
 
-const AddButton = ({ registrantInfo }: RegistrantMainInfo) => {
+const AddButton = ({ registrantId, eventType }: RegistrantMainInfo) => {
   const dispatch = useAppDispatch();
 
   const onAccept = () => {
-    dispatch(toggleRegistrantApproveModalOpen());
-    dispatch(setApproveData(registrantInfo.id));
+    dispatch(toggleRegistrantApproveModal(true));
+    dispatch(setRegistrantAction({
+      action: 'approve',
+      event: eventType,
+      registrantId
+    }))
   };
 
   return (

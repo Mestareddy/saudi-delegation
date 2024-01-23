@@ -1,16 +1,25 @@
 import StatusBox from "@/components/common/StatusBox";
 import React from "react";
-import { RegistrantMainInfo } from "../auth/types";
 import AddButton from "./AcceptButton";
 import DeclineButton from "./DeclineButton";
 
-const BoothData = ({ registrantInfo }: RegistrantMainInfo) => {
+interface BoothDataProps {
+  status: string;
+  registrantId: string | number;
+  requestBooth: boolean;
+}
+
+const BoothData: React.FunctionComponent<BoothDataProps> = ({
+  registrantId,
+  requestBooth,
+  status,
+}) => {
   const acceptanceStatus: string =
-    registrantInfo.status === "register"
+    status === "register"
       ? "pending"
-      : registrantInfo.status === "approved"
-      ? "approved"
-      : "declined";
+      : status === "approve"
+        ? "approved"
+        : "declined";
 
   return (
     <div className="attendee grid grid-rows-1 sm:grid-cols-8 my-3">
@@ -18,7 +27,7 @@ const BoothData = ({ registrantInfo }: RegistrantMainInfo) => {
         Booth
       </h1>
       <div className="right row-span-1 sm:col-span-5">
-        {registrantInfo?.request_booth ? (
+        {requestBooth ? (
           <div>
             <h1 className="heading flex flex-row items-center font-bold leading-[20.24px] text-[16px] sm:text-[20px] text-[#11142D] gap-2">
               Requested
@@ -31,8 +40,8 @@ const BoothData = ({ registrantInfo }: RegistrantMainInfo) => {
           </h1>
         )}
         <div className="buttons gap-3 flex flex-row my-3">
-          <AddButton registrantInfo={registrantInfo} />
-          <DeclineButton registrantInfo={registrantInfo} />
+          <AddButton eventType='booth' registrantId={registrantId} />
+          <DeclineButton eventType="booth" registrantId={registrantId} />
         </div>
       </div>
     </div>

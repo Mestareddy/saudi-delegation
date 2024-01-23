@@ -1,7 +1,7 @@
 "use client";
 import {
-  declineSuccessModalClose,
-  toggleRegistrantDetailsModalClose,
+  declineSuccessModal,
+  toggleRegistrantDetailsModal,
 } from "@/lib/features/registrantDetailsModalSlice";
 import { useAppDispatch } from "@/lib/hooks";
 import { Modal } from "antd";
@@ -17,12 +17,12 @@ const DeclineSuccessModal = ({ declineSuccessModalStatus }: Props) => {
   const dispatch = useAppDispatch();
 
   const handleCancel = () => {
-    dispatch(declineSuccessModalClose());
+    dispatch(declineSuccessModal(false));
   };
 
   const onDone = () => {
-    dispatch(declineSuccessModalClose());
-    dispatch(toggleRegistrantDetailsModalClose());
+    dispatch(declineSuccessModal(false));
+    dispatch(toggleRegistrantDetailsModal(false));
   };
 
   return (
