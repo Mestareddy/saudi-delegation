@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useAppDispatch } from "@/lib/hooks";
 import {
   setRegistrantData,
-  toggleRegistrantDetailsModalOpen,
+  toggleRegistrantDetailsModal,
 } from "@/lib/features/registrantDetailsModalSlice";
 import { TableRowSelection } from "antd/es/table/interface";
 import { TAttendee } from "../registrations/types";
@@ -18,7 +18,7 @@ const PageContent: React.FunctionComponent = () => {
     currentPage,
     handleSearchQuery,
     attendeeSWR: { data, isLoading, isValidating },
-  } = useAttendee();
+  } = useAttendee(undefined, '&request_booth=1');
 
   const dataSource = data?.data.map((item: TAttendee) => ({
     ...item,
@@ -31,7 +31,7 @@ const PageContent: React.FunctionComponent = () => {
 
   const toggleRegistrantModal = (record: any) => {
     dispatch(setRegistrantData(record));
-    dispatch(toggleRegistrantDetailsModalOpen());
+    dispatch(toggleRegistrantDetailsModal(true));
   };
 
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {

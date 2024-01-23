@@ -1,3 +1,5 @@
+import { EventAttendee, RegistrantEventType } from "@/types/attendee";
+
 export type Country = {
   name: string;
   id: string;
@@ -24,12 +26,11 @@ export type TRegisterform = {
 };
 
 export type RegistrantMainInfo = {
-  registrantInfo?: any;
+  registrantId?: string | number;
+  eventType: RegistrantEventType;
 };
 
-export type RegistrantMoreInfo = {
-  registrantInfo?: any;
-};
+export interface RegistrantMoreInfo extends EventAttendee {}
 
 export type HeadOneProps = {
   text?: string;

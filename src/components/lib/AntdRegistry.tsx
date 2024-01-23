@@ -142,6 +142,7 @@ const StyledComponentsRegistry = ({ children }: React.PropsWithChildren) => {
   const handleCancel = () => {
     dispatch(toggleRegisterModalClose());
   };
+
   return (
     <StyleProvider cache={cache} hashPriority="high" autoClear>
       <ConfigProvider theme={appTheme}>
