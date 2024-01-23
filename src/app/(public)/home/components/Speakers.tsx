@@ -7,8 +7,7 @@ import { EventSpeaker } from "../../../../components/common";
 
 const Speakers = () => {
   return (
-    <div className="bg-[#EAF9F4] w-full flex justify-center items-center py-10">
-      {/* <div className="bg-gradient-to-b from-[#EAF9F4] via-[#FFFFFF] to-[#FFFFFF] w-full flex justify-center items-center py-10"> */}
+    <div className="bg-[#F2F2F2] w-full flex justify-center items-center py-10">
       <div className="innerDiv w-[95%] sm:w-[90%] lg:w-[85%]">
         <div className="top flex flex-row justify-between">
           <h1 className="bebas text-[#333333] leading-[38px] font-bold text-[32px] uppercase">

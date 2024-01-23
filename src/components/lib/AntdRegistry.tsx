@@ -9,7 +9,11 @@ import type Entity from "@ant-design/cssinjs/es/Cache";
 import { useServerInsertedHTML } from "next/navigation";
 import { ConfigProvider, ThemeConfig } from "antd";
 import { customThemeColor } from "@/constants";
-import StoreProvider from "@/app/StoreProvider";
+// import StoreProvider from "@/app/StoreProvider";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { RootState } from "@/lib/store";
+import { toggleRegisterModalClose } from "@/lib/features/registerModalSlice";
+import { RegistrationModal } from "../auth";
 
 const { primary, gray, white, green, black } = customThemeColor;
 
@@ -96,7 +100,7 @@ const appTheme: ThemeConfig = {
       borderRadiusXS: 0,
       borderRadiusOuter: 0,
       paddingContentHorizontal: 0,
-      boxShadow: ' 0px 10px 20px 0px rgba(0, 0, 0, 0.25)'
+      boxShadow: " 0px 10px 20px 0px rgba(0, 0, 0, 0.25)",
     },
     Menu: {
       subMenuItemBg: primary[100],
@@ -114,8 +118,8 @@ const appTheme: ThemeConfig = {
       itemHeight: 54,
       groupTitleFontSize: 16,
     },
-  }
-}
+  },
+};
 
 const StyledComponentsRegistry = ({ children }: React.PropsWithChildren) => {
   const cache = React.useMemo<Entity>(() => createCache(), []);
@@ -128,10 +132,23 @@ const StyledComponentsRegistry = ({ children }: React.PropsWithChildren) => {
       />
     );
   });
+
+  const dispatch = useAppDispatch();
+
+  const registerModalStatus = useAppSelector(
+    (state: RootState) => state.registerModalSlice.value
+  );
+
+  const handleCancel = () => {
+    dispatch(toggleRegisterModalClose());
+  };
   return (
     <StyleProvider cache={cache} hashPriority="high" autoClear>
       <ConfigProvider theme={appTheme}>
-        <StoreProvider>{children}</StoreProvider>
+        {/* <StoreProvider> */}
+        {children}
+        <RegistrationModal open={registerModalStatus} onClose={handleCancel} />
+        {/* </StoreProvider> */}
       </ConfigProvider>
     </StyleProvider>
   );
