@@ -1,22 +1,26 @@
+import { EventAttendee, RegistrantAction } from "@/types/attendee";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
+
 interface RegistrantDetailsModalState {
+  data?: EventAttendee;
   registrantDetailsModal: boolean;
-  data: any;
   registrantApproveModal: boolean;
   registrantDeclineModal: boolean;
-  approveId: string;
-  rejectId: string;
   rejectSuccessModal: boolean;
+  registrantAction: RegistrantAction;
 }
 
 const initialState = {
+  data: undefined,
   registrantDetailsModal: false,
-  data: null,
   registrantApproveModal: false,
   registrantDeclineModal: false,
-  approveId: "",
-  rejectId: "",
+  registrantAction: {
+    action: undefined,
+    registrantId: undefined,
+    event: undefined,
+  },
   rejectSuccessModal: false,
 } as RegistrantDetailsModalState;
 
@@ -24,53 +28,33 @@ const registrantDetailsModalSlice = createSlice({
   name: "registrant",
   initialState,
   reducers: {
-    toggleRegistrantDetailsModalOpen(state) {
-      state.registrantDetailsModal = true;
+    toggleRegistrantDetailsModal(state, action: PayloadAction<boolean>) {
+      state.registrantDetailsModal = action.payload;
     },
-    toggleRegistrantDetailsModalClose(state) {
-      state.registrantDetailsModal = false;
+    toggleRegistrantApproveModal(state, action: PayloadAction<boolean>) {
+      state.registrantApproveModal = action.payload;
     },
-    toggleRegistrantApproveModalOpen(state) {
-      state.registrantApproveModal = true;
+    toggleRegistrantDeclineModal(state, action: PayloadAction<boolean>) {
+      state.registrantDeclineModal = action.payload;
     },
-    toggleRegistrantApproveModalClose(state) {
-      state.registrantApproveModal = false;
-    },
-    toggleRegistrantDeclineModalOpen(state) {
-      state.registrantDeclineModal = true;
-    },
-    toggleRegistrantDeclineModalClose(state) {
-      state.registrantDeclineModal = false;
-    },
-    setRegistrantData(state, action: PayloadAction<object>) {
+    setRegistrantData(state, action: PayloadAction<EventAttendee>) {
       state.data = action.payload;
     },
-    setApproveData(state, action: PayloadAction<string>) {
-      state.approveId = action.payload;
+    setRegistrantAction(state, action: PayloadAction<RegistrantAction>) {
+      state.registrantAction = action.payload;
     },
-    setDeclineData(state, action: PayloadAction<string>) {
-      state.rejectId = action.payload;
-    },
-    declineSuccessModalOpen(state) {
-      state.rejectSuccessModal = true;
-    },
-    declineSuccessModalClose(state) {
-      state.rejectSuccessModal = false;
+    declineSuccessModal(state, action: PayloadAction<boolean>) {
+      state.rejectSuccessModal = action.payload;
     },
   },
 });
 
 export const {
-  toggleRegistrantDetailsModalOpen,
-  toggleRegistrantDetailsModalClose,
+  toggleRegistrantDetailsModal,
+  declineSuccessModal,
+  setRegistrantAction,
   setRegistrantData,
-  toggleRegistrantApproveModalOpen,
-  toggleRegistrantApproveModalClose,
-  toggleRegistrantDeclineModalOpen,
-  toggleRegistrantDeclineModalClose,
-  setApproveData,
-  setDeclineData,
-  declineSuccessModalOpen,
-  declineSuccessModalClose,
+  toggleRegistrantApproveModal,
+  toggleRegistrantDeclineModal,
 } = registrantDetailsModalSlice.actions;
 export default registrantDetailsModalSlice.reducer;
