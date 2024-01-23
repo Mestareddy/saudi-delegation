@@ -102,3 +102,42 @@ export const galleryData = [
     image: "/images/gallery/gallery_6.png",
   },
 ];
+
+export const exhibitionData = [
+  {
+    id: 1,
+    image: "/images/exhibition/exhibition_1.png",
+  },
+  {
+    id: 2,
+    image: "/images/exhibition/exhibition_2.png",
+  },
+  {
+    id: 3,
+    image: "/images/exhibition/exhibition_3.png",
+  },
+  {
+    id: 4,
+    image: "/images/exhibition/exhibition_4.png",
+  },
+  {
+    id: 5,
+    image: "/images/exhibition/exhibition_5.png",
+  },
+  {
+    id: 6,
+    image: "/images/exhibition/exhibition_6.png",
+  },
+  {
+    id: 7,
+    image: "/images/exhibition/exhibition_7.png",
+  },
+  {
+    id: 8,
+    image: "/images/exhibition/exhibition_8.png",
+  },
+  {
+    id: 9,
+    image: "/images/exhibition/exhibition_9.png",
+  },
+];

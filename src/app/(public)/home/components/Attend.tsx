@@ -61,25 +61,25 @@ const Attend = () => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center bg-gradient-to-b from-white via-white to-[#EAF9F4]">
-      <div className="innerDiv w-[95%] sm:w-[90%] lg:w-[85%] my-10">
-        <div className="top grid grid-cols-6">
-          <div className="innerItems col-span-5 lg:col-span-2 my-5">
+    <div className="w-full flex justify-center items-center bg-[#ffffff]">
+      <div className="w-[95%] sm:w-[90%] lg:w-[85%] my-10">
+        <div className="grid grid-cols-6">
+          <div className="col-span-5 lg:col-span-2 my-5">
             <h1 className="text-zinc-800 bebas text-[36px] leading-[43.2px] font-normal font-bebas uppercase">
               Why you should{" "}
               <span className="text-emerald-600 bebas text-[36px] leading-[42.96px] font-normal font-bebas">
                 Attend
               </span>
             </h1>
-            <p className=" text-zinc-900 text-sm font-['Circular Std'] leading-[21px]">
+            <p className="text-zinc-900 text-sm font-['Circular Std'] leading-[21px]">
               We offer clients tailored and value-based guidance specific to
               their unique situation and environment to improve their security
               posture through a continuous improvement approach.
             </p>
           </div>
         </div>
-        <div className="bottom my-2 grid grid-cols-6 gap-4">
-          <div className="left col-span-3 lg:col-span-2">
+        <div className="my-2 grid grid-cols-6 gap-4">
+          <div className="col-span-3 lg:col-span-2">
             <Collapse
               defaultActiveKey={["0"]}
               activeKey={activeKey}
@@ -113,7 +113,7 @@ const Attend = () => {
               ))}
             </Collapse>
           </div>
-          <div className="right col-span-3 lg:col-span-4">
+          <div className="col-span-3 lg:col-span-4">
             <Image
               src={attendData[selectedId]?.image}
               alt={attendData[selectedId]?.title}

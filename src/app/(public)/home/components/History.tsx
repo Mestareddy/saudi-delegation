@@ -8,10 +8,10 @@ import {
 
 const History = () => {
   return (
-    <div className="bg-gradient-to-b from-[#EAF9F4] via-[#FFFFFF] to-[#FFFFFF] flex justify-center items-center w-full py-20">
-      <div className="inner w-[90] sm:w-[60%] grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div className="delivered col-span-1 flex flex-col items-center justify-center">
-          <BriecaseIcon size="100" />
+    <div className="bg-[#00E092] flex justify-center items-center w-full py-20">
+      <div className="inner w-[90] sm:w-[80%] grid sm:grid-cols-4 gap-5">
+        <div className="delivered col-span-1 flex flex-col items-center justify-start">
+          <BriecaseIcon size="100" stroke="black" />
           <div className="divider w-[120px] border border-[#00A96E] my-2" />
           <h1 className="bebas font-normal text-[24px] sm:text-[24px] leading-[28.8px] text-[#11142D] py-1">
             More Than 500
@@ -20,8 +20,8 @@ const History = () => {
             Projects delivered
           </p>
         </div>
-        <div className="delivered col-span-1 flex flex-col items-center justify-center">
-          <FactoryIcon size="100" />
+        <div className="delivered col-span-1 flex flex-col items-center justify-start">
+          <FactoryIcon size="100" stroke="black" />
           <div className="divider w-[120px] border border-[#00A96E] my-2" />
           <h1 className="bebas font-normal text-[24px] sm:text-[24px] leading-[28.8px] text-[#11142D] py-1">
             Over a decade
@@ -30,8 +30,8 @@ const History = () => {
             of Industry leadership
           </p>
         </div>
-        <div className="delivered col-span-1 flex flex-col items-center justify-center md:mt-5">
-          <UsersIcon size="100" />
+        <div className="delivered col-span-1 flex flex-col items-center justify-start">
+          <UsersIcon size="100" stroke="black" />
           <div className="divider w-[120px] border border-[#00A96E] my-2" />
           <h1 className="bebas font-normal text-[24px] sm:text-[24px] leading-[28.8px] text-[#11142D] py-1">
             Over 2000
@@ -40,8 +40,8 @@ const History = () => {
             Strategic attendees
           </p>
         </div>
-        <div className="delivered col-span-1 flex flex-col items-center justify-center md:mt-5">
-          <LocationIcon size="100" />
+        <div className="delivered col-span-1 flex flex-col items-center justify-start">
+          <LocationIcon size="100" stroke="black" />
           <div className="divider w-[120px] border border-[#00A96E] my-2" />
           <h1 className="bebas font-normal text-[24px] sm:text-[24px] leading-[28.8px] text-[#11142D] py-1">
             More than 20
