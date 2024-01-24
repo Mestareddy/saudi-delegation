@@ -1,146 +1,45 @@
 export const eventSummary = [
   {
-    id:1,
-    day: "Day 1",
-    description:
-      "Day 1 of the Nigeria-Saudi Arabia Business Event marked a dynamic convergence of industries and thought leaders, fostering a robust platform for collaboration.",
-    highlights: [
-      {
-        title: "Opening Ceremony",
-        description:
-          "Commenced with an inaugural address emphasizing the shared commitment to bilateral growth and economic prosperity.",
-      },
-      {
-        title: "Industry Forums",
-        description:
-          "Engaging forums explored opportunities in sectors ranging from technology and energy to finance and infrastructure, facilitating insightful discussions among delegates.",
-      },
-      {
-        title: "B2B Networking Sessions",
-        description:
-          "Entrepreneurs, investors, and executives engaged in meaningful networking, fostering potential partnerships and collaborations.",
-      },
-      {
-        title: "Cultural Exchange",
-        description:
-          "Beyond business, the event celebrated the rich cultural heritage of both nations, fostering a deeper understanding and connection between participants.",
-      },
-    ],
+    id: 1,
     outcomes: [
-      "Strengthening economic ties through collaborative projects and investments.",
-      "Initiating strategic partnerships that will drive innovation and economic growth.",
-      "Establishing a foundation for sustained business relations between Nigerian and Saudi Arabian enterprises.",
+      `Nigeria is a country that has arguably one of the world’s oldest democracies, it has a constitution with guarantees of individual freedoms and rule of law, it features full participation of women in its political system, to vote and to govern , this country has the greatest number of doctors, living in Nigeria and Abroad than most countries, it has some of the most intelligent minds building some of the most advanced technology across the world, it is the largest market and economy in Africa, boasting a population of 220 million.`,
+      `Nigeria’s economy like Saudi Arabia economy is heavily reliant on Oil but as we have seen today, the world’s largest economies are diversifying from Oil. The Nigerian government has identified various sectors in which we can collaborate and deepen the already existing relationship with Saudi Arabia. Nigeria and Saudi Arabia have a long standing economic and bilateral relationship which dates back to pre-independence era, currently the volume of Bilateral trade engagements between Nigeria and Saudi Arabia stood at over USD 1 billion in 2022 which is an increase from previous years but this can be improved upon for shared economic prosperity of both nations. Saudi and Nigeria have common visions for economic growth and development, this is apparent in the common members in several international organizations and close cooperation at that level such as; the United Nations (UN), Organization of Islamic Cooperation (OIC), G77, the International Energy Forum (IEF) and the Non-Aligned Movement.`,
+      `Nigeria is the largest country in Africa by population and Saudi Arabia is the largest Arab country in the Middle East, if both nations continue to strengthen and deepen their political, economic and cultural relationship it will be in the interest of both nations.`,
     ],
-    caption:
-      "As the event progresses, the shared vision of economic progress and cross-cultural collaboration is poised to shape the future landscape of business relations between these two vibrant nations.",
-    sessions: {
-      sectionA: [
-        {
-          title: "Session 1: Industry Spotlights",
-          description:
-            "Engage in immersive industry spotlights where experts from various sectors, including technology, energy, finance, and agriculture, will share key insights and discuss trends shaping their respective landscapes. Discover potential areas for collaboration and investment within these dynamic sectors.",
-        },
-        {
-          title: "Session 2: Business Networking Breakfast",
-          description:
-            "An exclusive networking breakfast will provide a relaxed yet strategic environment for participants to connect. This is a golden opportunity to build relationships, share ideas, and explore potential partnerships that could shape the future of business between our two nations.",
-        },
-      ],
-      sectionAImage: {
-        path: "/images/events-summary/group_attendees.png",
-      },
-      sectionB: [
-        {
-          title: "Session 1: Industry Spotlights",
-          description:
-            "Engage in immersive industry spotlights where experts from various sectors, including technology, energy, finance, and agriculture, will share key insights and discuss trends shaping their respective landscapes. Discover potential areas for collaboration and investment within these dynamic sectors.",
-        },
-        {
-          title: "Session 2: Business Networking Breakfast",
-          description:
-            "An exclusive networking breakfast will provide a relaxed yet strategic environment for participants to connect. This is a golden opportunity to build relationships, share ideas, and explore potential partnerships that could shape the future of business between our two nations.",
-        },
-      ],
-      sectionBImage: [
-        "/images/events-summary/event_1.png",
-        "/images/events-summary/event_2.png",
-        "/images/events-summary/event_3.png",
-      ],
-    },
+    outcomes2: [
+      `Through the success of the Saudi-Africa Summit, the Ministry of Industry, Trade and Investment established a relationship with their counterpart ministry. This relationship was easy to establish due to their shared vision for both nations. The Saudi-Nigeria Business Roundtable for Saudi Arabia and Nigeria private sector was organized to foster a deepened relationship focused on private sector businesses enabled by government support. `,
+      `Saudi Arabia has shown its commitment to the African continent through the Saudi Exim Banks Pledge to provide $10 Billion in Export finance to Africa by 2030. Saudi Exim bank’s agreement with Nexim Bank to establish a fund to promote trade between our countries. `,
+      `The Business Roundtable focused on building a greater understanding of our great country and assuring our counterparts and investors of the Federal Government’s support. `,
+      `At the Business Roundtable, Mr President opened the event by talking about both nations and his optimism for the relationship between both nations. The Saudi Arabia Minister for Commerce introduced the private sector companies who proceeded to speak about their companies and ways to partner with Nigerian companies and bottlenecks some of them have experienced in Nigeria. The Nigerian Minister for Industry, Trade and Investment did the introductions on the Nigerian side and also discussed ways to enhance economic and investment cooperation and collaboration between Saudi Arabia and Nigeria; to build an economic future that is more prosperous, fair and stable`,
+    ],
     footer:
-    "Take the first step, and let us assist you in achieving SOC 2 compliance. contact us ",
-  email: "inquiries@delegation.com",
-  },
-  {
-    id:2,
-    day: "Day 2",
-    description:
-      "Day 2 of the Nigeria-Saudi Arabia Business Event marked a dynamic convergence of industries and thought leaders, fostering a robust platform for collaboration.",
-    highlights: [
+      "Take the first step, and let us assist you in achieving SOC 2 compliance. contact us ",
+    email: "inquiries@delegation.com",
+    schedule: [
       {
-        title: "Opening Ceremony",
-        description:
-          "Commenced with an inaugural address emphasizing the shared commitment to bilateral growth and economic prosperity.",
+        day: "Day 1",
+        caption:'',
+        event: [
+          "BreakFast",
+          "Visit to Eko Atlantic ",
+          "Visit to Lekki Sea port",
+          "BreakFast",
+        ],
       },
       {
-        title: "Industry Forums",
-        description:
-          "Engaging forums explored opportunities in sectors ranging from technology and energy to finance and infrastructure, facilitating insightful discussions among delegates.",
-      },
-      {
-        title: "B2B Networking Sessions",
-        description:
-          "Entrepreneurs, investors, and executives engaged in meaningful networking, fostering potential partnerships and collaborations.",
-      },
-      {
-        title: "Cultural Exchange",
-        description:
-          "Beyond business, the event celebrated the rich cultural heritage of both nations, fostering a deeper understanding and connection between participants.",
+        day: "Day 2",
+        caption:'Hilton or State House',
+        event: [
+          "Breakfast",
+          "Nigeria-Saudi Business Forum and Exhibition ",
+          "Lead Speakers (Both Ministers) and select speakers ",
+          "Tea Break",
+          "B2B Networking",
+          "Inauguration of the Nigeria-Saudi Business Council",
+          "Meeting with Mr. President",
+          "Farewell banquet and Cultural Show",
+        ],
       },
     ],
-    outcomes: [
-      "Strengthening economic ties through collaborative projects and investments.",
-      "Initiating strategic partnerships that will drive innovation and economic growth.",
-      "Establishing a foundation for sustained business relations between Nigerian and Saudi Arabian enterprises.",
-    ],
-    caption:
-      "As the event progresses, the shared vision of economic progress and cross-cultural collaboration is poised to shape the future landscape of business relations between these two vibrant nations.",
-    sessions: {
-      sectionA: [
-        {
-          title: "Session 1: Industry Spotlights",
-          description:
-            "Engage in immersive industry spotlights where experts from various sectors, including technology, energy, finance, and agriculture, will share key insights and discuss trends shaping their respective landscapes. Discover potential areas for collaboration and investment within these dynamic sectors.",
-        },
-        {
-          title: "Session 2: Business Networking Breakfast",
-          description:
-            "An exclusive networking breakfast will provide a relaxed yet strategic environment for participants to connect. This is a golden opportunity to build relationships, share ideas, and explore potential partnerships that could shape the future of business between our two nations.",
-        },
-      ],
-      sectionAImage: {
-        path: "/images/events-summary/group_attendees.png",
-      },
-      sectionB: [
-        {
-          title: "Session 1: Industry Spotlights",
-          description:
-            "Engage in immersive industry spotlights where experts from various sectors, including technology, energy, finance, and agriculture, will share key insights and discuss trends shaping their respective landscapes. Discover potential areas for collaboration and investment within these dynamic sectors.",
-        },
-        {
-          title: "Session 2: Business Networking Breakfast",
-          description:
-            "An exclusive networking breakfast will provide a relaxed yet strategic environment for participants to connect. This is a golden opportunity to build relationships, share ideas, and explore potential partnerships that could shape the future of business between our two nations.",
-        },
-      ],
-      sectionBImage: [
-        "/images/events-summary/event_1.png",
-        "/images/events-summary/event_2.png",
-        "/images/events-summary/event_3.png",
-      ],
-    },
-    footer:
-    "Take the first step, and let us assist you in achieving SOC 2 compliance. contact us ",
-  email: "inquiries@delegation.com",
   },
 ];

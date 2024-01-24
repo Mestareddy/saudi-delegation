@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Form, Select, Input } from "antd";
-import { Paragraph, CustomButton } from "../common";
-import { ArrowDownIcon, CheckedBoxIcon, UnCheckedBoxIcon } from "../icons";
+import { CustomButton } from "../common";
+import { ArrowDownIcon } from "../icons";
 import useRegister from "../hooks/useRegister";
 import { TCheckboxes, TRegisterform } from "./types";
 import BusinessDetailsForm from "./BusinessDetailsForm";
 import { defaultCheckboxErrors, formItemStyle } from "./utils";
+import SpeakerForm from "./SpeakerForm";
+import BoothForm from "./BoothForm";
+import RequestHelpForm from "./RequestHelpForm";
+import AcceptTermsCheckboxForm from "./AcceptTermsCheckboxForm";
 interface RegistrationFormProps {
   /* eslint-disable-next-line */
   onSubmit: (data: TRegisterform) => void;
@@ -22,6 +26,7 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
     accept_terms: false,
   });
   const [checkboxErrors, setCheckboxErrors] = useState(defaultCheckboxErrors);
+  const [imageFile, setImageFile] = useState(defaultCheckboxErrors);
   const {
     countrySWR: { data: countries, isLoading: loadingCountries },
   } = useRegister();
@@ -41,6 +46,8 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
       ...checkboxes,
     });
   };
+
+  const handleSelectImage = (file: string) => { };
 
   return (
     <Form
@@ -105,87 +112,31 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
           </Select>
         </Form.Item>
       </div>
-      <div>
-        <div className="flex flex-row items-center space-x-[5px]">
-          {checkboxes.request_as_speaker ? (
-            <CheckedBoxIcon
-              onClick={() => handleCheckboxSelect("request_as_speaker", false)}
-            />
-          ) : (
-            <UnCheckedBoxIcon
-              onClick={() => handleCheckboxSelect("request_as_speaker", true)}
-            />
-          )}
-          <Paragraph
-            className={`font-semibold ${checkboxErrors.request_as_speaker
-                ? "text-red-100"
-                : "text-black-20"
-              }`}
-          >
-            Request Speaking Opportunity
-          </Paragraph>
-        </div>
-      </div>
-      <div>
-        <div className="flex flex-row items-center space-x-[5px]">
-          {checkboxes.request_booth ? (
-            <CheckedBoxIcon
-              onClick={() => handleCheckboxSelect("request_booth", false)}
-            />
-          ) : (
-            <UnCheckedBoxIcon
-              onClick={() => handleCheckboxSelect("request_booth", true)}
-            />
-          )}
-          <Paragraph
-            className={`font-semibold ${checkboxErrors.request_booth ? "text-red-100" : "text-black-20"
-              }`}
-          >
-            Request a Booth
-          </Paragraph>
-        </div>
-      </div>
-      <div>
-        <Form.Item
-          name="request_help"
-          label="How may we help? "
-          className="basis-2/4"
-          style={formItemStyle}
-          rules={[
-            { required: false, message: "Request help field is required" },
-          ]}
-        >
-          <Input placeholder="Type here" />
-        </Form.Item>
-      </div>
-      <div>
-        <div className="flex flex-row items-center space-x-[5px]">
-          {checkboxes.accept_terms ? (
-            <CheckedBoxIcon
-              onClick={() => handleCheckboxSelect("accept_terms", false)}
-            />
-          ) : (
-            <UnCheckedBoxIcon
-              onClick={() => handleCheckboxSelect("accept_terms", true)}
-            />
-          )}
-          <Paragraph
-            type="body2"
-            className={`${checkboxErrors.accept_terms ? "text-red-100" : "text-black-20"
-              }`}
-          >
-            By submitting this form, you agree to our
-            <span className="underline mx-1">Terms of Service</span> ,
-            <span className="underline">Privacy Policy</span>, and contacting
-            you.
-          </Paragraph>
-        </div>
-        <div className="h-[1px] w-full bg-gray-60 my-5" />
-      </div>
-      <Form.Item style={formItemStyle}>
+      <div className="border border-gray-60" />
+      <SpeakerForm
+        hasCheckBoxError={checkboxErrors.request_as_speaker}
+        isChecked={checkboxes.request_as_speaker}
+        onChecked={handleCheckboxSelect}
+        onSelectFile={handleSelectImage}
+      />
+      <div className="border border-gray-60" />
+      <BoothForm
+        hasCheckBoxError={checkboxErrors.request_booth}
+        isChecked={checkboxes.request_booth}
+        onChecked={handleCheckboxSelect}
+      />
+      <div className="border border-gray-60" />
+      <RequestHelpForm />
+      <AcceptTermsCheckboxForm
+        hasCheckBoxError={checkboxErrors.accept_terms}
+        isChecked={checkboxes.accept_terms}
+        onChecked={handleCheckboxSelect}
+      />
+      <div className="border border-gray-60 mt-5" />
+      <Form.Item style={{ marginTop: 20 }}>
         <CustomButton
           isLoading={isLoading}
-          className="text-white-100 w-full md:w-auto sm:w-auto"
+          className="text-white-100 w-full md:w-2/4 sm:w-auto"
         >
           Submit
         </CustomButton>
