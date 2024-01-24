@@ -49,6 +49,9 @@ const MenuModal = () => {
         <Link href="/gallery" className="!text-[#333333]">
           Gallery
         </Link>
+        <Link href="/exhibition-area" className="!text-[#333333]">
+          Exhibition Area
+        </Link>
         <CustomButton onClick={triggerRegister} className="w-full ">
           Register
         </CustomButton>

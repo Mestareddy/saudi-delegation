@@ -13,7 +13,7 @@ const Hero = () => {
     dispatch(toggleRegisterModalOpen());
   };
   return (
-    <div className="h-[634px] md:h-[756px] bg-[url('/images/mobile_home_hero_bg.png')] sm:bg-[url('/images/home_hero_bg.png')] bg-cover w-full flex justify-center items-end">
+    <div className="h-[634px] md:h-[756px] bg-home-hero w-full flex justify-center items-end">
       <div className="innerDiv mb-5 flex flex-col sm:items-center mx-5">
         <Image
           src="/images/nigeria_saudi_arabia_white_logo.png"
