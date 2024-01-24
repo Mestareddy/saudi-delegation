@@ -36,3 +36,4 @@ export { default as UnCheckedBoxIcon } from "./UnCheckedBox";
 export { default as UserIcon } from "./User";
 export { default as UsersIcon } from "./Users";
 export { default as XIcon } from "./X";
+export { default as CameraIcon } from "./Camera";
