@@ -1,24 +1,38 @@
 import { apiRequester, apiRequestorArgs, TAxiosResponseData } from "@/services";
+import { RegistrantEventType, StatusType } from "@/types/attendee";
 import useSWRMutation from "swr/mutation";
 
-const useRegistrant = () => {
-  const registrantApproveSWR = useSWRMutation<
-    TAxiosResponseData<any[]>,
-    string,
-    string,
-    apiRequestorArgs
-  >(`/event/approve`, apiRequester);
+type TUseRegistrant = {
+  eventType?: RegistrantEventType;
+  action?: StatusType;
+};
 
-  const registrantRejectSWR = useSWRMutation<
+const useRegistrant = ({
+  eventType = "attendee",
+  action = "approve",
+}: TUseRegistrant) => {
+  const getUrl = (type: RegistrantEventType, action: StatusType) => {
+    switch (type) {
+      case "attendee":
+        return `/event/${action}`;
+      case "booth":
+        return `/event/booth`;
+      case "speaker":
+        return `/event/speaker`;
+      default:
+        return `/event/${action}`;
+    }
+  };
+
+  const registrantSWR = useSWRMutation<
     TAxiosResponseData<any[]>,
     string,
     string,
     apiRequestorArgs
-  >(`/event/reject`, apiRequester);
+  >(getUrl(eventType, action), apiRequester);
 
   return {
-    registrantApproveSWR,
-    registrantRejectSWR,
+    registrantSWR,
   };
 };
 

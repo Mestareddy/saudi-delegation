@@ -11,10 +11,6 @@ import DeclineSuccessModal from "@/components/attendee/DeclineSuccessModal";
 const AppLayout = lazy(() => import("../../components/private/layout"));
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const approvalModalStatus = useAppSelector(
-    (state: RootState) =>
-      state.registrantDetailsModalSlice.registrantApproveModal
-  );
 
   const declineModalStatus = useAppSelector(
     (state: RootState) =>
@@ -35,7 +31,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         }
       >
         <AppLayout user={null}>{children}</AppLayout>
-        <ApproveModal approvalModalStatus={approvalModalStatus} />
+        <ApproveModal />
         <DeclineModal declineModalStatus={declineModalStatus} />
         <DeclineSuccessModal
           declineSuccessModalStatus={declineSuccessModalStatus}

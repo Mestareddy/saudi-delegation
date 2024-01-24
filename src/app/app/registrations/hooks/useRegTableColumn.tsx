@@ -1,11 +1,10 @@
 import { Paragraph } from "@/components/common";
 import { CircleCloseIcon, MoreIcon, TickCircleIcon } from "@/components/icons";
 import {
-  setApproveData,
-  toggleRegistrantApproveModalOpen,
-  toggleRegistrantDeclineModalOpen,
+  setRegistrantAction,
+  toggleRegistrantApproveModal,
+  toggleRegistrantDeclineModal,
 } from "@/lib/features/registrantDetailsModalSlice";
-import { setDeclineData } from "@/lib/features/userSlice";
 import { useAppDispatch } from "@/lib/hooks";
 import { MenuProps, Space, Dropdown } from "antd";
 import { ColumnsType } from "antd/es/table";
@@ -78,12 +77,20 @@ const useRegTableColumn = () => {
         render: (record) => {
 
           const onAccept = (id: string) => {
-            dispatch(toggleRegistrantApproveModalOpen());
-            dispatch(setApproveData(id));
+            dispatch(toggleRegistrantApproveModal(true));
+            dispatch(setRegistrantAction({
+              action: 'approve',
+              event: 'attendee',
+              registrantId: id
+            }))
           };
           const onDecline = (id: string) => {
-            dispatch(toggleRegistrantDeclineModalOpen());
-            dispatch(setDeclineData(id));
+            dispatch(toggleRegistrantDeclineModal(true));
+            dispatch(setRegistrantAction({
+              action: 'reject',
+              event: 'attendee',
+              registrantId: id
+            }))
           };
           const handleMenuClick: MenuProps["onClick"] = (event) => {
             const itemKey = event.key;

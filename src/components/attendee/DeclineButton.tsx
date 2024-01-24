@@ -3,17 +3,21 @@ import { CustomButton } from "../common";
 import { CancelIcon } from "../icons";
 import { RegistrantMainInfo } from "../auth";
 import {
-  setDeclineData,
-  toggleRegistrantDeclineModalOpen,
+  setRegistrantAction,
+  toggleRegistrantDeclineModal,
 } from "@/lib/features/registrantDetailsModalSlice";
 import { useAppDispatch } from "@/lib/hooks";
 
-const DeclineButton = ({ registrantInfo }: RegistrantMainInfo) => {
+const DeclineButton = ({ registrantId, eventType }: RegistrantMainInfo) => {
   const dispatch = useAppDispatch();
 
   const onDecline = () => {
-    dispatch(toggleRegistrantDeclineModalOpen());
-    dispatch(setDeclineData(registrantInfo.id));
+    dispatch(toggleRegistrantDeclineModal(true));
+    dispatch(setRegistrantAction({
+      action: 'reject',
+      event: eventType,
+      registrantId
+    }));
   };
   return (
     <CustomButton variant="declineButton" onClick={onDecline}>
