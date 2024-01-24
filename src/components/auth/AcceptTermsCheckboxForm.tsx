@@ -22,9 +22,8 @@ const AcceptTermsCheckboxForm: React.FunctionComponent<AcceptTermsCheckboxFormPr
 
     return (
       <div>
-        <div
+        <button
           onClick={handleCheckBox}
-          role="button"
           className="flex flex-row items-center space-x-[5px]"
         >
           {isChecked ? <CheckedBoxIcon /> : <UnCheckedBoxIcon />}
@@ -37,7 +36,7 @@ const AcceptTermsCheckboxForm: React.FunctionComponent<AcceptTermsCheckboxFormPr
             <span className="underline">Privacy Policy</span>, and contacting
             you.
           </Paragraph>
-        </div>
+        </button>
       </div>
     );
   };

@@ -17,8 +17,8 @@ const EventSummaryCard: React.FunctionComponent<EventSummaryCardProps> = ({
           Background:
         </Heading>
         <ul className="p-5">
-          {outcomes.map((item) => (
-            <li key={item} className="text-black-20 list-disc">
+          {outcomes.map((item, index) => (
+            <li key={`${index + 1}`} className="text-black-20 list-disc">
               {item}
             </li>
           ))}
@@ -31,8 +31,8 @@ const EventSummaryCard: React.FunctionComponent<EventSummaryCardProps> = ({
           </Heading>
         </div>
         <div>
-          {schedule.map((item) => (
-            <div key={item.day} className="flex flex-row border border-black-40">
+          {schedule.map((item, index) => (
+            <div key={`${index + 1}`} className="flex flex-row border border-black-40">
               <div className="py-5 px-2.5 basis-[15%]">
                 <Heading>
                   {item.day}
@@ -61,8 +61,8 @@ const EventSummaryCard: React.FunctionComponent<EventSummaryCardProps> = ({
           Saudi-Nigeria Business Roundtable
         </Heading>
         <ul className="p-5">
-          {outcomes2.map((item) => (
-            <li key={item} className="text-black-20 list-disc">
+          {outcomes2.map((item, index) => (
+            <li key={`${index + 1}`} className="text-black-20 list-disc">
               {item}
             </li>
           ))}
