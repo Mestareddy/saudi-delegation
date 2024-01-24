@@ -1,14 +1,14 @@
 import type { MenuProps } from "antd";
 
-export const companyLinks = [
+export const eventLinks = [
   {
     id: 1,
-    text: "About Us",
-    link: "/about-us",
+    text: "About",
+    link: "#about",
   },
   {
     id: 2,
-    text: "Services",
+    text: "Speakers",
     link: "/services",
   },
   {

@@ -61,7 +61,10 @@ const Attend = () => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center bg-[#ffffff]">
+    <div
+      id="#attend"
+      className="w-full flex justify-center items-center bg-[#ffffff]"
+    >
       <div className="w-[95%] sm:w-[90%] lg:w-[85%] my-10">
         <div className="grid grid-cols-6">
           <div className="col-span-5 lg:col-span-2 my-5">

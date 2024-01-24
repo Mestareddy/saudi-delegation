@@ -1,11 +1,5 @@
 import { Divider, Space } from "antd";
-import Link from "next/link";
 import React from "react";
-import {
-  companyLinks,
-  informationLinks,
-  resourcesLinks,
-} from "../../../mockData/footerData";
 import {
   ArrowRightUpIcon,
   InstagramIcon,
@@ -14,67 +8,23 @@ import {
   TwitterIcon,
 } from "@/components/icons";
 import Dropdownitem from "../../common/FooterDropdownitem";
+import Event from "./components/Event";
+import Resources from "./components/Resources";
+import Information from "./components/Information";
 
 const Footer = () => {
   return (
     <footer className="bg-white w-full flex justify-center itmes-center">
       <div className="innerDiv w-[95%] sm:w-[90%] lg:w-[85%] flex flex-col my-12">
-        <section className="topSection flex text-[14px] gap-2">
-          <div className="left w-[50%] sm:w-[60%] flex gap-2 flex-col sm:flex-row">
-            <div className="col1 grow">
-              <div className="company my-2">
-                <h1 className="text-[#00A96E] text-sm font-bold font-['SF Pro Display']">
-                  Company
-                </h1>
-                <div className="links flex flex-col">
-                  {companyLinks.map((company) => (
-                    <Link
-                      href={company.link}
-                      key={company.id}
-                      className="text-[#333333] py-1"
-                    >
-                      {company.text}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-              <div className="resources my-2 lg:mt-2">
-                <h1 className="text-[#00A96E] text-sm font-bold font-['SF Pro Display']">
-                  Resources
-                </h1>
-                <div className="links flex flex-col">
-                  {resourcesLinks.map((resource) => (
-                    <Link
-                      href={resource.link}
-                      key={resource.id}
-                      className="text-[#333333] py-1"
-                    >
-                      {resource.text}
-                    </Link>
-                  ))}
-                </div>
-              </div>
+        <section className="w-full flex flex-row gap-3">
+          <div className="left w-[50%] sm:w-[60%] grid grid-rows-2 gap-2 flex-col">
+            <div className="top row-span-1 grid gris-rows-1 sm:grid-cols-4 gap-3">
+              <Event />
+              <Resources />
+              <Information />
             </div>
-            <div className="col2 grow my-2">
-              <div className="information">
-                <h1 className="text-[#00A96E] text-sm font-bold font-['SF Pro Display']">
-                  Information
-                </h1>
-                <div className="links flex flex-col">
-                  {informationLinks.map((info) => (
-                    <Link
-                      href={info.link}
-                      key={info.id}
-                      className="text-[#333333] py-1"
-                    >
-                      {info.text}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="col3 grow-1 my-2">
-              <div className="nigeria">
+            <div className="bottom row-span-1 sm:grid sm:grid-cols-2 gap-3">
+              <div className="nigeria sm:col-span-1">
                 <h1 className="text-[#00A96E] text-sm font-bold font-['SF Pro Display']">
                   Nigeria
                 </h1>
@@ -93,7 +43,7 @@ const Footer = () => {
                   </p>
                 </div>
               </div>
-              <div className="saudi mt-2">
+              <div className="saudi sm:col-span-1">
                 <h1 className="text-[#00A96E]  text-sm font-bold font-['SF Pro Display']">
                   Saudi Arabia
                 </h1>
@@ -108,10 +58,10 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="right w-[50%] sm:w-[40%] flex">
-            <div className="divider w-[0px] h-[100%] mr-4 origin-top-left border border-neutral-200" />
-            <div className="rightContent flex flex-col">
-              <div className="top row-span-1 sm:row-span-1 ">
+          <div className="right w-[50%] sm:w-[40%] gap-2 flex flex-row">
+            <div className="divider w-[0px] h-[100%] mr-2 origin-top-left border border-neutral-200" />
+            <div className="sm:grid sm:grid-rows-2 gap-2">
+              <div className="top sm:row-span-1">
                 <h1 className="text-[#00A96E] text-sm font-bold font-['SF Pro Display']">
                   Business
                 </h1>
@@ -125,7 +75,7 @@ const Footer = () => {
                   </p>
                 </div>
               </div>
-              <div className="bottom row-span-1 sm:row-span-1 mt-2">
+              <div className="bottom sm:row-span-1">
                 <h1 className="text-[#00A96E]  text-sm font-bold font-['SF Pro Display']">
                   Industries
                 </h1>
@@ -145,10 +95,10 @@ const Footer = () => {
         <section className="inquiriesSection mt-4">
           <Space>
             <a
-              href="mailto:inquiries@email.com"
+              href="mailto:inquiries@nigeriasaudibusinessforum2024.ng"
               className="text-zinc-800 text-sm font-['Circular Std'] leading-[21px] !text-[#333333]"
             >
-              inquiries@email.com
+              inquiries@nigeriasaudibusinessforum2024.ng
             </a>
             <a href="https://twitter.com/">
               <TwitterIcon size="16" />

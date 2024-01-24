@@ -1,11 +1,11 @@
 import { CustomButton } from "@/components/common";
-import { ArrowRightUpIcon } from "@/components/icons";
 import { exhibitionData } from "@/mockData/homeData";
 import { Image } from "antd";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const Exhibition = () => {
+  const router = useRouter();
   return (
     <div className="w-full flex justify-center items-center bg-[#ffffff] py-10">
       <div className="w-[95%] sm:w-[90%] lg:w-[85%] my-10 flex flex-col lg:flex-row gap-5">
@@ -14,8 +14,6 @@ const Exhibition = () => {
             <div className="galleryImages gap-2 grid grid-cols-2 sm:grid-cols-3">
               {exhibitionData.map((exhibition) => (
                 <Image
-                  // width={220}
-                  // height={140}
                   key={exhibition.id}
                   src={exhibition.image}
                   alt=""
@@ -34,15 +32,13 @@ const Exhibition = () => {
             you products and services at the forum
           </p>
           <div className="flex flex-row mt-3 justify-between gap-3 w-full md:w-[90%]">
-            <CustomButton variant="outlined" className="p-5">
-              Request an Exhibition Booth
-            </CustomButton>
-            <Link
-              href="#"
-              className="flex flex-row items-center justify-center text-[16px] text-[#333333] leading-[19px] font-semibold"
+            <CustomButton
+              variant="contained"
+              className="p-5"
+              onClick={() => router.push("/exhibition-area")}
             >
-              Explore <ArrowRightUpIcon size="16px" className="ml-1" />
-            </Link>
+              Explore
+            </CustomButton>
           </div>
         </div>
       </div>
