@@ -1,13 +1,13 @@
 import { CustomButton, CustomTable, SearchInput } from "@/components/common";
 import React from "react";
-import { RegistrationTab } from "./components";
 import { useAppDispatch } from "@/lib/hooks";
 import {
   setRegistrantData,
   toggleRegistrantDetailsModal,
 } from "@/lib/features/registrantDetailsModalSlice";
-import { useAttendee, useRegTableColumn } from "./hooks";
 import DocumentDownload from "@/components/icons/DocumentDownload";
+import { useAttendee, useRegTableColumn } from "@/components/hooks";
+import { RegistrationTab } from "@/components/attendee";
 
 const PageContent: React.FunctionComponent = () => {
   const dispatch = useAppDispatch();
@@ -17,6 +17,7 @@ const PageContent: React.FunctionComponent = () => {
     currentPage,
     attendeeStatus,
     handleSearchQuery,
+    handleExportToExcel,
     changeAttendeeStatus,
     attendeeSWR: { data, isLoading, isValidating },
   } = useAttendee();
@@ -30,7 +31,6 @@ const PageContent: React.FunctionComponent = () => {
     dispatch(toggleRegistrantDetailsModal(true));
   };
 
-
   const searchPanel = (
     <div className="flex items-center space-x-2">
       <SearchInput
@@ -38,13 +38,18 @@ const PageContent: React.FunctionComponent = () => {
         onFilter={handleFilter}
         onChange={handleSearchQuery}
       />
-      {attendeeStatus === "reject" ? (
-        <CustomButton variant="icon">
-          <DocumentDownload />
-        </CustomButton>
-      ) : null}
+      <CustomButton
+        onClick={() => {
+          if (data?.data) {
+            handleExportToExcel(data?.data, `${attendeeStatus}_attendees_list`)
+          }
+        }}
+        variant="icon"
+      >
+        <DocumentDownload />
+      </CustomButton>
     </div>
-  )
+  );
 
   return (
     <div>

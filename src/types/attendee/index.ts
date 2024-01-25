@@ -34,5 +34,6 @@ export type RegistrantAction = {
   event?: RegistrantEventType
 };
 
+export type TAttendeeStatus = "register" | "reject" | "approve";
 
 

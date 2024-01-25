@@ -1,15 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDebounce, usePagination } from "@/components/hooks";
 import { apiFetcher } from "@/services";
+import { EventAttendee, TAttendeeStatus } from "@/types/attendee";
+import { exportToExcel } from "@/util";
 import { ChangeEvent, useEffect, useState } from "react";
 import useSWR from "swr";
-import { TAttendee, TAttendeeStatus } from "../types";
-
 
 const useAttendee = (defaultStatus?: TAttendeeStatus, queryParmas?: string) => {
-  const [attendeeStatus, setAttendeeStatus] = useState<TAttendeeStatus>(
-    defaultStatus || "register"
-  );
+  const [attendeeStatus, setAttendeeStatus] =
+    useState<TAttendeeStatus>("register");
   const [searchQuery, setSearchQuery] = useState<string | undefined>(undefined);
   const {
     itemPerPage,
@@ -22,7 +21,7 @@ const useAttendee = (defaultStatus?: TAttendeeStatus, queryParmas?: string) => {
   const debouncedValue = useDebounce(searchQuery, 800);
 
   const attendeeSWR = useSWR<{
-    data: TAttendee[];
+    data: EventAttendee[];
   }>(
     `/event?status=${attendeeStatus}&limit=${itemPerPage}&page=${currentPage}${
       debouncedValue ? debouncedValue : ""
@@ -39,14 +38,13 @@ const useAttendee = (defaultStatus?: TAttendeeStatus, queryParmas?: string) => {
   );
 
   useEffect(() => {
-    if (debouncedValue) {
+    if (debouncedValue && currentPage > 1) {
       attendeeSWR.mutate();
     }
-  }, [debouncedValue]);
-
-  useEffect(() => {
-    attendeeSWR.mutate();
-  }, [attendeeStatus, currentPage]);
+    if (defaultStatus) {
+      setAttendeeStatus(defaultStatus);
+    }
+  }, [debouncedValue, defaultStatus, currentPage]);
 
   const paginate = (page: number) => {
     paginateHandler(page);
@@ -70,6 +68,15 @@ const useAttendee = (defaultStatus?: TAttendeeStatus, queryParmas?: string) => {
     }
   };
 
+  const handleExportToExcel = (data: any[], fileName: string) => {
+    // FIXME: remove the "speaker_profile_image" field characters too big to be added in a excel sheet
+    const formattedData = data.map((item) => ({
+      ...item,
+      speaker_profile_image: "",
+    }));
+    exportToExcel(formattedData, fileName);
+  };
+
   return {
     paginate,
     attendeeSWR,
@@ -77,6 +84,7 @@ const useAttendee = (defaultStatus?: TAttendeeStatus, queryParmas?: string) => {
     currentPage,
     seTotalPageHandler,
     attendeeStatus,
+    handleExportToExcel,
     handleSearchQuery,
     changeAttendeeStatus,
   };

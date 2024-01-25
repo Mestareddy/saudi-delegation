@@ -1,29 +1,24 @@
-import { CustomTable, SearchInput } from "@/components/common";
-import React, { useState } from "react";
+import { CustomButton, CustomTable, SearchInput } from "@/components/common";
+import React from "react";
 import { useAppDispatch } from "@/lib/hooks";
 import {
   setRegistrantData,
   toggleRegistrantDetailsModal,
 } from "@/lib/features/registrantDetailsModalSlice";
-import { TableRowSelection } from "antd/es/table/interface";
-import { TAttendee } from "../registrations/types";
-import { useAttendee, useRegTableColumn } from "../registrations/hooks";
+import DocumentDownload from "@/components/icons/DocumentDownload";
+import { useAttendee, useRegTableColumn } from "@/components/hooks";
 
 const PageContent: React.FunctionComponent = () => {
-  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const dispatch = useAppDispatch();
   const { columns } = useRegTableColumn();
   const {
     totalPages,
     currentPage,
     handleSearchQuery,
+    handleExportToExcel,
     attendeeSWR: { data, isLoading, isValidating },
   } = useAttendee(undefined, '&request_booth=1');
 
-  const dataSource = data?.data.map((item: TAttendee) => ({
-    ...item,
-    key: item.id,
-  }));
 
   const handleFilter = () => {
     return true;
@@ -34,14 +29,6 @@ const PageContent: React.FunctionComponent = () => {
     dispatch(toggleRegistrantDetailsModal(true));
   };
 
-  const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
-    setSelectedRowKeys(newSelectedRowKeys);
-  };
-
-  const rowSelection: TableRowSelection<any> = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
 
   const searchPanel = (
     <div className="flex items-center space-x-2">
@@ -50,8 +37,19 @@ const PageContent: React.FunctionComponent = () => {
         onFilter={handleFilter}
         onChange={handleSearchQuery}
       />
+      <CustomButton
+        onClick={() => {
+          if (data?.data) {
+            handleExportToExcel(data?.data, `Booth_list`)
+          }
+        }}
+        variant="icon"
+      >
+        <DocumentDownload />
+      </CustomButton>
     </div>
-  )
+  );
+
 
   return (
     <div>
@@ -59,12 +57,11 @@ const PageContent: React.FunctionComponent = () => {
         sticky
         columns={columns}
         tableTitle="Booths"
-        dataSource={dataSource}
+        dataSource={data?.data}
         totalContent={totalPages}
         searchPanel={searchPanel}
         currentPage={currentPage}
         loading={isLoading || isValidating}
-        rowSelection={rowSelection}
         onRow={(record) => ({
           onClick: () => {
             toggleRegistrantModal(record);

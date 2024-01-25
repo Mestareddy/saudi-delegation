@@ -1,9 +1,7 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
- const usePagination = (defaultCurrentPage?: number) => {
-  const [currentPage, setCurrentPage] = useState<number>(
-    defaultCurrentPage || 1
-  );
+const usePagination = (defaultCurrentPage?: number) => {
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemPerPage, seItemPerPage] = useState<number>(100);
   const [totalPages, setTotalPages] = useState<number>(0);
 
@@ -11,6 +9,11 @@ import { useCallback, useState } from "react";
     setCurrentPage(page);
   }, []);
 
+  useEffect(() => {
+    if (defaultCurrentPage) {
+      setCurrentPage(defaultCurrentPage);
+    }
+  }, [defaultCurrentPage]);
 
   const setLimitHander = useCallback((limit: number) => {
     seItemPerPage(limit);
@@ -30,5 +33,4 @@ import { useCallback, useState } from "react";
   };
 };
 
-
-export default usePagination
+export default usePagination;

@@ -20,8 +20,8 @@ const BoothForm: React.FunctionComponent<BoothFormProps> = ({ hasCheckBoxError, 
   };
   return (
     <div>
-      <button onClick={handleCheckBox}
-        className="flex flex-row items-center space-x-[5px]">
+      <div role="button" onClick={handleCheckBox}
+        className="flex flex-row items-center space-x-[5px] cursor-pointer">
         {isChecked ? (
           <CheckedBoxIcon
           />
@@ -35,7 +35,7 @@ const BoothForm: React.FunctionComponent<BoothFormProps> = ({ hasCheckBoxError, 
         >
           Request a Booth
         </Paragraph>
-      </button>
+      </div>
     </div>
   )
 }

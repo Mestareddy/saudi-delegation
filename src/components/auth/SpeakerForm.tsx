@@ -29,9 +29,10 @@ const SpeakerForm: React.FunctionComponent<SpeakerFormProps> = ({
 
   return (
     <>
-      <button
+      <div
+        role="button"
         onClick={handleCheckBox}
-        className="flex flex-row items-center space-x-[5px]"
+        className="flex flex-row items-center space-x-[5px] cursor-pointer"
       >
         {isChecked ? <CheckedBoxIcon /> : <UnCheckedBoxIcon />}
         <Paragraph
@@ -40,7 +41,7 @@ const SpeakerForm: React.FunctionComponent<SpeakerFormProps> = ({
         >
           Request Speaking Opportunity
         </Paragraph>
-      </button>
+      </div>
       {isChecked && (
         <>
           <CustomImagePicker onSelectFile={onSelectFile} />
