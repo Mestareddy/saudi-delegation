@@ -4,25 +4,13 @@ export type Highlight = {
 }
 
 export interface EventSummary {
-  day: string;
-  description: string;
-  highlights: Highlight[];
   outcomes: string[];
-  caption: string;
-  sessions: {
-    sectionA: {
-      title: string;
-      description: string;
-    }[];
-    sectionAImage: {
-      path: string;
-    };
-    sectionB: {
-      title: string;
-      description: string;
-    }[];
-    sectionBImage: string[];
-    };
+  outcomes2: string[];
   footer: string;
   email: string;
+  schedule: {
+    day: string
+    caption:string,
+    event:string[]
+  }[],
 }

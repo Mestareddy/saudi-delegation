@@ -19,14 +19,12 @@ const PageContent: React.FunctionComponent = () => {
           {eventSummary.map((item) => (
             <EventSummaryCard
               key={item.id}
-              caption={item.caption}
-              day={item.day}
+
               email={item.email}
-              description={item.description}
               footer={item.footer}
-              highlights={item.highlights}
               outcomes={item.outcomes}
-              sessions={item.sessions}
+              outcomes2={item.outcomes2}
+              schedule={item.schedule}
             />
           ))}
         </div>

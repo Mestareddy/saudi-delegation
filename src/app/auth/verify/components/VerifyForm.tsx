@@ -101,7 +101,7 @@ const VerifyForm = () => {
           numInputs={6}
           inputStyle="md:h-11 md:!w-12 !w-10 h-8  md:px-4 md:py-3 px-2 py-1 border border-[#333333] text-[#333333] focus:border-green-minst focus-visible:outline-green-minst"
           containerStyle="justify-center md:gap-x-2.5 gap-x-1"
-          //   isDisabled={verifyMutating}
+        //   isDisabled={verifyMutating}
         />
         <CustomButton
           variant="contained"
