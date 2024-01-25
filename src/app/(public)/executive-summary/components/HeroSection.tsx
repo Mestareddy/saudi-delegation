@@ -6,18 +6,19 @@ const HeroSection: React.FunctionComponent = () => {
   return (
     <div>
       <Image
-        src={"/images/events-summary/executive_summary.png"}
+        src={"/images/home_hero_bg.png"}
         alt="executive_summary"
         height={484}
         width={1112}
+        className="w-full rounded-xl"
       />
       <div className="flex flex-row justify-between flex-wrap items-center md:items-start mt-[30px]">
         <Image
           src={"/images/events-summary/nigeria_saudi_arabia_logo_outlined.png"}
           alt="executive_summary"
-          height={150}
-          width={367.5}
-          className="h-11 w-[104px]"
+          height={80}
+          width={276}
+          className="h-20 w-[276px]"
         />
         <div className="mt-4 md:m-0">
           <div className="mb-3">

@@ -1,9 +1,8 @@
+import { TAttendeeStatus } from "@/types/attendee";
 import { Tabs, TabsProps } from "antd";
 import React from "react";
-import { TAttendeeStatus } from "../types";
 
 interface RegistrationTabProps {
-  /* eslint-disable-next-line */
   onTabSelect?: (key: TAttendeeStatus) => void;
   defaultKey?: string;
 }

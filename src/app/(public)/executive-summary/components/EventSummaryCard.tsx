@@ -16,7 +16,7 @@ const EventSummaryCard: React.FunctionComponent<EventSummaryCardProps> = ({
         <Heading type="h3" className="font-semibold uppercase mb-2.5">
           Background:
         </Heading>
-        <ul className="p-5">
+        <ul className="p-5 space-y-5">
           {outcomes.map((item, index) => (
             <li key={`${index + 1}`} className="text-black-20 list-disc">
               {item}
@@ -60,7 +60,7 @@ const EventSummaryCard: React.FunctionComponent<EventSummaryCardProps> = ({
         <Heading type="h3" className="font-semibold uppercase mb-2.5">
           Saudi-Nigeria Business Roundtable
         </Heading>
-        <ul className="p-5">
+        <ul className="p-5 space-y-5">
           {outcomes2.map((item, index) => (
             <li key={`${index + 1}`} className="text-black-20 list-disc">
               {item}
