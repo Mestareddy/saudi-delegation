@@ -10,6 +10,7 @@ const HeroSection: React.FunctionComponent = () => {
         alt="executive_summary"
         height={484}
         width={1112}
+        className="w-full"
       />
       <div className="flex flex-row justify-between flex-wrap items-center md:items-start mt-[30px]">
         <Image
@@ -22,25 +23,18 @@ const HeroSection: React.FunctionComponent = () => {
         <div className="mt-4 md:m-0">
           <div className="mb-3">
             <Heading className="uppercase text-right font-semibold" type="h2">
-              THE   <span className="text-green-hover uppercase mr-3">
+              THE{" "}
+              <span className="text-green-hover uppercase mr-3">
                 Nigeria Saudi
               </span>
-              <span className="uppercase">
-                Business Forum
-              </span>
+              <span className="uppercase">Business Forum</span>
             </Heading>
           </div>
-          <Heading className="text-right  font-semibold">
-            2024
-          </Heading>
+          <Heading className="text-right  font-semibold">2024</Heading>
           <div className="flex flex-row items-center justify-end space-x-3 mt-1.5">
-            <Paragraph>
-              Abuja
-            </Paragraph>
+            <Paragraph>Abuja</Paragraph>
             <span className="block bg-gray-40 h-2.5 w-2.5 rounded-full" />
-            <Paragraph className="">
-              Monday, January 29, 2024
-            </Paragraph>
+            <Paragraph className="">Monday, January 29, 2024</Paragraph>
           </div>
         </div>
       </div>
