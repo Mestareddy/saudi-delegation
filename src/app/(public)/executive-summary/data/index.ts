@@ -23,7 +23,9 @@ export const eventSummary = [
           "BreakFast",
           "Visit to Eko Atlantic ",
           "Visit to Lekki Sea port",
-          "BreakFast",
+          "Visit to Dangote Refinery",
+          "Welcome Lunch with Governor of Lagos State",
+          "Depart for Abuja",
         ],
       },
       {
