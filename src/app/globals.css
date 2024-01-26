@@ -188,9 +188,21 @@ body {
   background-size: 100% 100%;
 }
 
+.bg-exhibition-home-hero {
+  background-image: url("/images/exhibition/exhibition_hero.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
 @media only screen and (max-width: 600px) {
   .bg-home-hero {
     background-image: url("/images/mobile_home_hero_bg.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .exhibition-home-hero {
+    background-image: url("/images/exhibition/exhibition_hero.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }

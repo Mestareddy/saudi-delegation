@@ -18,7 +18,7 @@ const Section = () => {
           alt=""
           width={904}
           height={300}
-          className="w-[60%]"
+          className="w-[55%]"
         />
         <div className="flex flex-col gap-3 w-[30%]">
           <h1 className="bebas font-normal text-[32px] leading-[38.4px] text-[#11142D]">
@@ -38,7 +38,7 @@ const Section = () => {
           </CustomButton>
         </div>
       </div>
-      <div className="my-[50px] flex flex-row gap-10 items-center justify-end">
+      <div className="py-[50px] flex flex-row gap-10 items-center justify-end bg-[#f2f2f2]">
         <div className="flex flex-col gap-3 w-[30%]">
           <h1 className="bebas font-normal text-[32px] leading-[38.4px] text-[#11142D]">
             Ready to accommodate your showcases
@@ -54,7 +54,7 @@ const Section = () => {
           alt=""
           width={904}
           height={300}
-          className="w-[60%]"
+          className="w-[55%]"
         />
       </div>
       <div className="my-[50px] flex flex-row gap-10 items-center justify-start">
@@ -63,7 +63,7 @@ const Section = () => {
           alt=""
           width={904}
           height={300}
-          className="w-[60%]"
+          className="w-[55%]"
         />
         <div className="flex flex-col gap-3 w-[30%]">
           <h1 className="bebas font-normal text-[32px] leading-[38.4px] text-[#11142D]">

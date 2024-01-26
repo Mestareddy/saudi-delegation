@@ -43,14 +43,26 @@ const MenuModal = () => {
         <Link href="/speakers" className="!text-[#333333]">
           Event Brochure
         </Link>
-        <Link href="/speakers" className="!text-[#333333]">
+        <Link
+          href="/speakers"
+          className="!text-[#333333]"
+          onClick={handleCancel}
+        >
           Speakers
         </Link>
-        <Link href="/gallery" className="!text-[#333333]">
-          Gallery
-        </Link>
-        <Link href="/exhibition-area" className="!text-[#333333]">
+        <Link
+          href="/exhibition-area"
+          className="!text-[#333333]"
+          onClick={handleCancel}
+        >
           Exhibition Area
+        </Link>
+        <Link
+          href="/gallery"
+          className="!text-[#333333]"
+          onClick={handleCancel}
+        >
+          Gallery
         </Link>
         <CustomButton onClick={triggerRegister} className="w-full ">
           Register
