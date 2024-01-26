@@ -12,21 +12,7 @@ const PageContent = () => {
         <h1 className="bebas font-normal text-[48px] leading-[56.6px] text-[#11142D]">
           Terms & Conditions
         </h1>
-        <div className="mt-[30px]">{/* <HeroSection /> */}</div>
         <div className="mt-[30px] mx-auto space-y-[30px]">
-          {/* {eventSummary.map((item) => (
-            <EventSummaryCard
-              key={item.id}
-              caption={item.caption}
-              day={item.day}
-              email={item.email}
-              description={item.description}
-              footer={item.footer}
-              highlights={item.highlights}
-              outcomes={item.outcomes}
-              sessions={item.sessions}
-            />
-          ))} */}
           <TermsAndConditionsCard />
         </div>
       </div>

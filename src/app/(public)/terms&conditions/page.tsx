@@ -7,7 +7,7 @@ const TermsAndConditionsContent = lazy(() => import("./PageContent"));
 const page: React.FunctionComponent = () => {
   return (
     <div>
-      <PageHeader title="Exhibition" description="Exhibition area" />
+      <PageHeader title="Terms&Conditions" description="Terms and Conditions" />
       <TermsAndConditionsContent />
     </div>
   );
