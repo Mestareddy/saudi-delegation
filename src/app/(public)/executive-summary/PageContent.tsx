@@ -19,7 +19,6 @@ const PageContent: React.FunctionComponent = () => {
           {eventSummary.map((item) => (
             <EventSummaryCard
               key={item.id}
-
               email={item.email}
               footer={item.footer}
               outcomes={item.outcomes}

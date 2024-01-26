@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Select, Input } from "antd";
+import { Form, Select, Input, message } from "antd";
 import { CustomButton } from "../common";
 import { ArrowDownIcon } from "../icons";
 import useRegister from "../hooks/useRegister";
@@ -26,7 +26,7 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
     accept_terms: false,
   });
   const [checkboxErrors, setCheckboxErrors] = useState(defaultCheckboxErrors);
-  const [imageFile, setImageFile] = useState(defaultCheckboxErrors);
+  const [imageFile, setImageFile] = useState<string | undefined>(undefined);
   const {
     countrySWR: { data: countries, isLoading: loadingCountries },
   } = useRegister();
@@ -40,14 +40,25 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
       setCheckboxErrors((prev) => ({ ...prev, accept_terms: true }));
       return;
     }
+    if (checkboxes.request_as_speaker && !imageFile) {
+      message.open({
+        type: 'error',
+        content: 'speaker image is required'
+      })
+      return
+    }
+
     setCheckboxErrors(defaultCheckboxErrors);
     onSubmit({
       ...data,
       ...checkboxes,
+      speaker_profile_image: imageFile
     });
   };
 
-  const handleSelectImage = (file: string) => { };
+  const handleSelectImage = (file: string) => {
+    setImageFile(file)
+  };
 
   return (
     <Form
@@ -135,6 +146,7 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
       <div className="border border-gray-60 mt-5" />
       <Form.Item style={{ marginTop: 20 }}>
         <CustomButton
+          type="submit"
           isLoading={isLoading}
           className="text-white-100 w-full md:w-2/4 sm:w-auto"
         >

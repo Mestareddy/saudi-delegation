@@ -23,7 +23,7 @@ const CustomImagePicker: React.FunctionComponent<CustomImagePickerProps> = ({
   const handleImageChange = (event: any) => {
     const file = event.target.files[0];
     const fileSize = event.target.files[0].size;
-    const response = fileSizeValidator(fileSize);
+    const response = fileSizeValidator(fileSize, 3);
 
     if (response) {
       message.open({
@@ -37,7 +37,7 @@ const CustomImagePicker: React.FunctionComponent<CustomImagePickerProps> = ({
       setLoading(true);
       const reader = new FileReader();
       reader.onloadend = () => {
-        onSelectFile(file);
+        onSelectFile(reader.result as string);
         setPreviewUri(reader.result);
         setLoading(false);
       };
@@ -56,7 +56,6 @@ const CustomImagePicker: React.FunctionComponent<CustomImagePickerProps> = ({
     <div className="flex flex-row items-center mt-5">
       <input
         type="file"
-        accept="image/*"
         onChange={handleImageChange}
         style={{ display: "none" }}
         ref={fileInputRef}

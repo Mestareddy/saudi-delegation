@@ -1,17 +1,24 @@
-import { CustomTable, SearchInput } from "@/components/common";
+import { CustomButton, CustomTable, SearchInput } from "@/components/common";
 import React from "react";
 import { useAppDispatch } from "@/lib/hooks";
 import {
   setRegistrantData,
   toggleRegistrantDetailsModal,
 } from "@/lib/features/registrantDetailsModalSlice";
-import { useAttendee, useRegTableColumn } from "../registrations/hooks";
+import DocumentDownload from "@/components/icons/DocumentDownload";
+import { useAttendee, useRegTableColumn } from "@/components/hooks";
 
 const PageContent: React.FunctionComponent = () => {
   const dispatch = useAppDispatch();
   const { columns } = useRegTableColumn();
   const {
+    totalPages,
+    currentPage,
+    attendeeStatus,
+    handleSearchQuery,
+    handleExportToExcel,
     attendeeSWR: { data, isLoading, isValidating },
+
   } = useAttendee('approve');
 
   const handleFilter = () => {
@@ -23,19 +30,37 @@ const PageContent: React.FunctionComponent = () => {
     dispatch(toggleRegistrantDetailsModal(true));
   };
 
+  const searchPanel = (
+    <div className="flex items-center space-x-2">
+      <SearchInput
+        placeholder="Search"
+        onFilter={handleFilter}
+        onChange={handleSearchQuery}
+      />
+      <CustomButton
+        onClick={() => {
+          if (data?.data) {
+            handleExportToExcel(data?.data, `${attendeeStatus}_attendees_list`)
+          }
+        }}
+        variant="icon"
+      >
+        <DocumentDownload />
+      </CustomButton>
+    </div>
+  );
+
   return (
     <div>
       <CustomTable
         sticky
         columns={columns}
         dataSource={data?.data}
+        totalContent={totalPages}
+        currentPage={currentPage}
         tableTitle="Approved Attendee"
         loading={isLoading || isValidating}
-        searchPanel={
-          <div className="flex items-center space-x-2">
-            <SearchInput onFilter={handleFilter} placeholder="Search" />
-          </div>
-        }
+        searchPanel={searchPanel}
         onRow={(record) => ({
           onClick: () => {
             toggleRegistrantModal(record);

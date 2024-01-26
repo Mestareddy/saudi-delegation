@@ -1,20 +1,22 @@
-import { CustomTable, SearchInput } from "@/components/common";
+import { CustomButton, CustomTable, SearchInput } from "@/components/common";
 import React from "react";
 import { useAppDispatch } from "@/lib/hooks";
 import {
   setRegistrantData,
   toggleRegistrantDetailsModal,
 } from "@/lib/features/registrantDetailsModalSlice";
-import { useAttendee, useRegTableColumn } from "../registrations/hooks";
+import DocumentDownload from "@/components/icons/DocumentDownload";
+import { useAttendee, useRegTableColumn } from "@/components/hooks";
 
 const PageContent: React.FunctionComponent = () => {
   const dispatch = useAppDispatch();
   const { columns } = useRegTableColumn();
   const {
-    attendeeSWR: { data, isLoading, isValidating },
     totalPages,
     currentPage,
     handleSearchQuery,
+    handleExportToExcel,
+    attendeeSWR: { data, isLoading, isValidating },
   } = useAttendee(undefined, '&request_as_speaker=1');
 
   const handleFilter = () => {
@@ -27,6 +29,7 @@ const PageContent: React.FunctionComponent = () => {
   };
 
 
+
   const searchPanel = (
     <div className="flex items-center space-x-2">
       <SearchInput
@@ -34,8 +37,19 @@ const PageContent: React.FunctionComponent = () => {
         onFilter={handleFilter}
         onChange={handleSearchQuery}
       />
+      <CustomButton
+        onClick={() => {
+          if (data?.data) {
+            handleExportToExcel(data?.data, `speakers_list`)
+          }
+        }}
+        variant="icon"
+      >
+        <DocumentDownload />
+      </CustomButton>
     </div>
-  )
+  );
+
 
   return (
     <div>
