@@ -7,9 +7,8 @@ interface EventSummaryCardProps extends EventSummary { }
 const EventSummaryCard: React.FunctionComponent<EventSummaryCardProps> = ({
   outcomes,
   schedule,
-  outcomes2
+  outcomes2,
 }) => {
-
   return (
     <div className="bg-gray-50 p-5 rounded-[20px]">
       <div className="mt-[30px]">
@@ -26,27 +25,30 @@ const EventSummaryCard: React.FunctionComponent<EventSummaryCardProps> = ({
       </div>
       <div>
         <div className="bg-green-minst py-2.5 px-5">
-          <Heading>
-            Evnet Brochure
-          </Heading>
+          <Heading>Evnet Brochure</Heading>
         </div>
         <div>
-          {schedule.map((item, index) => (
-            <div key={`${index + 1}`} className="flex flex-row border border-black-40">
+          {schedule.map((eventSchedule, index) => (
+            <div
+              key={`${index + 1}`}
+              className="flex flex-row border border-black-40"
+            >
               <div className="py-5 px-2.5 basis-[15%]">
-                <Heading>
-                  {item.day}
-                </Heading>
-                <Heading>
-                  {item.caption}
-                </Heading>
+                <Heading>{eventSchedule.day}</Heading>
+                <Heading>{eventSchedule.caption}</Heading>
               </div>
-              <div className={`border border-black-40 flex-grow`}>
+              <div className={`border-l border-l-black-40 flex-grow`}>
                 <div className="text-black-20 list-decimal">
-                  {item.event.map((item, index) => (
-                    <div key={item} className={`flex flex-row items-center py-2.5 px-5 border-b border-b-black-40 `}>
+                  {eventSchedule.event.map((item, index) => (
+                    <div
+                      key={item}
+                      className={`flex flex-row items-center py-2.5 px-5 ${eventSchedule.event.length - 1 !== index
+                        ? " border-b border-b-black-40"
+                        : ""
+                        } `}
+                    >
                       <span>{index + 1}.</span>
-                      <Paragraph className='pl-2.5'>{item}</Paragraph>
+                      <Paragraph className="pl-2.5">{item}</Paragraph>
                     </div>
                   ))}
                 </div>
