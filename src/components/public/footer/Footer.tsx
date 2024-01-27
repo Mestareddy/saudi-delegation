@@ -36,7 +36,7 @@ const Footer = () => {
                     +234 56 6890 1234
                   </p>
                   <h1 className="addresstwo text-stone-500 text-sm font-['Circular Std'] leading-[21px] py-1">
-                    21 Ajose Adeogun, Victoria Island, Lagos.
+                    7A, Idejo Street, Victoria Island, Lagos
                   </h1>
                   <p className="phoneTwo text-zinc-800 text-sm font-['Circular Std'] leading-[21px] py-1">
                     +234 (1) 290 0808

@@ -96,7 +96,7 @@ const Attend = () => {
                   header={item.title}
                   className="bg-white border-none shadow-md rounded-[4px] mb-4"
                 >
-                  <div className="flex flex-col items-start ml-6">
+                  <div className="flex flex-col items-start lg:ml-6">
                     {item.paragraph}
                     <Button
                       type="default"
@@ -123,7 +123,7 @@ const Attend = () => {
               layout="responsive"
               width={100}
               height={100}
-              className="!w-full !h-[500px]"
+              className="!w-full max-h-[500px]"
             />
           </div>
         </div>
