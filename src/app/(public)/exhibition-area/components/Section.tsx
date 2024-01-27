@@ -27,7 +27,7 @@ const Section = () => {
           height={273}
           className="w-full lg:hidden order-2"
         />
-        <div className="flex flex-col gap-3 w-full lg:w-[30%] order-1 lg:order-2">
+        <div className="flex flex-col gap-3 w-full lg:w-[40%] order-1 lg:order-2">
           <h1 className="bebas font-normal text-[32px] leading-[38.4px] text-[#11142D]">
             Large Exhibition Area
           </h1>
@@ -39,7 +39,7 @@ const Section = () => {
         </div>
       </div>
       <div className="w-full py-[50px] flex flex-col lg:flex-row gap-10 items-center justify-end bg-[#f2f2f2]">
-        <div className="w-[95%] sm:w-[90%] lg:w-[35%] flex flex-col gap-3 lg:pr-5 order-1">
+        <div className="w-[95%] sm:w-[90%] lg:w-[40%] flex flex-col gap-3 lg:pr-5 order-1">
           <h1 className="bebas font-normal text-[32px] leading-[38.4px] text-[#11142D]">
             Ready to accommodate your showcases
           </h1>
@@ -86,7 +86,7 @@ const Section = () => {
           height={273}
           className="w-full lg:hidden order-2"
         />
-        <div className="flex flex-col gap-3 w-full lg:w-[30%] order-1 lg:order-2">
+        <div className="flex flex-col gap-3 w-full lg:w-[40%] order-1 lg:order-2">
           <h1 className="bebas font-normal text-[32px] leading-[38.4px] text-[#11142D]">
             Make your Booth truly yours
           </h1>
