@@ -134,6 +134,10 @@ body {
   font-family: var(--bebas);
 }
 
+.inter{
+  font-family: var(--inter);
+}
+
 .ant-modal {
   border-radius: 0px;
 }

@@ -1,4 +1,4 @@
-import { Roboto, Bebas_Neue } from "next/font/google";
+import { Roboto, Bebas_Neue, Inter } from "next/font/google";
 
 export const roboto_init = Roboto({
   subsets: ["latin"],
@@ -11,3 +11,9 @@ export const bebas = Bebas_Neue({
   weight: ["400"],
   variable: "--bebas",
 });
+
+export const inter = Inter({
+  subsets: ['latin'],
+  weight: ["400",'500','600','700'],
+  variable: "--inter",
+})

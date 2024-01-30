@@ -31,7 +31,7 @@ const Section = () => {
           <h1 className="bebas font-normal text-[32px] leading-[38.4px] text-[#11142D]">
             Large Exhibition Area
           </h1>
-          <p className="font-[450] text-[#191819] text-[20px] leading-[30px]">
+          <p className="font-[450] text-[#191819] text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px]">
             We offer clients tailored and value-based guidance specific to their
             unique situation and environment to improve their security posture
             through a continuous improvement approach.
@@ -43,7 +43,7 @@ const Section = () => {
           <h1 className="bebas font-normal text-[32px] leading-[38.4px] text-[#11142D]">
             Ready to accommodate your showcases
           </h1>
-          <p className="font-[450] text-[#191819] text-[20px] leading-[30px]">
+          <p className="font-[450] text-[#191819] text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px]">
             We offer clients tailored and value-based guidance specific to their
             unique situation and environment to improve their security posture
             through a continuous improvement approach.
@@ -90,7 +90,7 @@ const Section = () => {
           <h1 className="bebas font-normal text-[32px] leading-[38.4px] text-[#11142D]">
             Make your Booth truly yours
           </h1>
-          <p className="font-[450] text-[#191819] text-[20px] leading-[30px]">
+          <p className="font-[450] text-[#191819] text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px]">
             Exploring business opportunities for both countries by showcasing
             you products and services at the forum
           </p>

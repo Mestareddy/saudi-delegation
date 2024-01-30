@@ -29,7 +29,7 @@ interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const commonStyles =
-  "flex flex-row justify-center items-center text-base font-semibold rounded-[30px] space-x-2";
+  "flex flex-row justify-center items-center text-base font-semibold rounded-[30px] space-x-2 inter";
 const disabledStyles = "!bg-gray-40 text-white";
 
 const variantStyles = {

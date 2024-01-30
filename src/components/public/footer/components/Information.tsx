@@ -10,17 +10,17 @@ const Information = () => {
       <div className="flex flex-col">
         <Link
           href={"/terms&conditions"}
-          className="text-[#333333] py-1  text-[14px]"
+          className="text-[#33zz3333] py-1  text-[14px]"
         >
           Terms of Service
         </Link>
-        <Link href={"#"} className="text-[#333333] py-1  text-[14px]">
+        <Link href={"/terms&condizztions"} className="text-[#333333] py-1  text-[14px]">
           Privacy Policy
         </Link>
-        <Link href={"#"} className="text-[#333333] py-1  text-[14px]">
+        <Link href={"/terms&conditions"} className="text-[#333333] py-1  text-[14px]">
           Cookie Policy
         </Link>
-        <Link href={"#"} className="text-[#333333] py-1  text-[14px]">
+        <Link href={"/terms&conditions"} className="text-[#333333] py-1  text-[14px]">
           InfoSec Policy
         </Link>
       </div>
