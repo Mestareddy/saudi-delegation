@@ -11,10 +11,10 @@ const ExhibitionHero = () => {
   };
 
   return (
-    <div className="h-[334px] md:h-[568px] bg-exhibition-home-hero w-full flex justify-center items-end">
+    <div className="h-[568px] bg-exhibition-home-hero w-full flex justify-center items-end">
       <div className="w-[95%] sm:w-[90%] lg:w-[85%] mb-10 flex items-start">
-        <div className="w-full lg:w-[45%] flex flex-col items-start">
-          <h1 className="heroTitle bebas text-center text-white text-normal text-[30px] sm:text-[48px] font-normal leading-[57.6px] font-bebas uppercase">
+        <div className="w-full lg:w-[45%] flex flex-col items-center sm:items-start">
+          <h1 className="heroTitle bebas text-center text-white text-normal text-[40px] sm:text-[48px] font-normal leading-[57.6px] sm:leading-[48px] uppercase">
             <span className="text-[#00A96E]">Exhibition </span>
             Area
           </h1>

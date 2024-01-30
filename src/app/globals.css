@@ -202,7 +202,7 @@ body {
   }
 
   .exhibition-home-hero {
-    background-image: url("/images/exhibition/exhibition_hero.png");
+    background-image: url("/images/exhibition/exhibition_hero_mobile.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }

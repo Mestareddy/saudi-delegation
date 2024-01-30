@@ -31,10 +31,6 @@ module.exports = {
           80:"#808191"
         },
       },
-      fontFamily: {
-        bebas: ['Bebas Neue','sans-serif'],
-        robot: ['Roboto','sans-serif'],
-      },
     },
   },
   plugins: [

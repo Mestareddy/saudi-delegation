@@ -22,7 +22,7 @@ const Hero = () => {
           width={195}
           height={100}
         />
-        <h1 className="heroTitle bebas text-center text-white text-normal text-[30px] sm:text-[48px] font-normal leading-normal font-bebas uppercase">
+        <h1 className="heroTitle bebas text-center text-white text-normal text-[30px] sm:text-[48px] font-normal leading-normal uppercase">
           The Nigeria Saudi Business Forum
         </h1>
         <p className="text-center text-white text-[20px] font-['Circular Std'] my-2">

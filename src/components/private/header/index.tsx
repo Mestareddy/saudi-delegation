@@ -47,7 +47,7 @@ const AppHeader: React.FunctionComponent = () => {
             <div className="flex flex-col px-2.5">
               <Heading
                 type="btn"
-                className="text-sm  font-medium font-robot mb-0.5"
+                className="text-sm  font-medium roboto mb-0.5"
               >
                 {user?.first_name}
               </Heading>

@@ -1,4 +1,4 @@
-import { Divider, Space } from "antd";
+import { Divider } from "antd";
 import React from "react";
 import {
   ArrowRightUpIcon,
@@ -93,26 +93,28 @@ const Footer = () => {
           </div>
         </section>
         <section className="inquiriesSection mt-4">
-          <Space>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
             <a
               href="mailto:inquiries@nigeriasaudibusinessforum2024.ng"
               className="text-zinc-800 text-sm font-['Circular Std'] leading-[21px] !text-[#333333]"
             >
               inquiries@nigeriasaudibusinessforum2024.ng
             </a>
-            <a href="https://twitter.com/">
-              <TwitterIcon size="16" />
-            </a>
-            <a href="https://linkedin.com/">
-              <LinkedinIcon size="16" />
-            </a>
-            <a href="https://slack.com/">
-              <SlackIcon size="16" />
-            </a>
-            <a href="https://instagram.com/">
-              <InstagramIcon size="16" />
-            </a>
-          </Space>
+            <div className="flex flex-row items-start">
+              <a href="https://twitter.com/">
+                <TwitterIcon size="16" />
+              </a>
+              <a href="https://linkedin.com/">
+                <LinkedinIcon size="16" />
+              </a>
+              <a href="https://slack.com/">
+                <SlackIcon size="16" />
+              </a>
+              <a href="https://instagram.com/">
+                <InstagramIcon size="16" />
+              </a>
+            </div>
+          </div>
         </section>
         <Divider />
         <section className="copyrightSection flex justify-between">

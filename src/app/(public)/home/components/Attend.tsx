@@ -68,9 +68,9 @@ const Attend = () => {
       <div className="w-[95%] sm:w-[90%] lg:w-[85%] my-10">
         <div className="grid grid-cols-6">
           <div className="col-span-5 lg:col-span-2 my-5">
-            <h1 className="text-zinc-800 bebas text-[36px] leading-[43.2px] font-normal font-bebas uppercase">
+            <h1 className="text-zinc-800 bebas text-[36px] leading-[43.2px] font-normal bebas uppercase">
               Why you should{" "}
-              <span className="text-emerald-600 bebas text-[36px] leading-[42.96px] font-normal font-bebas">
+              <span className="text-emerald-600 bebas text-[36px] leading-[42.96px] font-normal bebas">
                 Attend
               </span>
             </h1>

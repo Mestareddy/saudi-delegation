@@ -72,7 +72,7 @@ const EventSummaryCard: React.FunctionComponent<EventSummaryCardProps> = ({
       </div>
       <div className="mt-[30px]">
         <div className="h-[1px] bg-gray-40 mt-[30px]" />
-        <Paragraph className="text-2xl font-normal font-bebas bebas uppercase  md:font-semibold text-right mt-[30px]">
+        <Paragraph className="text-2xl font-normal bebas uppercase  md:font-semibold text-right mt-[30px]">
           Executive Summary
         </Paragraph>
       </div>

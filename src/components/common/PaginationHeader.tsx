@@ -19,7 +19,7 @@ const PaginationHeader: React.FunctionComponent<PaginationHeaderProps> = ({
 }) => {
   return (
     <header className="mb-3 flex flex-wrap gap-2 justify-start items-center">
-      <Heading className="text-[20px] font-robot font-bold capitalize">
+      <Heading className="text-[20px] roboto font-bold capitalize">
         {tableTitle}
       </Heading>
       <div className="h-5 w-[1px] mx-4 bg-[#1212121A]" />
