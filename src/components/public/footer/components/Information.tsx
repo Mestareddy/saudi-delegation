@@ -14,13 +14,22 @@ const Information = () => {
         >
           Terms of Service
         </Link>
-        <Link href={"/terms&condizztions"} className="text-[#333333] py-1  text-[14px]">
+        <Link
+          href={"/terms&conditions"}
+          className="text-[#333333] py-1  text-[14px]"
+        >
           Privacy Policy
         </Link>
-        <Link href={"/terms&conditions"} className="text-[#333333] py-1  text-[14px]">
+        <Link
+          href={"/terms&conditions"}
+          className="text-[#333333] py-1  text-[14px]"
+        >
           Cookie Policy
         </Link>
-        <Link href={"/terms&conditions"} className="text-[#333333] py-1  text-[14px]">
+        <Link
+          href={"/terms&conditions"}
+          className="text-[#333333] py-1  text-[14px]"
+        >
           InfoSec Policy
         </Link>
       </div>
