@@ -37,6 +37,40 @@ const useAttendee = (defaultStatus?: TAttendeeStatus, queryParmas?: string) => {
     }
   );
 
+  const speakersStatusSWR = useSWR<{
+    data: EventAttendee[];
+  }>(
+    `/event?speaker_status=${attendeeStatus}&limit=${itemPerPage}&page=${currentPage}${
+      debouncedValue ? debouncedValue : ""
+    }${queryParmas || ""}`,
+    apiFetcher,
+    {
+      revalidateOnFocus: false,
+      onSuccess: (data: any) => {
+        if (data.results) {
+          seTotalPageHandler(data.results);
+        }
+      },
+    }
+  );
+
+  const boothStatusSWR = useSWR<{
+    data: EventAttendee[];
+  }>(
+    `/event?booth_status=${attendeeStatus}&limit=${itemPerPage}&page=${currentPage}${
+      debouncedValue ? debouncedValue : ""
+    }${queryParmas || ""}`,
+    apiFetcher,
+    {
+      revalidateOnFocus: false,
+      onSuccess: (data: any) => {
+        if (data.results) {
+          seTotalPageHandler(data.results);
+        }
+      },
+    }
+  );
+
   useEffect(() => {
     if (debouncedValue && currentPage > 1) {
       attendeeSWR.mutate();
@@ -80,6 +114,8 @@ const useAttendee = (defaultStatus?: TAttendeeStatus, queryParmas?: string) => {
   return {
     paginate,
     attendeeSWR,
+    speakersStatusSWR,
+    boothStatusSWR,
     totalPages,
     currentPage,
     seTotalPageHandler,

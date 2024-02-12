@@ -134,7 +134,7 @@ body {
   font-family: var(--bebas);
 }
 
-.inter{
+.inter {
   font-family: var(--inter);
 }
 
@@ -209,5 +209,12 @@ body {
     background-image: url("/images/exhibition/exhibition_hero_mobile.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar {
+    position: absolute !important;
+    z-index: 1000;
   }
 }

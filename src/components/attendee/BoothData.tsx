@@ -18,8 +18,8 @@ const BoothData: React.FunctionComponent<BoothDataProps> = ({
     status === "register"
       ? "pending"
       : status === "approve"
-        ? "approved"
-        : "declined";
+      ? "approved"
+      : "declined";
 
   return (
     <div className="attendee grid grid-rows-1 sm:grid-cols-8 my-3">
@@ -39,10 +39,12 @@ const BoothData: React.FunctionComponent<BoothDataProps> = ({
             N/A
           </h1>
         )}
-        <div className="buttons gap-3 flex flex-row my-3">
-          <AddButton eventType='booth' registrantId={registrantId} />
-          <DeclineButton eventType="booth" registrantId={registrantId} />
-        </div>
+        {requestBooth && (
+          <div className="buttons gap-3 flex flex-row my-3">
+            <AddButton eventType="booth" registrantId={registrantId} />
+            <DeclineButton eventType="booth" registrantId={registrantId} />
+          </div>
+        )}
       </div>
     </div>
   );

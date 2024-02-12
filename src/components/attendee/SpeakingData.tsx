@@ -4,19 +4,22 @@ import AddButton from "./AcceptButton";
 import DeclineButton from "./DeclineButton";
 
 interface SpeakingDataProps {
-  status: string
-  registrantId: string | number
-  requestAsSpeaker: boolean
+  status: string;
+  registrantId: string | number;
+  requestAsSpeaker: boolean;
 }
 
-const SpeakingData: React.FunctionComponent<SpeakingDataProps> = ({ registrantId, requestAsSpeaker, status }) => {
-
+const SpeakingData: React.FunctionComponent<SpeakingDataProps> = ({
+  registrantId,
+  requestAsSpeaker,
+  status,
+}) => {
   const acceptanceStatus: string =
     status === "register"
       ? "pending"
       : status === "approve"
-        ? "approved"
-        : "declined";
+      ? "approved"
+      : "declined";
 
   return (
     <div className="attendee grid grid-rows-1 sm:grid-cols-8 my-3">
@@ -36,10 +39,12 @@ const SpeakingData: React.FunctionComponent<SpeakingDataProps> = ({ registrantId
             N/A
           </h1>
         )}
-        <div className="buttons gap-3 flex flex-row my-3">
-          <AddButton eventType='speaker' registrantId={registrantId} />
-          <DeclineButton eventType='speaker' registrantId={registrantId} />
-        </div>
+        {requestAsSpeaker && (
+          <div className="buttons gap-3 flex flex-row my-3">
+            <AddButton eventType="speaker" registrantId={registrantId} />
+            <DeclineButton eventType="speaker" registrantId={registrantId} />
+          </div>
+        )}
       </div>
     </div>
   );

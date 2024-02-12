@@ -13,7 +13,6 @@ import {
 } from "./helper";
 import { CustomButton, Paragraph } from "@/components/common";
 import { LogoutIcon } from "@/components/icons";
-import HamburgerIcon from "@/components/icons/HamburgerIcon";
 import { useAuth } from "@/components/hooks";
 
 const { Sider } = Layout;
@@ -36,10 +35,6 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
     }
   }, [lg]);
 
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
-
   const onOpenChange: MenuProps["onOpenChange"] = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (latestOpenKey && rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
@@ -50,24 +45,22 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
   };
 
   return (
-    <Sider collapsed={collapsed} width={250} className="!bg-gray-70">
+    <Sider
+      className="sidebar h-screen !bg-gray-70"
+      breakpoint="lg"
+      collapsedWidth="0"
+      collapsed={collapsed}
+      // onBreakpoint={(broken) => {
+      //   console.log(broken);
+      // }}
+      onCollapse={(collapsed, type) => {
+        // console.log(collapsed, type);
+        setCollapsed(collapsed);
+      }}
+      style={{ height: "100vh", zIndex: 99 }}
+    >
       <>
         <div className="">
-          {!lg && (
-            <div
-              className="flex items-end justify-between"
-              style={{ padding: 0 }}
-            >
-              <div />
-              <button onClick={toggleCollapsed}>
-                {collapsed ? (
-                  <HamburgerIcon size="18" />
-                ) : (
-                  <HamburgerIcon size="18" />
-                )}
-              </button>
-            </div>
-          )}
           <div className="w-full flex flex-col justify-between h-full py-6 gap-y-3 mt-10 items-center">
             <div>
               <Image

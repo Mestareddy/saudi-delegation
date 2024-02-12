@@ -16,8 +16,8 @@ const PageContent: React.FunctionComponent = () => {
     currentPage,
     handleSearchQuery,
     handleExportToExcel,
-    attendeeSWR: { data, isLoading, isValidating },
-  } = useAttendee(undefined, '&request_as_speaker=1');
+    speakersStatusSWR: { data, isLoading, isValidating },
+  } = useAttendee("approve");
 
   const handleFilter = () => {
     return true;
@@ -27,8 +27,6 @@ const PageContent: React.FunctionComponent = () => {
     dispatch(setRegistrantData(record));
     dispatch(toggleRegistrantDetailsModal(true));
   };
-
-
 
   const searchPanel = (
     <div className="flex items-center space-x-2">
@@ -40,7 +38,7 @@ const PageContent: React.FunctionComponent = () => {
       <CustomButton
         onClick={() => {
           if (data?.data) {
-            handleExportToExcel(data?.data, `speakers_list`)
+            handleExportToExcel(data?.data, `speakers_list`);
           }
         }}
         variant="icon"
@@ -49,7 +47,6 @@ const PageContent: React.FunctionComponent = () => {
       </CustomButton>
     </div>
   );
-
 
   return (
     <div>
