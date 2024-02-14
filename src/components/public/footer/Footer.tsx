@@ -100,7 +100,7 @@ const Footer = () => {
             >
               inquiries@nigeriasaudibusinessforum2024.ng
             </a>
-            <div className="flex flex-row items-start">
+            <div className="flex flex-row items-start gap-2">
               <a href="https://twitter.com/">
                 <TwitterIcon size="16" />
               </a>

@@ -13,7 +13,7 @@ const Hero = () => {
     dispatch(toggleRegisterModalOpen());
   };
   return (
-    <div className="h-[634px] md:h-[756px] bg-home-hero w-full flex justify-center items-end">
+    <div className="h-[534px] sm:h-[534px] lg:h-[756px] bg-home-hero w-full flex justify-center items-end">
       <div className="innerDiv mb-5 flex flex-col sm:items-center mx-5">
         <Image
           src="/images/nigeria_saudi_arabia_white_logo.png"
@@ -30,7 +30,7 @@ const Hero = () => {
         </p>
         <div className="dividerDiv w-full flex flex-row justify-center items-center mb-3">
           <div className="leftDivider w-[100%] h-[0px] mr-3 origin-top-left border border-neutral-200" />
-          <h1 className="flex-grow whitespace-nowrap text-[16px] sm:text-[20px] leading-[25px] font-bold">
+          <h1 className="flex-grow whitespace-nowrap text-[16px] sm:text-[20px] leading-[25px] font-bold text-white">
             Monday, January 29, 2024
           </h1>
           <div className="rightDivider w-[100%] h-[0px] ml-3 origin-top-left border border-neutral-200" />

@@ -1,5 +1,3 @@
-import type { MenuProps } from "antd";
-
 export const eventLinks = [
   {
     id: 1,
@@ -72,16 +70,5 @@ export const dropdownItems = [
   {
     id: 2,
     name: "Saudi Arabia",
-  },
-];
-
-export const items: MenuProps["items"] = [
-  {
-    label: "Nigeria",
-    key: "1",
-  },
-  {
-    label: "Saudi Arabia",
-    key: "2",
   },
 ];
