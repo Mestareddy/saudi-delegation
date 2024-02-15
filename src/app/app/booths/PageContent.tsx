@@ -16,8 +16,8 @@ const PageContent: React.FunctionComponent = () => {
     currentPage,
     handleSearchQuery,
     handleExportToExcel,
-    boothStatusSWR: { data, isLoading, isValidating },
-  } = useAttendee("approve");
+    boothStatusSWR: { data, isLoading },
+  } = useAttendee({ defaultStatus: "approve", type: "booth" });
 
   const handleFilter = () => {
     return true;
@@ -58,7 +58,7 @@ const PageContent: React.FunctionComponent = () => {
         totalContent={totalPages}
         searchPanel={searchPanel}
         currentPage={currentPage}
-        loading={isLoading || isValidating}
+        loading={isLoading}
         onRow={(record) => ({
           onClick: () => {
             toggleRegistrantModal(record);

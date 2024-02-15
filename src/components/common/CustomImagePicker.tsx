@@ -61,13 +61,15 @@ const CustomImagePicker: React.FunctionComponent<CustomImagePickerProps> = ({
         ref={fileInputRef}
       />
       {previewUri ? (
-        <Image
-          alt="upload"
-          src={previewUri as string}
-          width={140}
-          height={140}
-          className="h-[140px] w-[140px] bg-center rounded-[10px]"
-        />
+        <div className="h-[140px] w-[140px] bg-center rounded-[10px]">
+          <Image
+            alt="upload"
+            src={previewUri as string}
+            width={140}
+            height={140}
+            className="w-full h-full object-cover"
+          />
+        </div>
       ) : (
         <button
           onClick={triggerFileInput}

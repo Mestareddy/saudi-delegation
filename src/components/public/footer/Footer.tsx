@@ -96,7 +96,7 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
             <a
               href="mailto:inquiries@nigeriasaudibusinessforum2024.ng"
-              className="text-zinc-800 text-sm font-['Circular Std'] leading-[21px] !text-[#333333]"
+              className="text-zinc-800 text-[12px] sm:text-[14px] font-['Circular Std'] leading-[21px] !text-[#333333]"
             >
               inquiries@nigeriasaudibusinessforum2024.ng
             </a>

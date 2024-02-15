@@ -23,14 +23,15 @@ export type TRegisterform = {
   business_phone: string;
   nationality: number;
   request_help: string;
-  bio:string
-  speaker_topic:string
-  speaker_profile_image?:string
+  bio: string;
+  speaker_topic: string;
+  speaker_profile_image?: string;
 };
 
 export type RegistrantMainInfo = {
   registrantId?: string | number;
   eventType: RegistrantEventType;
+  statusButton?: string | boolean;
 };
 
 export interface RegistrantMoreInfo extends EventAttendee {}

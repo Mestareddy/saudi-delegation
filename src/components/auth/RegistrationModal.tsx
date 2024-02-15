@@ -18,80 +18,86 @@ interface RegistrationModalProps {
   onClose: () => void;
 }
 
-const RegistrationModal: React.FunctionComponent<RegistrationModalProps> =
-  () => {
-    const [hasRegistered, setHasRegistered] = useState(false);
-    const dispatch = useAppDispatch();
-    const registerModalStatus = useAppSelector(
-      (state: RootState) => state.registerModalSlice.value
-    );
+const RegistrationModal: React.FunctionComponent<
+  RegistrationModalProps
+> = () => {
+  const [hasRegistered, setHasRegistered] = useState(false);
+  const dispatch = useAppDispatch();
+  const registerModalStatus = useAppSelector(
+    (state: RootState) => state.registerModalSlice.value
+  );
 
-    const {
-      registerEventSWR: { isMutating, trigger },
-    } = useRegister();
+  const {
+    registerEventSWR: { isMutating, trigger },
+  } = useRegister();
 
-    const registerEvent = (data: TRegisterform) => {
-      data.business_phone = data.business_phone.replace(/^0/, "+234");
-      trigger({
-        data: data,
+  const registerEvent = (data: TRegisterform) => {
+    // data.business_phone = data.business_phone.replace(/^0/, "+234");
+    trigger({
+      data: data,
+    })
+      .then(() => {
+        setHasRegistered(true);
       })
-        .then(() => {
-          setHasRegistered(true);
-        })
-        .catch((error) => {
-          message.open({
-            type: "error",
-            content: apiErrorHandler(error),
-          });
+      .catch((error) => {
+        message.open({
+          type: "error",
+          content: apiErrorHandler(error),
         });
-    };
+      });
+  };
 
-    const handleCancel = () => {
-      dispatch(toggleRegisterModalClose());
-    };
+  const handleCancel = () => {
+    dispatch(toggleRegisterModalClose());
+  };
 
-    const handleCloseStatusModal = () => {
-      setHasRegistered(false);
-    };
-    return (
-      <Modal
-        footer={null}
-        width={1480}
-        className="border-0"
-        open={registerModalStatus}
-        onCancel={handleCancel}
-        closeIcon={<RoundedCloseIcon />}
-        style={{ top: 0 }}
-      >
-        <div className="md:p-[100px]">
-          <Heading type="h1">
-            Register to <span className="text-green-hover">attend</span>{" "}
-          </Heading>
-          <div className="flex flex-col md:flex-row  items-start md:gap-[70px] self-stretch mt-[30px]">
-            <div className="basis-2/4">
-              <AuthHeader />
-              <div className="mt-5 hidden md:block">
-                <PartnershipSection />
-              </div>
+  const handleCloseStatusModal = () => {
+    setHasRegistered(false);
+  };
+  return (
+    <Modal
+      footer={null}
+      width={1480}
+      className="border-0 max-h-[90vh]"
+      open={registerModalStatus}
+      onCancel={handleCancel}
+      closeIcon={<RoundedCloseIcon style={{ position: "fixed" }} />}
+      style={{ top: 0 }}
+    >
+      <div className="md:p-[50px]">
+        <Heading type="h1">
+          Register to <span className="text-green-hover">attend</span>{" "}
+        </Heading>
+        <div className="flex flex-col md:flex-row  items-start md:gap-[70px] self-stretch mt-[30px]">
+          <div className="basis-2/4">
+            <AuthHeader />
+            <div className="mt-5 hidden md:block">
+              <PartnershipSection />
             </div>
-            <div className="basis-[75%]">
-              {hasRegistered ? (
-                <RegistrationCompleted onClose={handleCloseStatusModal} />
-              ) : (
+          </div>
+          <div className="basis-[75%] h-[75vh]">
+            {hasRegistered ? (
+              <RegistrationCompleted onClose={handleCloseStatusModal} />
+            ) : (
+              <div
+                className="form-container"
+                style={{ maxHeight: "75vh", overflowY: "auto" }}
+              >
                 <RegistrationForm
                   onSubmit={registerEvent}
                   isLoading={isMutating}
                 />
-              )}
-            </div>
-            <div className="block md:hidden">
-              <div className="h-[1px] w-full bg-gray-60 my-2.5" />
-              <PartnershipSection />
-            </div>
+              </div>
+            )}
+          </div>
+          <div className="block md:hidden">
+            <div className="h-[1px] w-full bg-gray-60 my-2.5" />
+            <PartnershipSection />
           </div>
         </div>
-      </Modal>
-    );
-  };
+      </div>
+    </Modal>
+  );
+};
 
 export default RegistrationModal;

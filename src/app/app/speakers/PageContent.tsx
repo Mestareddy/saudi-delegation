@@ -16,8 +16,8 @@ const PageContent: React.FunctionComponent = () => {
     currentPage,
     handleSearchQuery,
     handleExportToExcel,
-    speakersStatusSWR: { data, isLoading, isValidating },
-  } = useAttendee("approve");
+    speakersStatusSWR: { data, isLoading },
+  } = useAttendee({ defaultStatus: "approve", type: "speaker" });
 
   const handleFilter = () => {
     return true;
@@ -57,7 +57,7 @@ const PageContent: React.FunctionComponent = () => {
         tableTitle="Speakers"
         totalContent={totalPages}
         currentPage={currentPage}
-        loading={isLoading || isValidating}
+        loading={isLoading}
         searchPanel={searchPanel}
         onRow={(record) => ({
           onClick: () => {

@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Button, Collapse } from "antd";
+import { Button, Collapse, Image } from "antd";
 // import { attendData } from "@/mockData/homeData";
-import Image from "next/image";
+// import Image from "next/image";
 import {
   ArrowRightIcon,
   EyeIcon,
@@ -65,7 +65,7 @@ const Attend = () => {
       id="#attend"
       className="w-full flex justify-center items-center bg-[#ffffff]"
     >
-      <div className="w-[95%] sm:w-[90%] lg:w-[85%] my-10">
+      <div className="w-[95%] sm:w-[70%] lg:w-[75%] my-10">
         <div className="grid grid-cols-6">
           <div className="col-span-5 lg:col-span-2 my-5">
             <h1 className="text-zinc-800 bebas text-[36px] leading-[43.2px] font-normal bebas uppercase">
@@ -82,7 +82,7 @@ const Attend = () => {
           </div>
         </div>
         <div className="my-2 grid grid-cols-6 gap-4">
-          <div className="col-span-3 lg:col-span-2">
+          <div className="col-span-6 lg:col-span-2">
             <Collapse
               defaultActiveKey={["0"]}
               activeKey={activeKey}
@@ -97,33 +97,47 @@ const Attend = () => {
                   className="bg-white border-none shadow-md rounded-[4px] mb-4"
                 >
                   <div className="flex flex-col items-start lg:ml-6">
-                    {item.paragraph}
-                    <Button
-                      type="default"
-                      style={{
-                        border: "none",
-                        boxShadow: "none",
-                        borderRadius: "0",
-                      }}
-                      ghost
-                      onClick={toggleRegisterModal}
-                      className="flex flex-row items-center justify-center text-[16px] !text-[#333333] leading-[19px] font-semibold my-5 !border-none !p-0"
-                    >
-                      Attend <ArrowRightIcon size="16px" className="ml-1" />
-                    </Button>
+                    <div className="generaldiv flex flex-row gap-3">
+                      <div className="left flex flex-col items-start w-[50%] lg:w-full">
+                        {item.paragraph}
+                        <Button
+                          type="default"
+                          style={{
+                            border: "none",
+                            boxShadow: "none",
+                            borderRadius: "0",
+                          }}
+                          ghost
+                          onClick={toggleRegisterModal}
+                          className="flex flex-row items-center justify-center text-[16px] !text-[#333333] leading-[19px] font-semibold my-5 !border-none !p-0"
+                        >
+                          Attend <ArrowRightIcon size="16px" className="ml-1" />
+                        </Button>
+                      </div>
+                      <div className="right col-span-3 lg:col-span-4 flex lg:hidden w-[50%]">
+                        <Image
+                          src={attendData[selectedId]?.image}
+                          alt={attendData[selectedId]?.title}
+                          // layout="responsive"
+                          // width={100}
+                          // height={100}
+                          className="!w-full !h-[350px] rounded-md"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </Panel>
               ))}
             </Collapse>
           </div>
-          <div className="col-span-3 lg:col-span-4">
+          <div className="col-span-6 lg:col-span-4 hidden lg:flex">
             <Image
               src={attendData[selectedId]?.image}
               alt={attendData[selectedId]?.title}
-              layout="responsive"
-              width={100}
-              height={100}
-              className="!w-full !h-[500px]"
+              // layout="responsive"
+              // width={100}
+              // height={100}
+              className="!w-full !h-[400px]"
             />
           </div>
         </div>

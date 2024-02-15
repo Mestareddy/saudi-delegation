@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Dropdown, Space } from "antd";
-import { ArrowDownIcon } from "@/components/icons";
+import { Select } from "antd";
 import type { MenuProps } from "antd";
 
 const items: MenuProps["items"] = [
@@ -17,18 +16,21 @@ const items: MenuProps["items"] = [
 
 const Dropdownitem = () => {
   const [defaultCountry, setDefaultCountry] = useState("Nigeria");
-  const onClick: MenuProps["onClick"] = ({ key }) => {
-    setDefaultCountry(key);
+
+  const handleChange = (value: string) => {
+    setDefaultCountry(value);
   };
   return (
-    <Dropdown menu={{ items, onClick }}>
-      <div className="text-slate-900 text-base font-semibold font-['SF Pro Display']">
-        <Space>
-          {defaultCountry}
-          <ArrowDownIcon />
-        </Space>
-      </div>
-    </Dropdown>
+    <Select
+      defaultValue={defaultCountry}
+      style={{ width: 120, border: "none" }}
+      onChange={handleChange}
+      options={[
+        { value: "nigeria", label: "Nigeria" },
+        { value: "saudi", label: "Saudi Arabia" },
+      ]}
+      dropdownStyle={{ border: "none" }}
+    />
   );
 };
 

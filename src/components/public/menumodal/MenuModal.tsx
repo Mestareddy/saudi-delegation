@@ -44,7 +44,7 @@ const MenuModal = () => {
           Event Brochure
         </Link>
         <Link
-          href="/speakers"
+          href="/executive-summary"
           className="!text-[#333333]"
           onClick={handleCancel}
         >

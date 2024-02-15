@@ -17,9 +17,8 @@ const PageContent: React.FunctionComponent = () => {
     attendeeStatus,
     handleSearchQuery,
     handleExportToExcel,
-    attendeeSWR: { data, isLoading, isValidating },
-
-  } = useAttendee('approve');
+    attendeeSWR: { data, isLoading },
+  } = useAttendee({ type: "attendee", defaultStatus: "approve" });
 
   const handleFilter = () => {
     return true;
@@ -40,7 +39,7 @@ const PageContent: React.FunctionComponent = () => {
       <CustomButton
         onClick={() => {
           if (data?.data) {
-            handleExportToExcel(data?.data, `${attendeeStatus}_attendees_list`)
+            handleExportToExcel(data?.data, `${attendeeStatus}_attendees_list`);
           }
         }}
         variant="icon"
@@ -59,7 +58,7 @@ const PageContent: React.FunctionComponent = () => {
         totalContent={totalPages}
         currentPage={currentPage}
         tableTitle="Approved Attendee"
-        loading={isLoading || isValidating}
+        loading={isLoading}
         searchPanel={searchPanel}
         onRow={(record) => ({
           onClick: () => {
@@ -67,6 +66,7 @@ const PageContent: React.FunctionComponent = () => {
           },
           style: { cursor: "pointer" },
         })}
+        className={{}}
       />
     </div>
   );

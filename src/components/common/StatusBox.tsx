@@ -10,6 +10,8 @@ const StatusBox = ({ acceptanceStatus }: StatusBoxProps) => {
   const pending = statusParam?.toLowerCase() === "pending";
   const accepted = statusParam?.toLowerCase() === "accepted";
   const rejected = statusParam?.toLowerCase() === "rejected";
+  const declined = statusParam?.toLowerCase() === "declined";
+  const approved = statusParam?.toLowerCase() === "approved";
 
   return (
     <div
@@ -19,9 +21,13 @@ const StatusBox = ({ acceptanceStatus }: StatusBoxProps) => {
           ? "bg-[#FFF7E2]"
           : rejected
           ? "bg-[#FFE5E5]"
-          : accepted
+          : declined
           ? "bg-[#FFE5E5]"
-          : "bg-[#D8FFF1]"
+          : accepted
+          ? "bg-[#D8FFF1]"
+          : approved
+          ? "bg-[#D8FFF1]"
+          : ""
       )}
     >
       <div
@@ -31,15 +37,29 @@ const StatusBox = ({ acceptanceStatus }: StatusBoxProps) => {
             ? "bg-[#FFB800]"
             : rejected
             ? "bg-[#FA3636]"
+            : declined
+            ? "bg-[#FA3636]"
             : accepted
             ? "bg-[#00A36A]"
-            : "bg-[#00A36A]"
+            : approved
+            ? "bg-[#00A36A]"
+            : ""
         )}
       />
       <h1
         className={mergeClassnames(
           "capitalize font-[450] text-[16px]",
-          rejected ? "text-[#FA3636]" : "text-[#585A69]"
+          pending
+            ? "text-[#585A69]"
+            : rejected
+            ? "text-[#FA3636]"
+            : declined
+            ? "text-[#FA3636]"
+            : accepted
+            ? "text-[#00A36A]"
+            : approved
+            ? "text-[#00A36A]"
+            : ""
         )}
       >
         {acceptanceStatus}

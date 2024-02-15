@@ -13,7 +13,7 @@ const Hero = () => {
     dispatch(toggleRegisterModalOpen());
   };
   return (
-    <div className="h-[534px] sm:h-[534px] lg:h-[756px] bg-home-hero w-full flex justify-center items-end">
+    <div className="h-[70vh] sm:h-[70vh] md:h-[60vh] lg:h-[70vh] 2xl:h-[50vh] bg-home-hero w-full flex justify-center items-end">
       <div className="innerDiv mb-5 flex flex-col sm:items-center mx-5">
         <Image
           src="/images/nigeria_saudi_arabia_white_logo.png"
@@ -43,14 +43,14 @@ const Hero = () => {
         <div className="links my-5 flex flex-row items-center justify-center">
           <Link
             href={"/executive-summary"}
-            className="event mx-3 sm:mx-8 flex items-center flex-row"
+            className="event mx-3 sm:mx-8 flex items-center flex-row text-white"
           >
             Event brochure
             <ArrowRightUpIcon size="18px" className="ml-1" stroke="#ffffff" />
           </Link>
           <Link
             href={"/gallery"}
-            className="gallery mx-3 sm:mx-8 flex items-center flex-row"
+            className="gallery mx-3 sm:mx-8 flex items-center flex-row text-white"
           >
             Gallery
             <ArrowRightUpIcon size="18px" className="ml-1" stroke="#ffffff" />

@@ -1,6 +1,6 @@
 import StatusBox from "@/components/common/StatusBox";
 import React from "react";
-import AddButton from "./AcceptButton";
+import AcceptButton from "./AcceptButton";
 import DeclineButton from "./DeclineButton";
 
 interface SpeakingDataProps {
@@ -41,8 +41,16 @@ const SpeakingData: React.FunctionComponent<SpeakingDataProps> = ({
         )}
         {requestAsSpeaker && (
           <div className="buttons gap-3 flex flex-row my-3">
-            <AddButton eventType="speaker" registrantId={registrantId} />
-            <DeclineButton eventType="speaker" registrantId={registrantId} />
+            <AcceptButton
+              eventType="speaker"
+              registrantId={registrantId}
+              statusButton={requestAsSpeaker}
+            />
+            <DeclineButton
+              eventType="speaker"
+              registrantId={registrantId}
+              statusButton={requestAsSpeaker}
+            />
           </div>
         )}
       </div>

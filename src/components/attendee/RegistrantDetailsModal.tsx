@@ -1,11 +1,14 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { RootState } from "@/lib/store";
-import { Modal } from "antd";
+import { Button, Modal } from "antd";
 import React from "react";
 import RegistrantMoreDetails from "./RegistrantMoreDetails";
 import RegistrantMainDetails from "./RegistrantMainDetails";
 import { toggleRegistrantDetailsModal } from "@/lib/features/registrantDetailsModalSlice";
+import { CloseOutlined } from "@ant-design/icons";
+import { CustomButton } from "../common";
+import { ArrowLeftIcon } from "../icons";
 
 interface Props {
   registrantModalStatus?: boolean;
@@ -22,6 +25,8 @@ const RegistrantDetailsModal = ({ registrantModalStatus }: Props) => {
     dispatch(toggleRegistrantDetailsModal(false));
   };
 
+  // console.log("data", data);
+
   return (
     <Modal
       centered
@@ -30,7 +35,20 @@ const RegistrantDetailsModal = ({ registrantModalStatus }: Props) => {
       footer={null}
       width={1000}
       className="!w-[100vw]"
+      style={{ width: "100%", maxWidth: "100vw" }}
+      closeIcon={null} // Disable default close button
     >
+      <div style={{ position: "fixed", top: 20, left: 20 }}>
+        <CustomButton
+          onClick={handleCancel}
+          // startIcon={<ArrowRightIcon stroke="#ffffff" />}
+          starIcon={<ArrowLeftIcon stroke="#000000" />}
+          variant="outlined"
+          className="!py-2 !px-5"
+        >
+          Back
+        </CustomButton>
+      </div>
       <div className="flex flex-col justify-center items-center gap-5">
         {data && (
           <>

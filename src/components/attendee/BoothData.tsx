@@ -1,6 +1,6 @@
 import StatusBox from "@/components/common/StatusBox";
 import React from "react";
-import AddButton from "./AcceptButton";
+import AcceptButton from "./AcceptButton";
 import DeclineButton from "./DeclineButton";
 
 interface BoothDataProps {
@@ -41,8 +41,16 @@ const BoothData: React.FunctionComponent<BoothDataProps> = ({
         )}
         {requestBooth && (
           <div className="buttons gap-3 flex flex-row my-3">
-            <AddButton eventType="booth" registrantId={registrantId} />
-            <DeclineButton eventType="booth" registrantId={registrantId} />
+            <AcceptButton
+              eventType="booth"
+              registrantId={registrantId}
+              statusButton={requestBooth}
+            />
+            <DeclineButton
+              eventType="booth"
+              registrantId={registrantId}
+              statusButton={requestBooth}
+            />
           </div>
         )}
       </div>

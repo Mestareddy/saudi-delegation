@@ -1,10 +1,13 @@
+import { mergeClassnames } from "@/util";
 import { TableProps, Table } from "antd";
 import React, { lazy, Suspense } from "react";
 
 const PaginationHeader = lazy(() => import("./PaginationHeader"));
 
+type iclassName = "wrapper" | "container" | "table";
+
 interface CustomTableProps<T>
-  extends Omit<TableProps<T>, "pagination" | "title"> {
+  extends Omit<TableProps<T>, "pagination" | "title" | "className"> {
   tableTitle?: string | null | React.ReactNode;
   pageSize?: number;
   currentPage?: number;
@@ -12,6 +15,7 @@ interface CustomTableProps<T>
   tabs?: React.ReactNode;
   searchPanel?: React.ReactNode;
   pageChangeCallBack?: (page: number) => void; // eslint-disable-line
+  className?: Partial<Record<iclassName, string>> | string;
 }
 
 const CustomTable = <T extends object>({
@@ -23,6 +27,7 @@ const CustomTable = <T extends object>({
   pageSize = 100,
   totalContent = 0,
   pageChangeCallBack,
+  className,
   ...otherTableProps
 }: CustomTableProps<T>) => {
   const paginationHeader = (
@@ -38,7 +43,12 @@ const CustomTable = <T extends object>({
   );
 
   return (
-    <section className="flex flex-col">
+    <section
+      className={mergeClassnames(
+        "flex flex-col",
+        typeof className !== "string" ? className?.wrapper : ""
+      )}
+    >
       {tabs && paginationHeader}
       <div className="flex mb-2.5 flex-wrap gap-2 justify-between items-center">
         <div className="flex flex-wrap gap-2 justify-between items-center">
@@ -46,17 +56,23 @@ const CustomTable = <T extends object>({
         </div>
         <div className="flex flex-col">{searchPanel}</div>
       </div>
-      <div className="h-full flex flex-col">
-        <div className="h-[calc(100vh-80px)]">
-          <Table
-            {...otherTableProps}
-            scroll={{ x: "max-content" }}
-            pagination={false}
-            tableLayout="auto"
-            dataSource={dataSource}
-            key={"id"}
-          />
-        </div>
+      <div
+        className={mergeClassnames(
+          "h-[calc(100vh-150px)] flex flex-col bg-white rounded-t-md",
+          typeof className !== "string" ? className?.container : ""
+        )}
+      >
+        <Table
+          {...otherTableProps}
+          scroll={{ x: "max-content" }}
+          pagination={false}
+          tableLayout="auto"
+          dataSource={dataSource}
+          key={"id"}
+          className={
+            typeof className !== "string" ? className?.wrapper : className
+          }
+        />
       </div>
     </section>
   );

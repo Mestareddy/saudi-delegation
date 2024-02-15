@@ -6,7 +6,10 @@ import React from "react";
 import { InfoIcon } from "../icons";
 import useRegistrant from "../hooks/useRegistrant";
 import { apiErrorHandler } from "@/services";
-import { toggleRegistrantApproveModal } from "@/lib/features/registrantDetailsModalSlice";
+import {
+  toggleRegistrantApproveModal,
+  toggleRegistrantDetailsModal,
+} from "@/lib/features/registrantDetailsModalSlice";
 
 const ApproveModal = () => {
   const dispatch = useAppDispatch();
@@ -16,21 +19,25 @@ const ApproveModal = () => {
       state.registrantDetailsModalSlice.registrantApproveModal
   );
 
+  const { registrantAction: registrantData } = useAppSelector(
+    (state: RootState) => state.registrantDetailsModalSlice
+  );
+
   const handleCancel = () => {
     dispatch(toggleRegistrantApproveModal(false));
+    // dispatch(toggleRegistrantDetailsModal(false));
   };
-
-  const registrantData = useAppSelector(
-    (state: RootState) => state.registrantDetailsModalSlice.registrantAction
-  );
 
   const {
     registrantSWR: { trigger, isMutating },
-  } = useRegistrant({ eventType: registrantData.event, action: registrantData.action });
+  } = useRegistrant({
+    eventType: registrantData.event,
+    action: registrantData.action,
+  });
 
   const onAccept = () => {
     if (registrantData) {
-      const { action, registrantId } = registrantData
+      const { action, registrantId, event } = registrantData;
       trigger({
         data: {
           action,
@@ -39,11 +46,19 @@ const ApproveModal = () => {
         type: "patch",
       })
         .then(() => {
+          // reTriggerCallback();
           message.open({
             type: "success",
             content: "Successfully Approved Request",
           });
-          handleCancel()
+          handleCancel();
+          if (event === "speaker") {
+            null;
+          } else if (event === "booth") {
+            null;
+          } else {
+            dispatch(toggleRegistrantDetailsModal(false));
+          }
         })
         .catch((error) => {
           message.open({

@@ -42,22 +42,24 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
     }
     if (checkboxes.request_as_speaker && !imageFile) {
       message.open({
-        type: 'error',
-        content: 'speaker image is required'
-      })
-      return
+        type: "error",
+        content: "speaker image is required",
+      });
+      return;
     }
 
     setCheckboxErrors(defaultCheckboxErrors);
+    // console.log("data", data);
+
     onSubmit({
       ...data,
       ...checkboxes,
-      speaker_profile_image: imageFile
+      speaker_profile_image: imageFile,
     });
   };
 
   const handleSelectImage = (file: string) => {
-    setImageFile(file)
+    setImageFile(file);
   };
 
   return (
@@ -78,6 +80,7 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
           className="basis-2/4"
           style={formItemStyle}
           rules={[{ required: true, message: "Please input your First name " }]}
+          hasFeedback
         >
           <Input placeholder="Type here" />
         </Form.Item>
@@ -87,6 +90,7 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
           className="basis-2/4"
           style={formItemStyle}
           rules={[{ required: true, message: "Please input your Last name " }]}
+          hasFeedback
         >
           <Input placeholder="Type here" />
         </Form.Item>
@@ -99,6 +103,7 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
           rules={[{ required: true, message: "Please select country" }]}
           style={formItemStyle}
           className="basis-2/4"
+          hasFeedback
         >
           <Select
             suffixIcon={<ArrowDownIcon />}

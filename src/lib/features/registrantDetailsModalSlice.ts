@@ -1,7 +1,6 @@
 import { EventAttendee, RegistrantAction } from "@/types/attendee";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-
 interface RegistrantDetailsModalState {
   data?: EventAttendee;
   registrantDetailsModal: boolean;
@@ -9,9 +8,10 @@ interface RegistrantDetailsModalState {
   registrantDeclineModal: boolean;
   rejectSuccessModal: boolean;
   registrantAction: RegistrantAction;
+  // reTriggerCallback: any;
 }
 
-const initialState = {
+const initialState: RegistrantDetailsModalState = {
   data: undefined,
   registrantDetailsModal: false,
   registrantApproveModal: false,
@@ -22,7 +22,8 @@ const initialState = {
     event: undefined,
   },
   rejectSuccessModal: false,
-} as RegistrantDetailsModalState;
+  // reTriggerCallback: null,
+};
 
 const registrantDetailsModalSlice = createSlice({
   name: "registrant",
@@ -46,6 +47,9 @@ const registrantDetailsModalSlice = createSlice({
     declineSuccessModal(state, action: PayloadAction<boolean>) {
       state.rejectSuccessModal = action.payload;
     },
+    // updateTriggerCallBack: (state, action: PayloadAction<any>) => {
+    //   state.reTriggerCallback = action.payload;
+    // },
   },
 });
 
@@ -56,5 +60,6 @@ export const {
   setRegistrantData,
   toggleRegistrantApproveModal,
   toggleRegistrantDeclineModal,
+  // updateTriggerCallBack,
 } = registrantDetailsModalSlice.actions;
 export default registrantDetailsModalSlice.reducer;

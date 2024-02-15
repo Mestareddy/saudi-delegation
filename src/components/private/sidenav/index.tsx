@@ -46,7 +46,7 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
 
   return (
     <Sider
-      className="sidebar h-screen !bg-gray-70"
+      className="sidebar h-screen !w-[250px] !bg-gray-70"
       breakpoint="lg"
       collapsedWidth="0"
       collapsed={collapsed}
@@ -57,7 +57,8 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
         // console.log(collapsed, type);
         setCollapsed(collapsed);
       }}
-      style={{ height: "100vh", zIndex: 99 }}
+      style={{ zIndex: 99 }}
+      width={230}
     >
       <>
         <div className="">
@@ -91,12 +92,14 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
           </div>
         </div>
         <CustomButton
-          variant="text"
+          variant="noStyleButton"
           onClick={logout}
-          className="absolute flex flex-row  items-center bottom-0 mb-5 py-5 px-[15px]"
+          className="absolute flex flex-row  items-center bottom-0 mb-5 py-5 px-[15px] rounded-none !ml-2"
         >
           <LogoutIcon />
-          <Paragraph className="text-sm font-semibold ml-2.5">Logout</Paragraph>
+          <Paragraph className="text-sm font-semibold !ml-[10px] !pl-2">
+            Logout
+          </Paragraph>
         </CustomButton>
       </>
     </Sider>

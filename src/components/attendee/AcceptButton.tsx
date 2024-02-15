@@ -8,20 +8,29 @@ import {
 } from "@/lib/features/registrantDetailsModalSlice";
 import { RegistrantMainInfo } from "../auth";
 
-const AddButton = ({ registrantId, eventType }: RegistrantMainInfo) => {
+const AddButton = ({
+  registrantId,
+  statusButton,
+  eventType,
+}: RegistrantMainInfo) => {
   const dispatch = useAppDispatch();
 
   const onAccept = () => {
     dispatch(toggleRegistrantApproveModal(true));
-    dispatch(setRegistrantAction({
-      action: 'approve',
-      event: eventType,
-      registrantId
-    }))
+    dispatch(
+      setRegistrantAction({
+        action: "approve",
+        event: eventType,
+        registrantId,
+      })
+    );
   };
 
   return (
-    <CustomButton variant="acceptButton" onClick={onAccept}>
+    <CustomButton
+      variant={statusButton ? "acceptButton" : "greyedButton"}
+      onClick={onAccept}
+    >
       <div>
         <TickIcon size="22" fill="#292D32" />
       </div>

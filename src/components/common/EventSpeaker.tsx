@@ -27,9 +27,15 @@ const EventSpeaker: React.FunctionComponent<EventSpeakerProps> = ({
   image,
 }) => {
   return (
-    <div className="bg-white">
-      <Image src={image} alt={title} height={300} width={464} />
-      <div className="flex flex-col flex-1 justify-between h-[260px] p-2.5">
+    <div className="bg-white rounded-b-lg">
+      <Image
+        src={image}
+        alt={title}
+        height={300}
+        width={464}
+        className="rounded-t-lg"
+      />
+      <div className="flex flex-col flex-1 justify-between h-[260px] p-2.5 rounded-b-lg">
         <div>
           <Heading type="h3" className="mb-2.5">
             {title}

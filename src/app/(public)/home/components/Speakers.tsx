@@ -22,7 +22,7 @@ const Speakers = () => {
         </div>
         <div className="bottom flex overflow-x-auto whitespace-no-wrap gap-5 my-5">
           {speakers.map((item) => (
-            <Col key={item.id} className="gutter-row" span={8} md={8} xs={24}>
+            <Col key={item.id} className="gutter-row" span={8} md={8} xs={18}>
               <EventSpeaker
                 title={item.name}
                 image={item.image}

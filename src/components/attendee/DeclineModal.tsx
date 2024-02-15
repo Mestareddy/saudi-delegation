@@ -1,8 +1,8 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { RootState } from "@/lib/store";
-import { Modal, message, Form, Input } from "antd";
-import React from "react";
+import { Modal, message, Form, Input, FormInstance } from "antd";
+import React, { useRef } from "react";
 import useRegistrant from "../hooks/useRegistrant";
 import { apiErrorHandler } from "@/services";
 import { CustomButton } from "../common";
@@ -21,7 +21,11 @@ interface Props {
 const DeclineModal = ({ declineModalStatus }: Props) => {
   const dispatch = useAppDispatch();
 
+  const formRef = useRef<FormInstance>(null);
+
   const handleCancel = () => {
+    // Clear the input field after successful action
+    formRef.current?.resetFields();
     dispatch(toggleRegistrantDeclineModal(false));
   };
 
@@ -64,6 +68,8 @@ const DeclineModal = ({ declineModalStatus }: Props) => {
             type: "success",
             content: "Successfully Declined Request",
           });
+          // Clear the input field after successful action
+          formRef.current?.resetFields();
           dispatch(toggleRegistrantDeclineModal(false));
           dispatch(declineSuccessModal(true));
         })
@@ -85,6 +91,7 @@ const DeclineModal = ({ declineModalStatus }: Props) => {
       width={400}
     >
       <Form
+        ref={formRef}
         onFinish={onDecline}
         className="space-y-5"
         layout="vertical"
@@ -106,12 +113,21 @@ const DeclineModal = ({ declineModalStatus }: Props) => {
             <Form.Item
               name="reject_reason"
               // className="w-full mb-3 mt-2 !border !border-[#333333] p-2"
-              rules={[{ required: true, message: "Please input reason for rejection" }]}
+              rules={[
+                {
+                  required: true,
+                  message: "Please input reason for rejection",
+                },
+              ]}
             >
-              <TextArea rows={10} />
+              <TextArea rows={10} disabled={isMutating} />
             </Form.Item>
           </div>
-          <CustomButton disabled={isMutating} variant="contained" className="w-full">
+          <CustomButton
+            disabled={isMutating}
+            variant="contained"
+            className="w-full"
+          >
             Submit
           </CustomButton>
         </div>

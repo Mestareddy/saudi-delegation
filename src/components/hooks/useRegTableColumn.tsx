@@ -5,14 +5,13 @@ import React, { useMemo } from "react";
 import { AttendeeTableAction } from "../attendee";
 
 const useRegTableColumn = () => {
-
   const columns = useMemo(() => {
     const header: ColumnsType<EventAttendee> = [
       {
         title: "Company Name",
         dataIndex: "company_name",
         ellipsis: true,
-        width: 150,
+        width: 200,
       },
       {
         title: "Industry",

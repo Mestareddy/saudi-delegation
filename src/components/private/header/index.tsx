@@ -33,10 +33,10 @@ const AppHeader: React.FunctionComponent = () => {
     <Header className="!bg-gray-70 py-2.5 px-2.5 flex w-full justify-between items-center">
       <div />
       <div className="gap-x-2.5 flex items-center">
-        <div className="p-3.5">
+        {/* <div className="p-3.5">
           <NotificationIcon />
-        </div>
-        <Dropdown menu={{ items }} placement="bottom" className="flex h-auto">
+        </div> */}
+        {/* <Dropdown menu={{ items }} placement="bottom" className="flex h-auto">
           <div className="cursor-pointer flex items-center">
             <Avatar
               size={40}
@@ -56,7 +56,7 @@ const AppHeader: React.FunctionComponent = () => {
               </Paragraph>
             </div>
           </div>
-        </Dropdown>
+        </Dropdown> */}
       </div>
     </Header>
   );

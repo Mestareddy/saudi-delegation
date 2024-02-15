@@ -143,6 +143,16 @@ body {
 }
 .ant-modal-content {
   border-radius: 0px;
+  animation: fadeInOut 0.5s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .ant-input:focus {
@@ -196,6 +206,9 @@ body {
   background-image: url("/images/exhibition/exhibition_hero.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+
+.circular {
 }
 
 @media only screen and (max-width: 600px) {

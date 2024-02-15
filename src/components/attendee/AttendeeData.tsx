@@ -2,7 +2,7 @@ import StatusBox from "@/components/common/StatusBox";
 import Link from "next/link";
 import React from "react";
 import useRegister from "../hooks/useRegister";
-import AddButton from "./AcceptButton";
+import AcceptButton from "./AcceptButton";
 import DeclineButton from "./DeclineButton";
 
 interface AttendeeDataProps {
@@ -28,8 +28,8 @@ const AttendeeData: React.FunctionComponent<AttendeeDataProps> = ({
     status === "register"
       ? "pending"
       : status === "approve"
-        ? "approved"
-        : "declined";
+      ? "approved"
+      : "declined";
 
   const {
     countrySWR: { data: countries },
@@ -68,8 +68,16 @@ const AttendeeData: React.FunctionComponent<AttendeeDataProps> = ({
           </Link>
         </div>
         <div className="buttons gap-3 flex flex-row my-3">
-          <AddButton eventType="attendee" registrantId={registrantId} />
-          <DeclineButton eventType="attendee" registrantId={registrantId} />
+          <AcceptButton
+            eventType="attendee"
+            statusButton={status}
+            registrantId={registrantId}
+          />
+          <DeclineButton
+            eventType="attendee"
+            statusButton={status}
+            registrantId={registrantId}
+          />
         </div>
       </div>
     </div>

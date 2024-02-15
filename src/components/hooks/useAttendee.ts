@@ -6,7 +6,13 @@ import { exportToExcel } from "@/util";
 import { ChangeEvent, useEffect, useState } from "react";
 import useSWR from "swr";
 
-const useAttendee = (defaultStatus?: TAttendeeStatus, queryParmas?: string) => {
+type Args = {
+  defaultStatus?: TAttendeeStatus;
+  queryParmas?: string;
+  type?: "attendee" | "speaker" | "booth";
+};
+
+const useAttendee = ({ defaultStatus, queryParmas, type }: Args) => {
   const [attendeeStatus, setAttendeeStatus] =
     useState<TAttendeeStatus>("register");
   const [searchQuery, setSearchQuery] = useState<string | undefined>(undefined);
@@ -23,9 +29,11 @@ const useAttendee = (defaultStatus?: TAttendeeStatus, queryParmas?: string) => {
   const attendeeSWR = useSWR<{
     data: EventAttendee[];
   }>(
-    `/event?status=${attendeeStatus}&limit=${itemPerPage}&page=${currentPage}${
-      debouncedValue ? debouncedValue : ""
-    }${queryParmas || ""}`,
+    type === "attendee"
+      ? `/event?status=${attendeeStatus}&limit=${itemPerPage}&page=${currentPage}${
+          debouncedValue ? debouncedValue : ""
+        }${queryParmas || ""}`
+      : "",
     apiFetcher,
     {
       revalidateOnFocus: false,
@@ -34,15 +42,18 @@ const useAttendee = (defaultStatus?: TAttendeeStatus, queryParmas?: string) => {
           seTotalPageHandler(data.results);
         }
       },
+      refreshInterval: 30000,
     }
   );
 
   const speakersStatusSWR = useSWR<{
     data: EventAttendee[];
   }>(
-    `/event?speaker_status=${attendeeStatus}&limit=${itemPerPage}&page=${currentPage}${
-      debouncedValue ? debouncedValue : ""
-    }${queryParmas || ""}`,
+    type === "speaker"
+      ? `/event?speaker_status=${attendeeStatus}&limit=${itemPerPage}&page=${currentPage}${
+          debouncedValue ? debouncedValue : ""
+        }${queryParmas || ""}`
+      : "",
     apiFetcher,
     {
       revalidateOnFocus: false,
@@ -57,9 +68,11 @@ const useAttendee = (defaultStatus?: TAttendeeStatus, queryParmas?: string) => {
   const boothStatusSWR = useSWR<{
     data: EventAttendee[];
   }>(
-    `/event?booth_status=${attendeeStatus}&limit=${itemPerPage}&page=${currentPage}${
-      debouncedValue ? debouncedValue : ""
-    }${queryParmas || ""}`,
+    type === "booth"
+      ? `/event?booth_status=${attendeeStatus}&limit=${itemPerPage}&page=${currentPage}${
+          debouncedValue ? debouncedValue : ""
+        }${queryParmas || ""}`
+      : "",
     apiFetcher,
     {
       revalidateOnFocus: false,
