@@ -121,7 +121,7 @@ const Attend = () => {
                           // layout="responsive"
                           // width={100}
                           // height={100}
-                          className="!w-full !h-[350px] rounded-md"
+                          className="!w-full !h-[350px] rounded-md object-cover"
                         />
                       </div>
                     </div>
