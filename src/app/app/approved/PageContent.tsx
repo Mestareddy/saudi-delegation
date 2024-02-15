@@ -49,8 +49,6 @@ const PageContent: React.FunctionComponent = () => {
     </div>
   );
 
-  console.log("approved datrar", data);
-
   return (
     <div>
       <CustomTable
