@@ -13,7 +13,7 @@ const Hero = () => {
     dispatch(toggleRegisterModalOpen());
   };
   return (
-    <div className="h-[70vh] sm:h-[60vh] md:h-[60vh] lg:h-[60vh] 2xl:h-[80vh] bg-home-hero w-full flex justify-center items-end">
+    <div className="h-[70vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] 2xl:h-[80vh] bg-home-hero w-full flex justify-center items-end">
       <div className="innerDiv mb-5 flex flex-col sm:items-center mx-5">
         <Image
           src="/images/nigeria_saudi_arabia_white_logo.png"
