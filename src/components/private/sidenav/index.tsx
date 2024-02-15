@@ -50,11 +50,7 @@ const SideNav: React.FunctionComponent<SideNavProps> = () => {
       breakpoint="lg"
       collapsedWidth="0"
       collapsed={collapsed}
-      // onBreakpoint={(broken) => {
-      //   console.log(broken);
-      // }}
       onCollapse={(collapsed, type) => {
-        // console.log(collapsed, type);
         setCollapsed(collapsed);
       }}
       style={{ zIndex: 99 }}

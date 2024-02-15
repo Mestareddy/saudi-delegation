@@ -28,21 +28,32 @@ const useRegTableColumn = () => {
       },
       {
         title: "Attendance",
-        dataIndex: "attendance",
+        dataIndex: "status",
         key: "gender",
         width: 200,
         ellipsis: true,
+        render: (value) => (
+          <Paragraph>
+            {value === "register"
+              ? "Pending"
+              : value === "reject"
+              ? "Rejected"
+              : value === "approve"
+              ? "Approved"
+              : ""}
+          </Paragraph>
+        ),
       },
       {
         title: "Speaking Opportunity",
-        dataIndex: "speaking_opportunity",
+        dataIndex: "request_as_speaker",
         ellipsis: true,
         width: 200,
         render: (value) => <Paragraph>{value ? "Requested" : "N/A"}</Paragraph>,
       },
       {
         title: "Booth",
-        dataIndex: "booth",
+        dataIndex: "request_booth",
         ellipsis: true,
         width: 150,
         render: (value) => <Paragraph>{value ? "Requested" : "N/A"}</Paragraph>,

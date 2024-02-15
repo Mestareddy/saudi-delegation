@@ -84,6 +84,8 @@ const PageContent: React.FunctionComponent = () => {
     </div>
   );
 
+  console.log("registrant data", data);
+
   return (
     <div>
       <CustomTable

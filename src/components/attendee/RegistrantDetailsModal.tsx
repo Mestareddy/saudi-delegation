@@ -25,8 +25,6 @@ const RegistrantDetailsModal = ({ registrantModalStatus }: Props) => {
     dispatch(toggleRegistrantDetailsModal(false));
   };
 
-  // console.log("data", data);
-
   return (
     <Modal
       centered

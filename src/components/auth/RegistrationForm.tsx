@@ -49,7 +49,6 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
     }
 
     setCheckboxErrors(defaultCheckboxErrors);
-    // console.log("data", data);
 
     onSubmit({
       ...data,
