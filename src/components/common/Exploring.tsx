@@ -22,10 +22,10 @@ const Exploring = () => {
               Exploring business opportunities for both countries
             </h1>
             <p className="text-[#11142D] font-[450] text-[16px] leading-[24px] my-3">
-              In publishing and graphic design, Lorem ipsum is a placeholder
-              text commonly used to demonstrate the visual form of a document or
-              a typeface is a without relying on meaningful content. Lorem ipsum
-              may be used as a placeholder before final copy is available.
+              Don&apos;t miss out! Join the Nigeria Saudi Business Forum for
+              strategic collaboration, Networking, and growth. Explore
+              exhibition booths and speaker opportunities. Register to attend.
+              #NSBF2023 #BusinessCollaboration
             </p>
             <div className="my-3">
               <CustomButton

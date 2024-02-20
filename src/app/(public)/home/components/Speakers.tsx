@@ -10,7 +10,7 @@ const Speakers = () => {
     <div className="bg-[#F2F2F2] w-full flex justify-center items-center py-10">
       <div className="innerDiv w-[95%] sm:w-[90%] lg:w-[85%]">
         <div className="top flex flex-row justify-between">
-          <h1 className="bebas text-[#333333] leading-[38px] font-bold text-[32px] uppercase">
+          <h1 className="bebas text-[#333333] leading-[38px] font-normal text-[32px] uppercase">
             KEY <span className="text-green-minst">SPEAKERS</span>
           </h1>
           <Link

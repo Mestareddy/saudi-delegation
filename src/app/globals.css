@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "/font/Circular-std-master/css/circular-std.css";
 
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
@@ -209,6 +210,27 @@ body {
 }
 
 .circular {
+  font-family: "Circular Std", sans-serif; /* Use a fallback font */
+}
+
+.circularMedium {
+  font-family: "Circular Std", sans-serif; /* Use a fallback font */
+  font-weight: 400;
+}
+
+.circularBold {
+  font-family: "Circular Std", sans-serif; /* Use a fallback font */
+  font-weight: 700;
+}
+
+.ant-modal-close:hover {
+  background-color: none;
+}
+
+.phoneInput {
+  height: 59px;
+  border: 1px solid #d9d9d9;
+  /* padding-left: 5px; */
 }
 
 @media only screen and (max-width: 600px) {

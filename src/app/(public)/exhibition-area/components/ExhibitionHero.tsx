@@ -18,7 +18,7 @@ const ExhibitionHero = () => {
             <span className="text-[#00A96E]">Exhibition </span>
             Area
           </h1>
-          <p className="text-center sm:text-left text-white text-[14px] sm:text-[20px] font-['Circular Std'] my-3 sm:my-5 px-5 sm:px-0">
+          <p className="text-center sm:text-left text-white text-[14px] sm:text-[20px] circularMedium my-3 sm:my-5 px-5 sm:px-0">
             We offer clients tailored and value-based guidance specific to their
             unique situation and environment to improve their security posture
             through a continuous improvement approach.

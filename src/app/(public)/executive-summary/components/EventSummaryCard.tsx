@@ -2,7 +2,7 @@ import { Heading, Paragraph } from "@/components/common";
 import React from "react";
 import { EventSummary } from "../type";
 
-interface EventSummaryCardProps extends EventSummary { }
+interface EventSummaryCardProps extends EventSummary {}
 
 const EventSummaryCard: React.FunctionComponent<EventSummaryCardProps> = ({
   outcomes,
@@ -42,10 +42,11 @@ const EventSummaryCard: React.FunctionComponent<EventSummaryCardProps> = ({
                   {eventSchedule.event.map((item, index) => (
                     <div
                       key={item}
-                      className={`flex flex-row items-center py-2.5 px-5 ${eventSchedule.event.length - 1 !== index
-                        ? " border-b border-b-black-40"
-                        : ""
-                        } `}
+                      className={`flex flex-row items-center py-2.5 px-5 ${
+                        eventSchedule.event.length - 1 !== index
+                          ? " border-b border-b-black-40"
+                          : ""
+                      } `}
                     >
                       <span>{index + 1}.</span>
                       <Paragraph className="pl-2.5">{item}</Paragraph>
@@ -72,7 +73,7 @@ const EventSummaryCard: React.FunctionComponent<EventSummaryCardProps> = ({
       </div>
       <div className="mt-[30px]">
         <div className="h-[1px] bg-gray-40 mt-[30px]" />
-        <Paragraph className="text-2xl font-normal bebas uppercase  md:font-semibold text-right mt-[30px]">
+        <Paragraph className="leading-[2rem] font-normal bebas uppercase  md:font-semibold text-right mt-[30px]">
           Executive Summary
         </Paragraph>
       </div>

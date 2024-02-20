@@ -18,9 +18,9 @@ const HeroSection: React.FunctionComponent = () => {
           alt="executive_summary"
           height={80}
           width={276}
-          className="h-20 w-[276px]"
+          className="h-[34px] sm:h-[50px] lg:h-[80px] w-[114px] sm:w-[172px] lg:w-[276px] mb-3 lg:mb-0"
         />
-        <div className="mt-4 md:m-0">
+        <div className="mt-2 md:m-0">
           <div className="mb-3">
             <Heading className="uppercase text-right font-semibold" type="h2">
               THE{" "}

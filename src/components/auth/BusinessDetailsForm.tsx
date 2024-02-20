@@ -15,6 +15,12 @@ const BusinessDetailsForm: React.FunctionComponent<
   BusinessDetailsFormProps
 > = ({ isLoading }) => {
   const [phoneNumber, setPhoneNumber] = useState<string | undefined>(undefined);
+
+  // Map the data to match react-select format
+  const options = INDUSRY.map((industry) => ({
+    value: industry.id, // Use code as unique identifier
+    label: industry.name, // Use name as the displayed label
+  }));
   return (
     <>
       <div className="flex flex-col md:flex-row  gap-2.5 md:gap-5 w-full">
@@ -124,14 +130,14 @@ const BusinessDetailsForm: React.FunctionComponent<
             showSearch
             disabled={isLoading}
             optionFilterProp="children"
-            filterOption={(input, option: any) =>
-              (option?.children.toLowerCase() ?? "").includes(input)
-            }
-            filterSort={(optionA: any, optionB: any) => {
-              return (optionA?.children ?? "")
-                .toLowerCase()
-                .localeCompare((optionB?.children ?? "").toLowerCase());
-            }}
+            // filterOption={(input, option: any) =>
+            //   (option?.children.toLowerCase() ?? "").includes(input)
+            // }
+            // filterSort={(optionA: any, optionB: any) => {
+            //   return (optionA?.children ?? "")
+            //     .toLowerCase()
+            //     .localeCompare((optionB?.children ?? "").toLowerCase());
+            // }}
           >
             {INDUSRY.map((state: any) => (
               <Select.Option key={state.id} value={state.name}>

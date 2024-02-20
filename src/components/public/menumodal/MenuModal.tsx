@@ -40,11 +40,15 @@ const MenuModal = () => {
       closable={false}
     >
       <div className="mainDiv flex flex-col gap-7 items-center justify-center">
-        <Link href="/speakers" className="!text-[#333333]">
+        <Link
+          href="/executive-summary"
+          className="!text-[#333333]"
+          onClick={handleCancel}
+        >
           Event Brochure
         </Link>
         <Link
-          href="/executive-summary"
+          href="/speakers"
           className="!text-[#333333]"
           onClick={handleCancel}
         >

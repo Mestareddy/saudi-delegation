@@ -47,12 +47,6 @@ const Gallery = () => {
         <CustomButton variant="outlined" onClick={toggleRegisterModal}>
           Register to attend
         </CustomButton>
-        <p className="text-center text-[#191819] my-5 font-[450] text-[16px] leading-[24px]">
-          In publishing and graphic design, Lorem ipsum is a placeholder text
-          commonly used to demonstrate the visual form of a document or a
-          typeface is a without relying on meaningful content. Lorem ipsum may
-          be used as a placeholder before final copy is available.
-        </p>
       </div>
     </div>
   );

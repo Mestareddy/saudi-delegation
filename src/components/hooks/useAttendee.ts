@@ -12,7 +12,11 @@ type Args = {
   type?: "attendee" | "speaker" | "booth";
 };
 
-const useAttendee = ({ defaultStatus, queryParmas, type }: Args) => {
+const useAttendee = ({
+  defaultStatus = "register",
+  queryParmas,
+  type,
+}: Args) => {
   const [attendeeStatus, setAttendeeStatus] =
     useState<TAttendeeStatus>("register");
   const [searchQuery, setSearchQuery] = useState<string | undefined>(undefined);
@@ -30,7 +34,7 @@ const useAttendee = ({ defaultStatus, queryParmas, type }: Args) => {
     data: EventAttendee[];
   }>(
     type === "attendee"
-      ? `/event?status=${attendeeStatus}&limit=${itemPerPage}&page=${currentPage}${
+      ? `/event?status=${defaultStatus}&limit=${itemPerPage}&page=${currentPage}${
           debouncedValue ? debouncedValue : ""
         }${queryParmas || ""}`
       : "",
@@ -50,7 +54,7 @@ const useAttendee = ({ defaultStatus, queryParmas, type }: Args) => {
     data: EventAttendee[];
   }>(
     type === "speaker"
-      ? `/event?speaker_status=${attendeeStatus}&limit=${itemPerPage}&page=${currentPage}${
+      ? `/event?speaker_status=${defaultStatus}&limit=${itemPerPage}&page=${currentPage}${
           debouncedValue ? debouncedValue : ""
         }${queryParmas || ""}`
       : "",
@@ -69,7 +73,7 @@ const useAttendee = ({ defaultStatus, queryParmas, type }: Args) => {
     data: EventAttendee[];
   }>(
     type === "booth"
-      ? `/event?booth_status=${attendeeStatus}&limit=${itemPerPage}&page=${currentPage}${
+      ? `/event?booth_status=${defaultStatus}&limit=${itemPerPage}&page=${currentPage}${
           debouncedValue ? debouncedValue : ""
         }${queryParmas || ""}`
       : "",
@@ -88,9 +92,9 @@ const useAttendee = ({ defaultStatus, queryParmas, type }: Args) => {
     if (debouncedValue && currentPage > 1) {
       attendeeSWR.mutate();
     }
-    if (defaultStatus) {
-      setAttendeeStatus(defaultStatus);
-    }
+    // if (defaultStatus) {
+    //   setAttendeeStatus(defaultStatus);
+    // }
   }, [debouncedValue, defaultStatus, currentPage]);
 
   const paginate = (page: number) => {
@@ -102,8 +106,14 @@ const useAttendee = ({ defaultStatus, queryParmas, type }: Args) => {
   };
 
   const getParams = (query: string) => {
-    const queryParams = `&first_name=${query}&last_name=${query}&company_name=${query}`;
-    return queryParams;
+    // const queryParams = `&first_name=${query}&last_name=${query}&company_name=${query}`;
+    const temp = JSON.stringify({
+      first_name: query,
+      last_name: query,
+      company_name: query,
+    });
+    // return queryParams;
+    return `&search=${temp}`;
   };
 
   const handleSearchQuery = (event: ChangeEvent<HTMLInputElement>) => {

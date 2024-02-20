@@ -11,7 +11,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${roboto_init.variable} ${bebas.variable} ${inter.variable}`}>
+      <body className={`${bebas.variable} ${inter.variable} circular`}>
         <StoreProvider>
           <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         </StoreProvider>

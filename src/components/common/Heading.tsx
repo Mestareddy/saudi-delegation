@@ -21,7 +21,10 @@ const Heading: React.FunctionComponent<HeadingProps> = ({
       template = (
         <h1
           style={style}
-          className={mergeClassnames("text-gray-10 md:text-5xl bebas font-semibold text-2xl", className)}
+          className={mergeClassnames(
+            "text-gray-10 md:text-5xl bebas font-normal text-2xl",
+            className
+          )}
         >
           {children}
         </h1>
@@ -31,7 +34,10 @@ const Heading: React.FunctionComponent<HeadingProps> = ({
       template = (
         <h2
           style={style}
-          className={mergeClassnames("text-gray-10  bebas md:text-[40px] text-2xl", className)}
+          className={mergeClassnames(
+            "text-gray-10 bebas md:text-[40px] font-normal leading-[2rem]",
+            className
+          )}
         >
           {children}
         </h2>
@@ -42,7 +48,7 @@ const Heading: React.FunctionComponent<HeadingProps> = ({
         <h3
           style={style}
           className={mergeClassnames(
-            "text-gray-10  bebas text-base md:text-2xl font-semibold",
+            "text-gray-10 bebas text-base md:text-2xl font-normal",
             className
           )}
         >
@@ -55,7 +61,7 @@ const Heading: React.FunctionComponent<HeadingProps> = ({
         <span
           style={style}
           className={mergeClassnames(
-            "text-gray-10  bebas text-base font-semibold",
+            "text-gray-10 bebas text-base font-normal",
             className
           )}
         >
@@ -68,7 +74,10 @@ const Heading: React.FunctionComponent<HeadingProps> = ({
       template = (
         <h2
           style={style}
-          className={mergeClassnames("text-gray-10 text-base bebas md:text-2xl", className)}
+          className={mergeClassnames(
+            "text-gray-10 text-base bebas font-normal md:leading-[2rem]",
+            className
+          )}
         >
           {children}
         </h2>

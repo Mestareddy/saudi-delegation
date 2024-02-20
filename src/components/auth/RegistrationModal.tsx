@@ -1,6 +1,6 @@
 import { message, Modal } from "antd";
 import React, { useState } from "react";
-import { Heading } from "../common";
+import { CustomButton, Heading } from "../common";
 import { RoundedCloseIcon } from "../icons";
 import AuthHeader from "./AuthHeader";
 import PartnershipSection from "./PartnershipSection";
@@ -58,12 +58,21 @@ const RegistrationModal: React.FunctionComponent<
     <Modal
       footer={null}
       width={1480}
-      className="border-0 max-h-[90vh]"
+      className="border-0 max-h-[90vh] relative"
       open={registerModalStatus}
       onCancel={handleCancel}
-      closeIcon={<RoundedCloseIcon style={{ position: "fixed" }} />}
+      closeIcon={null}
       style={{ top: 0 }}
     >
+      <div className="z-[10] flex justify-end relative">
+        <CustomButton
+          onClick={handleCancel}
+          variant="noStyleButton"
+          className="hover:!bg-none !p-0 !fixed"
+        >
+          <RoundedCloseIcon stroke="#000000" size="33" />
+        </CustomButton>
+      </div>
       <div className="md:p-[50px]">
         <Heading type="h1">
           Register to <span className="text-green-hover">attend</span>{" "}

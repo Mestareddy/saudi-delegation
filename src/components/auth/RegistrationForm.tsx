@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Select, Input, message } from "antd";
+import { Form, Input, Select, message } from "antd";
 import { CustomButton } from "../common";
 import { ArrowDownIcon } from "../icons";
 import useRegister from "../hooks/useRegister";
@@ -110,14 +110,6 @@ const RegistrationForm: React.FunctionComponent<RegistrationFormProps> = ({
             showSearch
             disabled={loadingCountries || isLoading}
             optionFilterProp="children"
-            filterOption={(input, option: any) =>
-              (option?.children.toLowerCase() ?? "").includes(input)
-            }
-            filterSort={(optionA: any, optionB: any) => {
-              return (optionA?.children ?? "")
-                .toLowerCase()
-                .localeCompare((optionB?.children ?? "").toLowerCase());
-            }}
           >
             {countries?.data.map((state: any) => (
               <Select.Option key={state.id} value={state.id}>
