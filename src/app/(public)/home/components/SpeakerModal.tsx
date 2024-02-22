@@ -23,8 +23,6 @@ const SpeakerModal = ({
     (state: RootState) => state.speakerModalSlice.speakerData
   );
 
-  console.log("speakerModalData", speakerModalData);
-
   // Splitting the full name into parts
   const nameParts = speakerModalData?.name?.split(" ");
 
