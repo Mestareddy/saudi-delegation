@@ -12,6 +12,7 @@ const DeclineButton = ({
   registrantId,
   statusButton,
   eventType,
+  disabled,
 }: RegistrantMainInfo) => {
   const dispatch = useAppDispatch();
 
@@ -25,10 +26,12 @@ const DeclineButton = ({
       })
     );
   };
+
   return (
     <CustomButton
-      variant={statusButton ? "declineButton" : "greyedButton"}
+      variant={statusButton && !disabled ? "declineButton" : "greyedButton"}
       onClick={onDecline}
+      disabled={disabled}
     >
       <div>
         <CancelIcon size="22" fill="#292D32" />

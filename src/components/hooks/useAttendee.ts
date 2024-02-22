@@ -10,13 +10,15 @@ type Args = {
   defaultStatus?: TAttendeeStatus;
   queryParmas?: string;
   type?: "attendee" | "speaker" | "booth";
+  // id?: string;
 };
 
 const useAttendee = ({
-  defaultStatus = "register",
+  defaultStatus,
   queryParmas,
   type,
-}: Args) => {
+}: // id,
+Args) => {
   const [attendeeStatus, setAttendeeStatus] =
     useState<TAttendeeStatus>("register");
   const [searchQuery, setSearchQuery] = useState<string | undefined>(undefined);
@@ -34,13 +36,15 @@ const useAttendee = ({
     data: EventAttendee[];
   }>(
     type === "attendee"
-      ? `/event?status=${defaultStatus}&limit=${itemPerPage}&page=${currentPage}${
+      ? `/event?status=${
+          defaultStatus ? defaultStatus : attendeeStatus
+        }&limit=${itemPerPage}&page=${currentPage}${
           debouncedValue ? debouncedValue : ""
         }${queryParmas || ""}`
       : "",
     apiFetcher,
     {
-      revalidateOnFocus: false,
+      revalidateOnFocus: true,
       onSuccess: (data: any) => {
         if (data.results) {
           seTotalPageHandler(data.results);
@@ -49,6 +53,18 @@ const useAttendee = ({
       refreshInterval: 30000,
     }
   );
+
+  // const currentAttendeeSWR = useSWR<{
+  //   data: EventAttendee[];
+  // }>(type === "attendee" ? `/event/${id}` : "", apiFetcher, {
+  //   revalidateOnFocus: false,
+  //   onSuccess: (data: any) => {
+  //     if (data.results) {
+  //       seTotalPageHandler(data.results);
+  //     }
+  //   },
+  //   refreshInterval: 30000,
+  // });
 
   const speakersStatusSWR = useSWR<{
     data: EventAttendee[];
@@ -60,7 +76,7 @@ const useAttendee = ({
       : "",
     apiFetcher,
     {
-      revalidateOnFocus: false,
+      revalidateOnFocus: true,
       onSuccess: (data: any) => {
         if (data.results) {
           seTotalPageHandler(data.results);
@@ -79,7 +95,7 @@ const useAttendee = ({
       : "",
     apiFetcher,
     {
-      revalidateOnFocus: false,
+      revalidateOnFocus: true,
       onSuccess: (data: any) => {
         if (data.results) {
           seTotalPageHandler(data.results);
@@ -146,6 +162,7 @@ const useAttendee = ({
     handleExportToExcel,
     handleSearchQuery,
     changeAttendeeStatus,
+    // currentAttendeeSWR,
   };
 };
 

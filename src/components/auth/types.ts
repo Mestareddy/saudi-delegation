@@ -32,6 +32,7 @@ export type RegistrantMainInfo = {
   registrantId?: string | number;
   eventType: RegistrantEventType;
   statusButton?: string | boolean;
+  disabled?: boolean;
 };
 
 export interface RegistrantMoreInfo extends EventAttendee {}

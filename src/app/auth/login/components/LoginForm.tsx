@@ -83,7 +83,11 @@ const LoginForm = () => {
           },
         ]}
       >
-        <Input className="w-full !border-[#333333]" placeholder="Enter email" />
+        <Input
+          className="w-full !border-[#333333]"
+          placeholder="Enter email"
+          disabled={isMutating}
+        />
       </Form.Item>
 
       <Form.Item<FieldType>
@@ -103,6 +107,7 @@ const LoginForm = () => {
         <Input.Password
           placeholder="Enter password"
           className="w-full !border-[#333333]"
+          disabled={isMutating}
         />
       </Form.Item>
 

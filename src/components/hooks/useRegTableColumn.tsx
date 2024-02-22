@@ -30,7 +30,7 @@ const useRegTableColumn = () => {
         title: "Attendance",
         dataIndex: "status",
         key: "gender",
-        width: 200,
+        width: 150,
         ellipsis: true,
         render: (value) => (
           <Paragraph>
@@ -68,7 +68,7 @@ const useRegTableColumn = () => {
         title: "Action",
         key: "action",
         ellipsis: true,
-        width: 200,
+        width: 100,
         onCell: () => {
           return {
             onClick: (event: React.MouseEvent) => {

@@ -2,6 +2,8 @@ import React, { ButtonHTMLAttributes, forwardRef } from "react";
 import { RefreshIcon } from "../icons";
 import Link from "next/link";
 import { Url } from "next/dist/shared/lib/router/router";
+import { Spin } from "antd";
+import { SyncOutlined } from "@ant-design/icons";
 
 type Size = "sm" | "md" | "lg";
 
@@ -85,8 +87,15 @@ const CustomButton: React.FunctionComponent<CustomButtonProps> = forwardRef<
         {children}
         {endIcon && <span className="ml-1.5">{endIcon}</span>}
         {isLoading && (
-          <span className="ml-1.5">
-            <RefreshIcon />
+          <span className="ml-1.5 pl-1.5">
+            {/* <RefreshIcon /> */}
+            <Spin
+              size="large"
+              // style={{ backgroundColor: "white" }}
+              rootClassName="bg-red"
+              className="bg-red"
+              indicator={<SyncOutlined spin style={{ color: "white" }} />}
+            />
           </span>
         )}
       </>
