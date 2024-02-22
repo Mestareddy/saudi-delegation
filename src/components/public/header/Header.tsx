@@ -45,7 +45,7 @@ const Header: React.FunctionComponent<HeaderProps> = () => {
             // className="text-[#11142D] font-semibold text-[16px] leading-[19px] mr-3 lg:mr-10 hover:text-green-500"
             className="nav-link"
           >
-            Event Brochure
+            Event Summary
           </Link>
           <Link
             href="/speakers"

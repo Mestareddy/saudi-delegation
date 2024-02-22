@@ -14,6 +14,8 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { RootState } from "@/lib/store";
 import { toggleRegisterModalClose } from "@/lib/features/registerModalSlice";
 import { RegistrationModal } from "../auth";
+import SpeakerModal from "@/app/(public)/home/components/SpeakerModal";
+import { toggleSpeakerModalClose } from "@/lib/features/speakerModalSlice";
 
 const { primary, gray, white, green, black } = customThemeColor;
 
@@ -139,8 +141,16 @@ const StyledComponentsRegistry = ({ children }: React.PropsWithChildren) => {
     (state: RootState) => state.registerModalSlice.value
   );
 
+  const speakerModalStatus = useAppSelector(
+    (state: RootState) => state.speakerModalSlice.modalState
+  );
+
   const handleCancel = () => {
     dispatch(toggleRegisterModalClose());
+  };
+
+  const handleCancelSpeakerModal = () => {
+    toggleSpeakerModalClose();
   };
 
   return (
@@ -149,6 +159,10 @@ const StyledComponentsRegistry = ({ children }: React.PropsWithChildren) => {
         {/* <StoreProvider> */}
         {children}
         <RegistrationModal open={registerModalStatus} onClose={handleCancel} />
+        <SpeakerModal
+          speakerModalStatus={speakerModalStatus}
+          onClose={handleCancelSpeakerModal}
+        />
         {/* </StoreProvider> */}
       </ConfigProvider>
     </StyleProvider>

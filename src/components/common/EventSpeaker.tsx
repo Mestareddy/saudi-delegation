@@ -27,15 +27,15 @@ const EventSpeaker: React.FunctionComponent<EventSpeakerProps> = ({
   image,
 }) => {
   return (
-    <div className="bg-white rounded-b-lg">
+    <div className="bg-white rounded-b-xl rounded-t-xl">
       <Image
         src={image}
         alt={title}
         height={300}
         width={464}
-        className="rounded-t-lg"
+        className="rounded-t-xl"
       />
-      <div className="flex flex-col flex-1 justify-between h-[260px] p-2.5 rounded-b-lg">
+      <div className="flex flex-col flex-1 justify-between h-[260px] p-2.5 rounded-b-xl">
         <div>
           <Heading type="h3" className="mb-2.5">
             {title}
@@ -47,13 +47,13 @@ const EventSpeaker: React.FunctionComponent<EventSpeakerProps> = ({
         </div>
         <div className="flex flex-row space-x-2.5 mt-2.5">
           <Link target="_blank" href={socials?.linkedIn}>
-            <LinkedInIcon size={"20"} />
+            <LinkedInIcon size={"20"} fill="black" />
           </Link>
           <Link target="_blank" href={socials?.x}>
-            <XIcon />
+            <XIcon size={"20"} />
           </Link>{" "}
           <Link target="_blank" href={socials?.facebook}>
-            <FacebookIcon />
+            <FacebookIcon size={"20"} />
           </Link>
         </div>
       </div>

@@ -3,6 +3,8 @@ import StyledComponentsRegistry from "@/components/lib/AntdRegistry";
 import "./globals.css";
 import { bebas, inter, roboto_init } from "./font";
 import StoreProvider from "./StoreProvider";
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function RootLayout({
   children,
