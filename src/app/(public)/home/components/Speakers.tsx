@@ -44,9 +44,6 @@ const Speakers = () => {
           </Link>
         </div>
         <Swiper
-          // pagination={{
-          //   clickable: true,
-          // }}
           slidesPerView={1.5}
           loop={true}
           spaceBetween={10}
@@ -63,7 +60,7 @@ const Speakers = () => {
             },
             1024: {
               slidesPerView: 3,
-              spaceBetween: 50,
+              spaceBetween: 30,
             },
           }}
         >

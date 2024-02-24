@@ -18,7 +18,7 @@ export const eventSummary = [
     schedule: [
       {
         day: "Day 1",
-        caption:'',
+        caption: "",
         event: [
           "BreakFast",
           "Visit to Eko Atlantic ",
@@ -30,7 +30,7 @@ export const eventSummary = [
       },
       {
         day: "Day 2",
-        caption:'Hilton or State House',
+        caption: "Hilton or State House",
         event: [
           "Breakfast",
           "Nigeria-Saudi Business Forum and Exhibition ",
@@ -43,5 +43,44 @@ export const eventSummary = [
         ],
       },
     ],
+  },
+];
+
+export const speakers = [
+  {
+    id: 1,
+    name: "H.E. Bola Ahmed Tinubu - The President of Nigeria",
+  },
+  {
+    id: 2,
+    name: "H.E. Dr. Doris Uzoka-Anite - The Honorable Minister of Industry, Trade and Industry",
+  },
+  {
+    id: 3,
+    name: "H.E Dr. Majid Alkassabi - Minister of Commerce",
+  },
+  {
+    id: 4,
+    name: "Visit to Dangote Refinery",
+  },
+  {
+    id: 5,
+    name: "Amb. Yusuf Tuggar - Minister of Foreign Affairs ",
+  },
+  {
+    id: 6,
+    name: "Mr. Bandar bin Ibrahim AlKhorayef - Minister of Industry and Mineral Resources ",
+  },
+  {
+    id: 7,
+    name: "Chairman Nigeria -Saudi Business Council (Saudi)",
+  },
+  {
+    id: 8,
+    name: "Engr. Ibrahim Usman -Chairman Nigeria -Saudi Business Council (Nigeria)",
+  },
+  {
+    id: 9,
+    name: "Mr. Dele Oye – Nigeria Association Chamber of Commerce, Industry, Mines and Agriculture (NACCIMA)",
   },
 ];

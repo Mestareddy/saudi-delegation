@@ -21,7 +21,7 @@ const attendData = [
     paragraph:
       "We offer clients tailored and value-based guidance specific to their unique situation and environment to improve their security posture through a continuous improvement approach.",
     image: "/images/attend/image_3.png",
-    icon: <PeopleIcon />,
+    icon: <PeopleIcon size="26" />,
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const attendData = [
     paragraph:
       "We deliver and implement solutions and services that are seamless, scalable, and protect organisations ensuring the confidentiality, integrity, and availability of their information and assets.",
     image: "/images/attend/image_2.png",
-    icon: <ThumbsUpIcon />,
+    icon: <ThumbsUpIcon size="26" />,
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const attendData = [
       "We work with hundreds of organisations, from successful brands to local small businesses that cut across government agencies, financial institutions, network services providers, automobiles, health agencies, oil, aviation, and many more.",
 
     image: "/images/attend/image_1.png",
-    icon: <EyeIcon />,
+    icon: <EyeIcon size="26" />,
   },
 ];
 
@@ -83,25 +83,31 @@ const Attend = () => {
           </div>
         </div>
         <div className="my-2 grid grid-cols-6 gap-4">
-          <div className="col-span-6 lg:col-span-2">
+          <div className="col-span-6 lg:col-span-3">
             <Collapse
               defaultActiveKey={["0"]}
               activeKey={activeKey}
               onChange={handleCollapseChange}
               accordion
               ghost
+              // expandIcon={<ArrowRightIcon/>}
+              // expandIcon={ArrowRightIcon}
             >
               {attendData.map((item, index) => (
                 <Panel
                   key={index}
                   header={
-                    <h1 className="circularMedium !font-bold text-[16px]">
-                      {item.title}
-                    </h1>
+                    <div className="flex flex-col sm:flex-row">
+                      {item.icon}
+                      <h1 className="circularMedium !font-bold text-[16px] ml-0 mt-2 sm:mt-0 sm:ml-4">
+                        {item.title}
+                      </h1>
+                    </div>
                   }
                   className="bg-white border-none shadow-md rounded-[4px] mb-4"
+                  showArrow={false}
                 >
-                  <div className="flex flex-col items-start lg:ml-6">
+                  <div className="flex flex-col items-start lg:ml-10">
                     <div className="generaldiv flex flex-row gap-3">
                       <div className="left flex flex-col items-start w-[50%] lg:w-full circularMedium text-[#333333]">
                         {item.paragraph}
@@ -135,7 +141,7 @@ const Attend = () => {
               ))}
             </Collapse>
           </div>
-          <div className="col-span-6 lg:col-span-4 hidden lg:flex">
+          <div className="col-span-6 lg:col-span-3 hidden lg:flex">
             <Image
               src={attendData[selectedId]?.image}
               alt={attendData[selectedId]?.title}

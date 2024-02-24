@@ -1,17 +1,17 @@
 "use client";
 import { SWRConfig } from "swr";
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useLayoutEffect } from "react";
 import { SpinLoader } from "@/components/icons";
 import ApproveModal from "@/components/attendee/ApproveModal";
 import DeclineModal from "@/components/attendee/DeclineModal";
 import { useAppSelector } from "@/lib/hooks";
 import { RootState } from "@/lib/store";
 import DeclineSuccessModal from "@/components/attendee/DeclineSuccessModal";
+import useSession from "@/hooks/useSession";
 
 const AppLayout = lazy(() => import("../../components/private/layout"));
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-
   const declineModalStatus = useAppSelector(
     (state: RootState) =>
       state.registrantDetailsModalSlice.registrantDeclineModal
@@ -20,6 +20,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const declineSuccessModalStatus = useAppSelector(
     (state: RootState) => state.registrantDetailsModalSlice.rejectSuccessModal
   );
+
+  const { checkForAuthenticatedUser } = useSession();
+
+  // console.log("token", token);
+
+  useLayoutEffect(() => {
+    checkForAuthenticatedUser();
+  }, [checkForAuthenticatedUser]);
 
   return (
     <SWRConfig value={{ provider: () => new Map() }}>

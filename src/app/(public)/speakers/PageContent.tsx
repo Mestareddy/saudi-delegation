@@ -1,10 +1,22 @@
 "use client";
 import { EventSpeaker, Heading, Paragraph } from "@/components/common";
 import Exploring from "@/components/common/Exploring";
+import {
+  setSpeakerData,
+  toggleSpeakerModalOpen,
+} from "@/lib/features/speakerModalSlice";
+import { useAppDispatch } from "@/lib/hooks";
 import { speakers } from "@/mockData/speakers";
 import React from "react";
 
 const PageContent: React.FunctionComponent = () => {
+  const dispatch = useAppDispatch();
+
+  const openSpeakerModal = (item: any) => {
+    dispatch(toggleSpeakerModalOpen());
+    dispatch(setSpeakerData(item));
+  };
+
   return (
     <div>
       <div className="mx-auto w-[95%] sm:w-[90%] lg:w-[85%] px-2.5 md:px-0">

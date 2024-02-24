@@ -15,7 +15,7 @@ const PageContent: React.FunctionComponent = () => {
         <div className="mt-[30px]">
           <HeroSection />
         </div>
-        <div className="mt-[30px] mx-auto space-y-[30px]">
+        <div className="mt-[30px] mx-auto space-y-[30px] circular">
           {eventSummary.map((item) => (
             <EventSummaryCard
               key={item.id}
