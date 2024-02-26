@@ -10,7 +10,7 @@ const Information = () => {
       <div className="flex flex-col">
         <Link
           href={"/terms&conditions"}
-          className="text-[#33zz3333] py-1  text-[14px]"
+          className="text-[#333333] py-1  text-[14px]"
         >
           Terms of Service
         </Link>
