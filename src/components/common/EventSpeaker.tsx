@@ -35,17 +35,19 @@ const EventSpeaker: React.FunctionComponent<EventSpeakerProps> = ({
         width={464}
         className="rounded-t-xl"
       />
-      <div className="flex flex-col flex-1 justify-between h-[260px] p-2.5 rounded-b-xl">
+      <div className="flex flex-col flex-1 justify-between items-start h-[260px] p-2.5 rounded-b-xl">
         <div>
-          <Heading type="h3" className="mb-2.5">
+          <Heading type="h3" className="sm:mb-2.5 text-start">
             {title}
           </Heading>
-          <Paragraph className="text-gray-20 font-medium">{position}</Paragraph>
-          <Paragraph type="body1" className="mt-2.5 line-clamp-5">
+          <p className="text-gray-20 font-medium text-start circular">
+            {position}
+          </p>
+          <p className="mt-2.5 line-clamp-5 text-start sm:text-[16px] text-[#000000] circular font-[450]">
             {description}
-          </Paragraph>
+          </p>
         </div>
-        <div className="flex flex-row space-x-2.5 mt-2.5">
+        <div className="flex flex-row space-x-2.5 mt-2.5 mb-2.5">
           <Link target="_blank" href={socials?.linkedIn}>
             <LinkedInIcon size={"20"} fill="black" />
           </Link>

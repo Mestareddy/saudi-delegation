@@ -7,6 +7,7 @@ import {
 } from "@/lib/features/speakerModalSlice";
 import { useAppDispatch } from "@/lib/hooks";
 import { speakers } from "@/mockData/speakers";
+import { Flex } from "antd";
 import React from "react";
 
 const PageContent: React.FunctionComponent = () => {
@@ -32,7 +33,11 @@ const PageContent: React.FunctionComponent = () => {
         <div className="mt-[30px] mx-auto">
           <div className="grid-cols-2 sm:grid-cols-2 gap-4 grid md:grid-cols-3">
             {speakers.map((item) => (
-              <div key={item.id}>
+              <Flex
+                key={item.id}
+                onClick={() => openSpeakerModal(item)}
+                className="cursor-pointer"
+              >
                 <EventSpeaker
                   title={item.name}
                   image={item.image}
@@ -40,7 +45,7 @@ const PageContent: React.FunctionComponent = () => {
                   socials={item.socials}
                   description={item.experience}
                 />
-              </div>
+              </Flex>
             ))}
           </div>
         </div>

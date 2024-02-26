@@ -42,18 +42,17 @@ const SpeakerModal = ({
       closeIcon={null}
       centered
       // style={{ padding: 0 }}
-      // styles={{
-      //   content: {
-      //     padding: 0,
-      //   },
-      // }}
-      // style={{  }}
+      styles={{
+        content: {
+          padding: 0,
+        },
+      }}
     >
       <div className="z-[10] flex justify-end relative">
         <CustomButton
           onClick={handleCancel}
           variant="noStyleButton"
-          className="hover:!bg-none !p-0 !fixed"
+          className="hover:!bg-none !p-0 !fixed mt-3 mr-3"
         >
           <RoundedCloseIcon stroke="#000000" size="33" />
         </CustomButton>
@@ -64,9 +63,9 @@ const SpeakerModal = ({
           height={500}
           src={speakerModalData?.image}
           alt=""
-          className="w-full sm:w-1/2"
+          className="w-full sm:w-1/2 p-3 sm:p-0"
         />
-        <div className="w-full sm:w-1/2 flex justify-center flex-col p-0 py-4 sm:py-0 sm:p-10">
+        <div className="w-full sm:w-1/2 flex justify-center flex-col px-3 my-5 sm:my-10 sm:py-0 sm:p-10">
           <h1 className="bebas text-[48px] leading-[57.6px] font-normal">
             {firstName + " "} <span className="text-[#00A96E]">{lastName}</span>
           </h1>

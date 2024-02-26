@@ -23,8 +23,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   const { checkForAuthenticatedUser } = useSession();
 
-  // console.log("token", token);
-
   useLayoutEffect(() => {
     checkForAuthenticatedUser();
   }, [checkForAuthenticatedUser]);

@@ -117,7 +117,7 @@ const Footer = () => {
           </div>
         </section>
         <Divider />
-        <section className="copyrightSection flex justify-between">
+        <section className="copyrightSection flex justify-between flex-col sm:flex-row gap-3">
           <div className="left text-zinc-800 text-sm font-['Circular Std'] leading-[21px]">
             Copyright © Nigeria Saudi Business Forum {new Date().getFullYear()}.
             All Right Reserved.

@@ -23,7 +23,13 @@ const Dropdownitem = () => {
   return (
     <Select
       defaultValue={defaultCountry}
-      style={{ width: 120, border: "none" }}
+      style={{
+        width: 120,
+        // border: "1px solid black",
+        // borderRadius: "15%",
+        height: "30px",
+        color: "#11142D",
+      }}
       onChange={handleChange}
       options={[
         { value: "nigeria", label: "Nigeria" },
