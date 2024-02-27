@@ -2,6 +2,9 @@ import React from "react";
 import { Paragraph } from "../common";
 import { CheckedBoxIcon, UnCheckedBoxIcon } from "../icons";
 import { TCheckboxes } from "./types";
+import Link from "next/link";
+import { useAppDispatch } from "@/lib/hooks";
+import { toggleRegisterModalClose } from "@/lib/features/registerModalSlice";
 
 interface AcceptTermsCheckboxFormProps {
   isChecked: boolean;
@@ -18,6 +21,12 @@ const AcceptTermsCheckboxForm: React.FunctionComponent<
     } else {
       onChecked("accept_terms", true);
     }
+  };
+
+  const dispatch = useAppDispatch();
+
+  const handleCancel = () => {
+    dispatch(toggleRegisterModalClose());
   };
 
   return (
@@ -39,8 +48,22 @@ const AcceptTermsCheckboxForm: React.FunctionComponent<
           className={`${hasCheckBoxError ? "text-red-100" : "text-black-20"}`}
         >
           By submitting this form, you agree to our
-          <span className="underline mx-1">Terms of Service</span> ,
-          <span className="underline">Privacy Policy</span>, and contacting you.
+          <Link
+            href={"/terms&conditions"}
+            className="!text-black-20 !underline mx-1"
+            onClick={handleCancel}
+          >
+            Terms of Service
+          </Link>{" "}
+          ,
+          <Link
+            href={"/terms&conditions"}
+            className="!text-black-20 !underline"
+            onClick={handleCancel}
+          >
+            Privacy Policy
+          </Link>
+          , and contacting you.
         </Paragraph>
       </div>
     </div>
